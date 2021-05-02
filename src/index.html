@@ -4,9 +4,42 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
+
+  <title>I Chef</title>
 </head>
 <body>
+
   <script type="module" src="main.js"></script>
+  <!-- The core Firebase JS SDK is always required and must be listed first -->
+  <script src="/__/firebase/8.4.2/firebase-app.js"></script> CDN (Conter delivery newwork - redes de distribución )principal- servidores 
+  firebase, se utilza cdn o se instala en pagacke jason (de firebase, pero no es conveniente- pesa mucho)
+  <!-- Add SDKs for Firebase products that you want to use https://firebase.google.com/docs/web/setup#available-libraries -->
+  <script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-auth.js"></script>  
+  
+      <script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-storage.js"></script> 
+3 servidores remotos 
+  
+  <!-- TODO: Add SDKs for Firebase products that you want to use
+       https://firebase.google.com/docs/web/setup#available-libraries -->
+  
+  <!-- Initialize Firebase
+  <script src="/__/firebase/init.js"></script> -->
+  <script>
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+      apiKey: "AIzaSyB0jVcbmWHDtzmiNPj6mm1IK2MOP_z6aK0",
+      authDomain: "i-chef-23b69.firebaseapp.com",
+      projectId: "i-chef-23b69",
+      storageBucket: "i-chef-23b69.appspot.com",
+      messagingSenderId: "403365867393",
+      appId: "1:403365867393:web:df5d3868c906bffe6d0280"
+    };
+    // se llama en java script - se trae al objeto de configuracion para llamar a firebase 
+
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+  </script>
+
 </body>
 </html>

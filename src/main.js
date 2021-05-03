@@ -1,8 +1,17 @@
-// Este es el punto de entrada de tu aplicacion
+// // Este es el punto de entrada de tu aplicacion
 
-import { myFunction } from './lib/index.js';
+// import { myFunction } from './lib/index.js';
 
-myFunction();
+// myFunction();
+
+// SPA
+import { changeView } from './lib/view-controler/index-controler.js';
+
+const init = () => {
+  changeView(window.location.hash);
+  window.addEventListener('hashchange', () => changeView(window.location.hash));
+};
+window.addEventListener('load', init);
 
 // Your web app's Firebase configuration
 const firebaseConfig = {

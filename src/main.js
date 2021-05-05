@@ -1,9 +1,3 @@
-// // Este es el punto de entrada de tu aplicacion
-
-// import { myFunction } from './lib/index.js';
-
-// myFunction();
-
 // SPA
 import { changeView } from './lib/view-controler/index-controler.js';
 

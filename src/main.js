@@ -1,8 +1,10 @@
+
 // // Este es el punto de entrada de tu aplicacion
 
 // myFunction();
 
 import { changeView } from './view-controls/index.js';
+
 
 const init = () => {
   changeView(window.location.hash);

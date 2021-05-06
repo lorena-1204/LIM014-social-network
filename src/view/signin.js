@@ -1,13 +1,14 @@
 export default () => {
+  const templateSignIn = document.createElement('section');
   const viewSignIn = `
-      <h2 class="text-center"> Inicia Sesión </h2><br />
+      <a href=#/>◀</a>
+      <h1> Inicia Sesión </h1><br />
       <input type="email" placeholder="usuario@example.com"><br />
       <input type="password" placeholder="********"><br />
       <button>Inicia Sesión</button><br />`;
 
-  const divElemt = document.createElement('div');
-  divElemt.classList.add('position');
-  divElemt.innerHTML = viewSignIn;
+  templateSignIn.classList.add('position');
+  templateSignIn.innerHTML = viewSignIn;
 
-  return divElemt;
+  return templateSignIn;
 };

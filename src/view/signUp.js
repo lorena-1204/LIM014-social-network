@@ -1,5 +1,7 @@
 export default () => {
+  const templateSignUp = document.createElement('section');
   const viewSignUp = `<div class="Registro-vent">
+  <a href=#/>◀</a>
   <h2>Regístrate</h2>
   <input id="name" type="text" placeholder="Nombre Completo" required>
   <input id="username" type="text" placeholder="Nombre de usuario" required>
@@ -10,16 +12,15 @@ export default () => {
   <button id="btn-correo">Registrarse</button>
   </div>`;
 
-  const divElemt = document.createElement('div');
-  divElemt.classList.add('position');
-  divElemt.innerHTML = viewSignUp;
+  templateSignUp.classList.add('position');
+  templateSignUp.innerHTML = viewSignUp;
 
-  const btnRegistrar = divElemt.querySelector('#btn-correo');
+  const btnRegistrar = templateSignUp.querySelector('#btn-correo');
   btnRegistrar.addEventListener('click', () => {
     // console.log('btnRegistrar');
 
-    const email = divElemt.querySelector('#email').value;
-    const password = divElemt.querySelector('#password').value;
+    const email = templateSignUp.querySelector('#email').value;
+    const password = templateSignUp.querySelector('#password').value;
     // console.log(email, password);
 
     const registrarNuevoUsuario = (email, password) => {
@@ -37,5 +38,5 @@ export default () => {
     registrarNuevoUsuario(email, password);
   });
 
-  return divElemt;
+  return templateSignUp;
 };

@@ -36,4 +36,3 @@ const btnGoogle = divElemt.querySelector('#btn-google');
 btnGoogle.addEventListener('click', () => {
   registarGoogle();
 });
-

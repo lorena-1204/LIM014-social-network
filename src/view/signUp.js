@@ -1,3 +1,4 @@
+// eslint-disable-next-line import/no-cycle
 import { registerNewUser, registerWithGoogle } from '../lib/view-controller.js';
 
 export default () => {

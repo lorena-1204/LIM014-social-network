@@ -1,8 +1,12 @@
+import { addPost } from '../lib/firestore-controller.js';
+// eslint-disable-next-line import/no-cycle
+import { fun } from '../lib/view-controller.js';
+
 export default () => {
   const templateInitialPage = document.createElement('section');
   const viewInitialPage = `
   <nav>
-   <li>Inicio</li>
+   <li id ="inicio">Inicio</li>
    <li>Mi Perfil</li>
    <li>#Comidas</li>
    <li>#Bebidas</li>
@@ -21,5 +25,9 @@ export default () => {
   templateInitialPage.classList.add('position');
   templateInitialPage.innerHTML = viewInitialPage;
 
+  const inicio = templateInitialPage.querySelector('#inicio');
+  inicio.addEventListener('click', () => {
+    fun();
+  });
   return templateInitialPage;
 };

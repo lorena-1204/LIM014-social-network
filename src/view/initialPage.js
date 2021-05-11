@@ -1,6 +1,4 @@
-import { addPost } from '../lib/firestore-controller.js';
 // eslint-disable-next-line import/no-cycle
-import { fun } from '../lib/view-controller.js';
 
 export default () => {
   const templateInitialPage = document.createElement('section');
@@ -25,9 +23,5 @@ export default () => {
   templateInitialPage.classList.add('position');
   templateInitialPage.innerHTML = viewInitialPage;
 
-  const inicio = templateInitialPage.querySelector('#inicio');
-  inicio.addEventListener('click', () => {
-    fun();
-  });
   return templateInitialPage;
 };

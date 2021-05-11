@@ -1,5 +1,6 @@
 // Este es el punto de entrada de tu aplicacion
 
+// eslint-disable-next-line import/no-cycle
 import { changeView } from './view-controls/index.js';
 
 const init = () => {
@@ -18,3 +19,6 @@ const firebaseConfig = {
   appId: '1:403365867393:web:df5d3868c906bffe6d0280',
 };
 firebase.initializeApp(firebaseConfig);
+
+export const auth = firebase.auth();
+export const db = firebase.firestore();

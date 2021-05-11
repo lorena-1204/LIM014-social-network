@@ -1,5 +1,5 @@
 // eslint-disable-next-line import/no-cycle
-import { signInWithEmail } from '../lib/view-controller.js';
+import { signInWithEmail, registerWithGoogle } from '../lib/view-controller.js';
 
 export default () => {
   const templateSignIn = document.createElement('section');
@@ -15,9 +15,13 @@ export default () => {
   templateSignIn.classList.add('position');
   templateSignIn.innerHTML = viewSignIn;
 
-  const btnRegister = templateSignIn.querySelector('#btn-correo');
-  btnRegister.addEventListener('click', () => {
+  const btnSignInEmail = templateSignIn.querySelector('#btn-correo');
+  btnSignInEmail.addEventListener('click', () => {
     signInWithEmail();
+  });
+  const btnSignInGoogle = templateSignIn.querySelector('#btn-google');
+  btnSignInGoogle.addEventListener('click', () => {
+    registerWithGoogle();
   });
   return templateSignIn;
 };

@@ -7,10 +7,12 @@ import { currentUser, createUser } from './firestore-controller.js';
 import { changeHash } from '../view-controls/index.js';
 
 export const registerNewUser = () => {
+  const user = currentUser();
   const email = document.querySelector('#email').value;
   const password = document.querySelector('#password').value;
   register(email, password)
     .then(() => {
+      createUser(user.displayName, user.email, user.uid, user.photoURL);
       changeHash('/Initialpage');
     })
     .catch(() => {
@@ -38,8 +40,4 @@ export const signInWithEmail = () => {
     .catch(() => {
       document.getElementById('errorMail').style.display = 'block';
     });
-};
-export const fun = () => {
-  const user = currentUser();
-  console.log(createUser(user.displayName, user.email, user.uid, user.photoURL));
 };

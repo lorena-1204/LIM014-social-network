@@ -1,8 +1,10 @@
+// eslint-disable-next-line import/no-cycle
+
 export default () => {
   const templateInitialPage = document.createElement('section');
   const viewInitialPage = `
   <nav>
-   <li>Inicio</li>
+   <li id ="inicio">Inicio</li>
    <li>Mi Perfil</li>
    <li>#Comidas</li>
    <li>#Bebidas</li>

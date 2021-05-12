@@ -1,13 +1,8 @@
-import { addPost } from './firestore-controller.js';
-
-const deletePost = () => {
-  const dataBasePost = addPost();
-  firebase.firestore().collection('post').doc(dataBasePost.id).delete()
+const deletePost = (doc) => {
+  console.log(doc);
+  firebase.firestore().collection('post').doc('0XtsXOT3zDayCPrhqToC').delete()
     .then(() => {
       console.log('Document successfully deleted!');
-    })
-    .catch((error) => {
-      console.error('Error removing document: ', error);
     });
 };
 const setupPosts = (data) => {
@@ -27,7 +22,7 @@ const setupPosts = (data) => {
     postList.innerHTML = html;
     const btnDeletePost = document.querySelector('#btn-delete');
     btnDeletePost.addEventListener('click', () => {
-      deletePost();
+      deletePost(data);
     });
   } else {
     postList.innerHTML = '<h4 class="text-white">Login to See Posts</h4>';

@@ -3,11 +3,11 @@ const setupPosts = (data) => {
   if (data.length) {
     let html = '';
     data.forEach((doc) => {
-      const post = doc.data();
       const li = `
-          <section style="background-color:skyblue;" >
-          <h5>${post.email}</h5>
-          <p>${post.post}</p>
+          <section style="background-color:skyblue;">
+          <h5>${doc.email}</h5>
+          <p>${doc.post}</p>
+          <button id="btn-delete"> eliminar </button>
           </section>
       `;
       html += li;
@@ -20,11 +20,19 @@ const setupPosts = (data) => {
 export const showPost = () => {
   firebase.auth().onAuthStateChanged((user) => {
     if (user) {
-      firebase.firestore().collection('posts')
+      /* firebase.firestore().collection('posts').orderBy('timePost', 'desc')
         .get()
         .then((snapshot) => {
           setupPosts(snapshot.docs);
-        });
+        }); */
+      firebase.firestore().collection('posts').orderBy('timePost', 'desc')
+        .onSnapshot(((querySnapshot) => {
+          const output = [];
+          querySnapshot.forEach((doc) => {
+            output.push({ id: doc.id, ...doc.data() });
+          });
+          setupPosts(output);
+        }));
     } else {
       console.log('signout');
       setupPosts([]);

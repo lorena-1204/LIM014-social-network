@@ -30,6 +30,9 @@ export default () => {
     dataPost();
     showPost();
   });
+  const templatePostsHistorial = templateInitialPage.querySelector('.posts')
+  const dataPosts = showPost();
+  templatePostsHistorial.innerHTML = dataPosts;
 
   return templateInitialPage;
 };

@@ -1,6 +1,8 @@
 // Llamamos las funciones del FireBase con .then && Catch
 // eslint-disable-next-line import/no-cycle
-import { register, registerGoogle, signInEmail } from './firebase-controller.js';
+import {
+  register, registerGoogle, signInEmail, sendEmailVerification,
+} from './firebase-controller.js';
 import { currentUser, createUser, addPost } from './firestore-controller.js';
 import { showPost } from './posts.js';
 
@@ -9,12 +11,17 @@ import { changeHash } from '../view-controls/index.js';
 
 export const registerNewUser = () => {
   const user = currentUser();
+  console.log(user);
   const email = document.querySelector('#email').value;
   const password = document.querySelector('#password').value;
   register(email, password)
     .then(() => {
-      createUser(user.displayName, user.email, user.uid, user.photoURL);
-      changeHash('/Initialpage');
+      sendEmailVerification().then(() => {
+        console.log('se envío una verificación');
+        createUser(user.displayName, user.email, user.uid, user.photoURL);
+      }).catch(() => {
+        console.log('se produjo un error');
+      });
     })
     .catch(() => {
       document.getElementById('errorMail').style.display = 'block';
@@ -33,11 +40,17 @@ export const registerWithGoogle = () => {
 };
 // Iniciar Sesión
 export const signInWithEmail = () => {
+  const user = currentUser();
+  console.log(user);
   const email = document.querySelector('#email').value;
   const password = document.querySelector('#password').value;
   signInEmail(email, password)
     .then(() => {
-      changeHash('/Initialpage');
+      if (user.emailVerified === true) {
+        changeHash('/Initialpage');
+      } else {
+        console.log('verifica tu correo');
+      }
     })
     .catch(() => {
       document.getElementById('errorMail').style.display = 'block';

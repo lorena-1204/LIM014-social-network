@@ -12,11 +12,11 @@ export default () => {
   </nav> 
   <article>
   <h2>Publica tus recetas</h2>
-  <button> eliminar </button>
-  <button> editar </button>
+  <button class="button"> eliminar </button>
+  <button class="button"> editar </button>
   <textarea name="publica" placeholder="Publica tu receta">
   </textarea>
-  <button>Compartir</button>
+  <button class="button">Compartir</button>
   </article>
    `;
 

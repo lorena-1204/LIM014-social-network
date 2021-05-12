@@ -1,5 +1,6 @@
 // eslint-disable-next-line import/no-cycle
-import { dataPost, showPost } from '../lib/view-controller.js';
+import { dataPost } from '../lib/view-controller.js';
+import { showPost } from '../lib/posts.js';
 
 export default () => {
   const templateInitialPage = document.createElement('section');
@@ -28,8 +29,6 @@ export default () => {
   publicar.addEventListener('click', () => {
     dataPost();
     showPost();
-    const textPost = document.querySelector('#textarea').value;
-    console.log(textPost);
   });
 
   return templateInitialPage;

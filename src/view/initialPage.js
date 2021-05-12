@@ -14,8 +14,6 @@ export default () => {
   </nav> 
   <article>
   <h2>Publica tus recetas</h2>
-  <button> eliminar </button>
-  <button> editar </button>
   <textarea id="textarea" name="publica" placeholder="Publica tu receta">
   </textarea>
   <button id="btn">Compartir</button>
@@ -30,7 +28,7 @@ export default () => {
     dataPost();
     showPost();
   });
-  const templatePostsHistorial = templateInitialPage.querySelector('.posts')
+  const templatePostsHistorial = templateInitialPage.querySelector('.posts');
   const dataPosts = showPost();
   templatePostsHistorial.innerHTML = dataPosts;
 

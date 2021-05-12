@@ -10,38 +10,41 @@ import { showPost } from './posts.js';
 import { changeHash } from '../view-controls/index.js';
 
 export const registerNewUser = () => {
-  const user = currentUser();
-  console.log(user);
   const email = document.querySelector('#email').value;
   const password = document.querySelector('#password').value;
   register(email, password)
     .then(() => {
       sendEmailVerification().then(() => {
-        console.log('se envío una verificación');
-        createUser(user.displayName, user.email, user.uid, user.photoURL);
+        document.getElementById('alert-sendEmailVerification').style.display = 'block';
       }).catch(() => {
-        console.log('se produjo un error');
+        document.getElementById('errorMail').style.display = 'block';
+        document.getElementById('errorMailGoogle').style.display = 'none';
       });
     })
     .catch(() => {
       document.getElementById('errorMail').style.display = 'block';
+      document.getElementById('alert-sendEmailVerification').style.display = 'none';
+      document.getElementById('errorMailGoogle').style.display = 'none';
     });
 };
 export const registerWithGoogle = () => {
+  const user = currentUser();
   const provider = new firebase.auth.GoogleAuthProvider();
   registerGoogle(provider)
     .then(() => {
+      createUser(user.displayName, user.email, user.uid, user.photoURL);
       showPost();
       changeHash('/Initialpage');
     })
     .catch(() => {
-      document.getElementById('errorMail').style.display = 'block';
+      document.getElementById('errorMailGoogle').style.display = 'block';
+      document.getElementById('alert-sendEmailVerification').style.display = 'none';
+      document.getElementById('errorMail').style.display = 'none';
     });
 };
 // Iniciar Sesión
 export const signInWithEmail = () => {
   const user = currentUser();
-  console.log(user);
   const email = document.querySelector('#email').value;
   const password = document.querySelector('#password').value;
   signInEmail(email, password)
@@ -49,11 +52,14 @@ export const signInWithEmail = () => {
       if (user.emailVerified === true) {
         changeHash('/Initialpage');
       } else {
-        console.log('verifica tu correo');
+        document.getElementById('alert-sendEmailVerification').style.display = 'block';
+        document.getElementById('errorMailGoogle').style.display = 'none';
       }
     })
     .catch(() => {
       document.getElementById('errorMail').style.display = 'block';
+      document.getElementById('errorMailGoogle').style.display = 'none';
+      document.getElementById('alert-sendEmailVerification').style.display = 'none';
     });
 };
 export const dataPost = () => {

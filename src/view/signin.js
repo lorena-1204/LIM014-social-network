@@ -10,7 +10,10 @@ export default () => {
       <input id="password" type="password" placeholder="********"><br />
       <p id= "errorMail" style="display: none"> Correo inválido. Por favor, revísalo nuevamente.</p>
       <button id="btn-google">Google</button><br />
-      <button id="btn-correo">Inicia Sesión</button><br />`;
+      <p id= "errorMailGoogle" style="display: none">No ingresaste con tu cuenta Google</p>
+      <button id="btn-correo">Inicia Sesión</button><br />
+      <p id="alert-sendEmailVerification" style="display: none">Verifica tu correo en la bandeja.</p>
+      `;
 
   templateSignIn.classList.add('position');
   templateSignIn.innerHTML = viewSignIn;

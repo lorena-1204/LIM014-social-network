@@ -13,3 +13,5 @@ export const registerGoogle = (provider) => auth.signInWithPopup(provider);
 // ingreso con email
 // eslint-disable-next-line max-len
 export const signInEmail = (email, password) => auth.signInWithEmailAndPassword(email, password);
+
+export const sendEmailVerification = () => auth.currentUser.sendEmailVerification();

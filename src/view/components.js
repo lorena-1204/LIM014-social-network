@@ -3,6 +3,7 @@ import Home from './home.js';
 import SignIn from './signin.js';
 // eslint-disable-next-line import/no-cycle
 import SignUp from './signUp.js';
+// eslint-disable-next-line import/no-cycle
 import InitialPage from './initialPage.js';
 
 const components = {

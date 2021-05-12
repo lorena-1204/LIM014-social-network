@@ -1,9 +1,9 @@
 // Llamamos las funciones del FireBase con .then && Catch
 // eslint-disable-next-line import/no-cycle
 import {
-  register, registerGoogle, signInEmail, sendEmailVerification,
+  register, registerGoogle, signInEmail, sendEmailVerification, currentUser,
 } from './firebase-controller.js';
-import { currentUser, createUser, addPost } from './firestore-controller.js';
+import { createUser, addPost } from './firestore-controller.js';
 import { showPost } from './posts.js';
 
 // eslint-disable-next-line import/no-cycle

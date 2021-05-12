@@ -8,8 +8,6 @@ export const addPost = (textPost, id, mail) => firebase.firestore().collection('
     timePost: new Date(),
   });
 
-export const currentUser = () => firebase.auth().currentUser;
-
 export const createUser = (nombre, email, id, photo) => {
   const addUserCollection = firebase.firestore().collection('users').doc(id).set({
     Usuario: nombre,

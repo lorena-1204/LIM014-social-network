@@ -1,11 +1,5 @@
 // eslint-disable-next-line import/no-cycle
-import { db } from '../main.js';
-
-const deletePost = (data) => db.collection('posts').doc(data).delete();
-
-/* .then(() => {
-      console.log('Document successfully deleted!');
-    }); */
+import { deletePost } from './firestore-controller.js';
 
 const setupPosts = (data) => {
   const postList = document.querySelector('.posts');

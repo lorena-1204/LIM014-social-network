@@ -1,3 +1,8 @@
+// eslint-disable-next-line import/no-cycle
+import { db } from '../main.js';
+
+export const deletePost = (data) => db.collection('posts').doc(data).delete();
+
 // Funciones Firestore
 // Agrega un post
 export const addPost = (textPost, id, mail) => firebase.firestore().collection('posts')

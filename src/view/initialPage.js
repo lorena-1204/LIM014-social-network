@@ -1,5 +1,7 @@
 // eslint-disable-next-line import/no-cycle
-import { dataPost, showPost } from '../lib/view-controller.js';
+import { dataPost } from '../lib/view-controller.js';
+// eslint-disable-next-line import/no-cycle
+import { showPost } from '../lib/posts.js';
 
 export default () => {
   const templateInitialPage = document.createElement('section');
@@ -13,8 +15,6 @@ export default () => {
   </nav> 
   <article>
   <h2>Publica tus recetas</h2>
-  <button> eliminar </button>
-  <button> editar </button>
   <textarea id="textarea" name="publica" placeholder="Publica tu receta">
   </textarea>
   <button id="btn">Compartir</button>
@@ -28,9 +28,9 @@ export default () => {
   publicar.addEventListener('click', () => {
     dataPost();
     showPost();
-    const textPost = document.querySelector('#textarea').value;
-    console.log(textPost);
   });
+  const templatePostsHistorial = templateInitialPage.querySelector('.posts');
+  templatePostsHistorial.innerHTML = showPost();
 
   return templateInitialPage;
 };

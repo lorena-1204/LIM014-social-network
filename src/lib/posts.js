@@ -1,10 +1,8 @@
-const deletePost = (doc) => {
-  console.log(doc);
-  firebase.firestore().collection('post').doc('0XtsXOT3zDayCPrhqToC').delete()
-    .then(() => {
+const deletePost = (data) => firebase.firestore().collection('post').doc(data).delete();
+/* .then(() => {
       console.log('Document successfully deleted!');
-    });
-};
+    }); */
+
 const setupPosts = (data) => {
   const postList = document.querySelector('.posts');
   if (data.length) {
@@ -12,17 +10,24 @@ const setupPosts = (data) => {
     data.forEach((doc) => {
       const li = `
           <section style="background-color:skyblue;">
-          <h5>${doc.email}</h5>
+          <h5 id ="ruta">${doc.email}</h5><span>${doc.id}</span>
           <p>${doc.post}</p>
-          <button id="btn-delete"> eliminar </button>
+          <button id=${doc.id} class="style-btn-delete" data-id=${doc.id}> eliminar </button>
           </section>
       `;
       html += li;
     });
     postList.innerHTML = html;
-    const btnDeletePost = document.querySelector('#btn-delete');
-    btnDeletePost.addEventListener('click', () => {
-      deletePost(data);
+    const h5 = document.querySelectorAll('.style-btn-delete');
+    h5.forEach((element) => {
+      element.addEventListener('click', (event) => {
+        const user = event.target.dataset.id;
+        console.log(user);
+        deletePost(user)
+          .then(() => {
+            console.log('delete id');
+          });
+      });
     });
   } else {
     postList.innerHTML = '<h4 class="text-white">Login to See Posts</h4>';

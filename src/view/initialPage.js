@@ -29,8 +29,7 @@ export default () => {
     showPost();
   });
   const templatePostsHistorial = templateInitialPage.querySelector('.posts');
-  const dataPosts = showPost();
-  templatePostsHistorial.innerHTML = dataPosts;
+  templatePostsHistorial.innerHTML = showPost();
 
   return templateInitialPage;
 };

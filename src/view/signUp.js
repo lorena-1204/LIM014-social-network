@@ -12,7 +12,9 @@ export default () => {
   <p id= "errorMail" style="display: none"> Correo inválido. Por favor, revísalo nuevamente.</p>
   <input id ="password" type ="password" placeholder = "*********" required>
   <button id="btn-google">Google</button>
+  <p id= "errorMailGoogle" style="display: none">No ingresaste con tu cuenta Google</p>
   <button id="btn-correo">Registrarse</button>
+  <p id="alert-sendEmailVerification" style="display: none">Verifica tu correo en la bandeja.</p>
   </div>`;
 
   templateSignUp.classList.add('position');

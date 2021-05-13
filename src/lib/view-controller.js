@@ -1,83 +1,71 @@
 // Llamamos las funciones del FireBase con .then && Catch
 // eslint-disable-next-line import/no-cycle
-import { register, registerGoogle, signInEmail } from './firebase-controller.js';
-import { currentUser, createUser, addPost } from './firestore-controller.js';
+import {
+  register, registerGoogle, signInEmail, sendEmailVerification, currentUser,
+} from './firebase-controller.js';
+// eslint-disable-next-line import/no-cycle
+import { createUser, addPost } from './firestore-controller.js';
+// eslint-disable-next-line import/no-cycle
+import { showPost } from './posts.js';
 
 // eslint-disable-next-line import/no-cycle
 import { changeHash } from '../view-controls/index.js';
 
 export const registerNewUser = () => {
-  const user = currentUser();
   const email = document.querySelector('#email').value;
   const password = document.querySelector('#password').value;
   register(email, password)
     .then(() => {
-      createUser(user.displayName, user.email, user.uid, user.photoURL);
-      changeHash('/Initialpage');
+      sendEmailVerification().then(() => {
+        document.getElementById('alert-sendEmailVerification').style.display = 'block';
+      }).catch(() => {
+        document.getElementById('errorMail').style.display = 'block';
+        document.getElementById('errorMailGoogle').style.display = 'none';
+      });
     })
     .catch(() => {
       document.getElementById('errorMail').style.display = 'block';
+      document.getElementById('alert-sendEmailVerification').style.display = 'none';
+      document.getElementById('errorMailGoogle').style.display = 'none';
     });
 };
 export const registerWithGoogle = () => {
+  const user = currentUser();
   const provider = new firebase.auth.GoogleAuthProvider();
   registerGoogle(provider)
     .then(() => {
+      createUser(user.displayName, user.email, user.uid, user.photoURL);
+      showPost();
       changeHash('/Initialpage');
     })
     .catch(() => {
-      document.getElementById('errorMail').style.display = 'block';
+      document.getElementById('errorMailGoogle').style.display = 'block';
+      document.getElementById('alert-sendEmailVerification').style.display = 'none';
+      document.getElementById('errorMail').style.display = 'none';
     });
 };
 // Iniciar Sesión
 export const signInWithEmail = () => {
+  const user = currentUser();
   const email = document.querySelector('#email').value;
   const password = document.querySelector('#password').value;
   signInEmail(email, password)
     .then(() => {
-      changeHash('/Initialpage');
+      if (user.emailVerified === true) {
+        changeHash('/Initialpage');
+      } else {
+        document.getElementById('alert-sendEmailVerification').style.display = 'block';
+        document.getElementById('errorMailGoogle').style.display = 'none';
+      }
     })
     .catch(() => {
       document.getElementById('errorMail').style.display = 'block';
+      document.getElementById('errorMailGoogle').style.display = 'none';
+      document.getElementById('alert-sendEmailVerification').style.display = 'none';
     });
 };
 export const dataPost = () => {
   const user = currentUser();
   const textPost = document.querySelector('#textarea').value;
   addPost(textPost, user.uid, user.email);
-};
-
-const setupPosts = (data) => {
-  const postList = document.querySelector('.posts');
-  if (data.length) {
-    let html = '';
-    data.forEach((doc) => {
-      const post = doc.data();
-      const li = `
-        <section style="background-color:skyblue;" >
-        <h5>${post.email}</h5>
-        <p>${post.post}</p>
-        </section>
-    `;
-      html += li;
-    });
-    postList.innerHTML = html;
-  } else {
-    postList.innerHTML = '<h4 class="text-white">Login to See Posts</h4>';
-  }
-};
-export const showPost = () => {
-  firebase.auth().onAuthStateChanged((user) => {
-    if (user) {
-      console.log('signin');
-      firebase.firestore().collection('posts')
-        .get()
-        .then((snapshot) => {
-          setupPosts(snapshot.docs);
-        });
-    } else {
-      console.log('signout');
-      setupPosts([]);
-    }
-  });
 };

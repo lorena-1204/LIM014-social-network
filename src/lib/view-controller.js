@@ -3,7 +3,9 @@
 import {
   register, registerGoogle, signInEmail, sendEmailVerification, currentUser,
 } from './firebase-controller.js';
+// eslint-disable-next-line import/no-cycle
 import { createUser, addPost } from './firestore-controller.js';
+// eslint-disable-next-line import/no-cycle
 import { showPost } from './posts.js';
 
 // eslint-disable-next-line import/no-cycle

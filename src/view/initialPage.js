@@ -1,5 +1,6 @@
 // eslint-disable-next-line import/no-cycle
 import { dataPost } from '../lib/view-controller.js';
+// eslint-disable-next-line import/no-cycle
 import { showPost } from '../lib/posts.js';
 
 export default () => {

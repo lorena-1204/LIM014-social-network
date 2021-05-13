@@ -1,4 +1,8 @@
-const deletePost = (data) => firebase.firestore().collection('post').doc(data).delete();
+// eslint-disable-next-line import/no-cycle
+import { db } from '../main.js';
+
+const deletePost = (data) => db.collection('posts').doc(data).delete();
+
 /* .then(() => {
       console.log('Document successfully deleted!');
     }); */
@@ -12,21 +16,18 @@ const setupPosts = (data) => {
           <section style="background-color:skyblue;">
           <h5 id ="ruta">${doc.email}</h5><span>${doc.id}</span>
           <p>${doc.post}</p>
-          <button id=${doc.id} class="style-btn-delete" data-id=${doc.id}> eliminar </button>
+          <button id=${doc.id} class="btnDelete" data-id=${doc.id}> eliminar </button>
           </section>
       `;
       html += li;
     });
     postList.innerHTML = html;
-    const h5 = document.querySelectorAll('.style-btn-delete');
+    const h5 = document.querySelectorAll('.btnDelete');
     h5.forEach((element) => {
       element.addEventListener('click', (event) => {
-        const user = event.target.dataset.id;
-        console.log(user);
-        deletePost(user)
-          .then(() => {
-            console.log('delete id');
-          });
+        const id = event.target.dataset.id;
+        // console.log('XTZtUD2caPIJKomCWUy7');
+        deletePost(id).then(() => console.log('eliminadooooo'));
       });
     });
   } else {

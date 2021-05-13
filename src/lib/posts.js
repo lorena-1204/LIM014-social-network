@@ -1,15 +1,6 @@
-import { addPost } from './firestore-controller.js';
+// eslint-disable-next-line import/no-cycle
+import { deletePost } from './firestore-controller.js';
 
-const deletePost = () => {
-  const dataBasePost = addPost();
-  firebase.firestore().collection('post').doc(dataBasePost.id).delete()
-    .then(() => {
-      console.log('Document successfully deleted!');
-    })
-    .catch((error) => {
-      console.error('Error removing document: ', error);
-    });
-};
 const setupPosts = (data) => {
   const postList = document.querySelector('.posts');
   if (data.length) {
@@ -17,17 +8,21 @@ const setupPosts = (data) => {
     data.forEach((doc) => {
       const li = `
           <section style="background-color:skyblue;">
-          <h5>${doc.email}</h5>
+          <h5 id ="ruta">${doc.email}</h5><span>${doc.id}</span>
           <p>${doc.post}</p>
-          <button id="btn-delete"> eliminar </button>
+          <button id=${doc.id} class="btnDelete" data-id=${doc.id}> eliminar </button>
           </section>
       `;
       html += li;
     });
     postList.innerHTML = html;
-    const btnDeletePost = document.querySelector('#btn-delete');
-    btnDeletePost.addEventListener('click', () => {
-      deletePost();
+    const h5 = document.querySelectorAll('.btnDelete');
+    h5.forEach((element) => {
+      element.addEventListener('click', (event) => {
+        const id = event.target.dataset.id;
+        // console.log('XTZtUD2caPIJKomCWUy7');
+        deletePost(id).then(() => console.log('eliminadooooo'));
+      });
     });
   } else {
     postList.innerHTML = '<h4 class="text-white">Login to See Posts</h4>';

@@ -3,6 +3,11 @@ import { db } from '../main.js';
 
 export const deletePost = (data) => db.collection('posts').doc(data).delete();
 
+export const editPost = (id, text) => db.collection('users').doc(id).update({
+  post: text,
+  timePost: new Date(),
+});
+
 // Funciones Firestore
 // Agrega un post
 export const addPost = (textPost, id, mail) => firebase.firestore().collection('posts')

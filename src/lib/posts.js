@@ -11,6 +11,7 @@ const setupPosts = (data) => {
           <h5 id ="ruta">${doc.email}</h5><span>${doc.id}</span>
           <p>${doc.post}</p>
           <button id=${doc.id} class="btnDelete" data-id=${doc.id}> eliminar </button>
+          <button id=${doc.id} class="btnEdit" data-id=${doc.id}> editar </button>
           </section>
       `;
       html += li;
@@ -20,7 +21,6 @@ const setupPosts = (data) => {
     h5.forEach((element) => {
       element.addEventListener('click', (event) => {
         const id = event.target.dataset.id;
-        // console.log('XTZtUD2caPIJKomCWUy7');
         deletePost(id).then(() => console.log('eliminadooooo'));
       });
     });
@@ -37,13 +37,13 @@ export const showPost = () => {
           setupPosts(snapshot.docs);
         }); */
       firebase.firestore().collection('posts').orderBy('timePost', 'desc')
-        .onSnapshot(((querySnapshot) => {
+        .onSnapshot((querySnapshot) => {
           const output = [];
           querySnapshot.forEach((doc) => {
             output.push({ id: doc.id, ...doc.data() });
           });
           setupPosts(output);
-        }));
+        });
     } else {
       console.log('signout');
       setupPosts([]);

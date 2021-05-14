@@ -1,28 +1,22 @@
 // eslint-disable-next-line import/no-cycle
-import { deletePost } from './firestore-controller.js';
+import { deletePost, orderPostbyTimeDesc } from './firestore-controller.js';
+import { templatePost } from './templates-sections.js';
 
-const setupPosts = (data) => {
+export const idDocumentPost = (e) => {
+  const idPost = e.target.dataset.id;
+  deletePost(idPost);
+};
+export const setupPosts = (data) => {
   const postList = document.querySelector('.posts');
   if (data.length) {
-    let html = '';
+    let container = '';
     data.forEach((doc) => {
-      const li = `
-          <section style="background-color:skyblue;">
-          <h5 id ="ruta">${doc.email}</h5><span>${doc.id}</span>
-          <p>${doc.post}</p>
-          <button id=${doc.id} class="btnDelete" data-id=${doc.id}> eliminar </button>
-          </section>
-      `;
-      html += li;
+      container += templatePost(doc);
     });
-    postList.innerHTML = html;
-    const h5 = document.querySelectorAll('.btnDelete');
-    h5.forEach((element) => {
-      element.addEventListener('click', (event) => {
-        const id = event.target.dataset.id;
-        // console.log('XTZtUD2caPIJKomCWUy7');
-        deletePost(id).then(() => console.log('eliminadooooo'));
-      });
+    postList.innerHTML = container;
+    const btnDeletePost = document.querySelectorAll('.btn-delete');
+    btnDeletePost.forEach((element) => {
+      element.addEventListener('click', idDocumentPost);
     });
   } else {
     postList.innerHTML = '<h4 class="text-white">Login to See Posts</h4>';
@@ -31,21 +25,15 @@ const setupPosts = (data) => {
 export const showPost = () => {
   firebase.auth().onAuthStateChanged((user) => {
     if (user) {
-      /* firebase.firestore().collection('posts').orderBy('timePost', 'desc')
-        .get()
-        .then((snapshot) => {
-          setupPosts(snapshot.docs);
-        }); */
-      firebase.firestore().collection('posts').orderBy('timePost', 'desc')
-        .onSnapshot(((querySnapshot) => {
+      orderPostbyTimeDesc()
+        .onSnapshot((querySnapshot) => {
           const output = [];
           querySnapshot.forEach((doc) => {
             output.push({ id: doc.id, ...doc.data() });
           });
           setupPosts(output);
-        }));
+        });
     } else {
-      console.log('signout');
       setupPosts([]);
     }
   });

@@ -24,13 +24,10 @@ export default () => {
 
   templateInitialPage.classList.add('position');
   templateInitialPage.innerHTML = viewInitialPage;
+  showPost();
   const publicar = templateInitialPage.querySelector('#btn');
   publicar.addEventListener('click', () => {
     dataPost();
-    showPost();
   });
-  const templatePostsHistorial = templateInitialPage.querySelector('.posts');
-  templatePostsHistorial.innerHTML = showPost();
-
   return templateInitialPage;
 };

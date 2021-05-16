@@ -1,7 +1,7 @@
 // Llamamos las funciones del FireBase con .then && Catch
 // eslint-disable-next-line import/no-cycle
 import {
-  register, registerGoogle, signInEmail, sendEmailVerification, currentUser,
+  register, registerGoogle, signInEmail, sendEmailVerification, currentUser, signOut,
 } from './firebase-controller.js';
 // eslint-disable-next-line import/no-cycle
 import { createUser, addPost } from './firestore-controller.js';
@@ -68,4 +68,10 @@ export const dataPost = () => {
   const user = currentUser();
   const textPost = document.querySelector('#textarea').value;
   addPost(textPost, user.uid, user.email);
+};
+// Cessar Sesión
+export const signOutUser = () => {
+  signOut().then(() => {
+    changeHash('/SignIn');
+  });
 };

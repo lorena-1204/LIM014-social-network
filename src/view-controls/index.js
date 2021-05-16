@@ -2,9 +2,6 @@
 // eslint-disable-next-line import/no-cycle
 import { components } from '../view/components.js';
 
-// console.log('hola');
-// console.log('Thalia');
-
 const changeView = (route) => {
   const container = document.getElementById('container');
   container.innerHTML = '';

@@ -17,3 +17,5 @@ export const signInEmail = (email, password) => auth.signInWithEmailAndPassword(
 export const currentUser = () => auth.currentUser;
 
 export const sendEmailVerification = () => auth.currentUser.sendEmailVerification();
+
+export const signOut = () => auth.signOut();

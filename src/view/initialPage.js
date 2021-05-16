@@ -1,5 +1,5 @@
 // eslint-disable-next-line import/no-cycle
-import { dataPost } from '../lib/view-controller.js';
+import { dataPost, signOutUser } from '../lib/view-controller.js';
 // eslint-disable-next-line import/no-cycle
 import { showPost } from '../lib/posts.js';
 
@@ -11,7 +11,7 @@ export default () => {
    <li>Mi Perfil</li>
    <li>#Comidas</li>
    <li>#Bebidas</li>
-   <li>Cerrar Sesión</li>
+   <li id="logged-out">Cerrar Sesión</li>
   </nav> 
   <article>
   <h2>Publica tus recetas</h2>
@@ -28,6 +28,11 @@ export default () => {
   const publicar = templateInitialPage.querySelector('#btn');
   publicar.addEventListener('click', () => {
     dataPost();
+  });
+  const signOut = templateInitialPage.querySelector('#logged-out');
+  signOut.addEventListener('click', (e) => {
+    e.preventDefault();
+    signOutUser();
   });
   return templateInitialPage;
 };

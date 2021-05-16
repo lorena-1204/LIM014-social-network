@@ -9,3 +9,9 @@ export const templatePost = (doc) => {
     `;
   return template;
 };
+export const forEachBtnDelete = (data, callback) => {
+  data.forEach((e) => {
+    e.addEventListener('click', callback);
+    console.log('delete');
+  });
+};

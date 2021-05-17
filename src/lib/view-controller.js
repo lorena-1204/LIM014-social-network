@@ -6,9 +6,6 @@ import {
 // eslint-disable-next-line import/no-cycle
 import { createUser, addPost } from './firestore-controller.js';
 // eslint-disable-next-line import/no-cycle
-import { showPost } from './posts.js';
-
-// eslint-disable-next-line import/no-cycle
 import { changeHash } from '../view-controls/index.js';
 
 export const registerNewUser = () => {
@@ -30,12 +27,11 @@ export const registerNewUser = () => {
     });
 };
 export const registerWithGoogle = () => {
-  const user = currentUser();
   const provider = new firebase.auth.GoogleAuthProvider();
   registerGoogle(provider)
     .then(() => {
+      const user = currentUser();
       createUser(user.displayName, user.email, user.uid, user.photoURL);
-      showPost();
       changeHash('/Initialpage');
     })
     .catch(() => {
@@ -46,11 +42,11 @@ export const registerWithGoogle = () => {
 };
 // Iniciar Sesión
 export const signInWithEmail = () => {
-  const user = currentUser();
   const email = document.querySelector('#email').value;
   const password = document.querySelector('#password').value;
   signInEmail(email, password)
     .then(() => {
+      const user = currentUser();
       if (user.emailVerified === true) {
         changeHash('/Initialpage');
       } else {

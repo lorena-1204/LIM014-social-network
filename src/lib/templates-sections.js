@@ -1,13 +1,16 @@
 export const templatePost = (doc) => {
+  const section = document.createElement('section');
   const template = `
-    <section style="background-color:skyblue;" id=${doc.id}-post>
     <h5 id="ruta" data-id=${doc.id}>${doc.email}</h5>
     <p id=${doc.id}-text-post>${doc.post}</p>
     <button id=${doc.id}-btn-delete class="btn-delete" data-id=${doc.id}> eliminar </button>
-    <button id=${doc.idUser}-btn-edit class="btn-edit" data-id=${doc.id}> editar </button>
-    </section>
+    <button id=${doc.id}-btn-edit class="btn-edit" data-id=${doc.id}> editar </button>
     `;
-  return template;
+  section.classList.add('style-post');
+  section.style = 'background-color:skyblue';
+  section.id = `${doc.id}-post`;
+  section.innerHTML = template;
+  return section;
 };
 export const forEachBtnDelete = (data, callback) => {
   data.forEach((e) => {

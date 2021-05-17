@@ -1,9 +1,9 @@
 // eslint-disable-next-line import/no-cycle
 import { db } from '../main.js';
 // Elimina un post
-export const deletePost = (data) => db.collection('posts').doc(data).delete();
+export const deletePost = (id) => db.collection('posts').doc(id).delete();
 
-export const editPost = (id, text) => db.collection('users').doc(id).update({
+export const editPost = (id, text) => db.collection('posts').doc(id).update({
   post: text,
   timePost: new Date(),
 });

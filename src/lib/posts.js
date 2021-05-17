@@ -6,23 +6,22 @@ export const idDocumentPost = (e) => {
   const idPost = e.target.dataset.id;
   deletePost(idPost);
 };
-export const setupPosts = (data) => {
-  const postList = document.querySelector('.posts');
+export const setupPosts = (data, templateInitialPage) => {
+  const postList = templateInitialPage.querySelector('.posts');
+  postList.innerHTML = '';
   if (data.length) {
-    let container = '';
     data.forEach((doc) => {
-      container += templatePost(doc);
-    });
-    postList.innerHTML = container;
-    const btnDeletePost = document.querySelectorAll('.btn-delete');
-    btnDeletePost.forEach((element) => {
-      element.addEventListener('click', idDocumentPost);
+      console.log(templatePost(doc));
+      const section = templatePost(doc);
+      const btnDeletePost = section.querySelector('.btn-delete');
+      btnDeletePost.addEventListener('click', idDocumentPost);
+      postList.appendChild(section);
     });
   } else {
     postList.innerHTML = '<h4 class="text-white">Login to See Posts</h4>';
   }
 };
-export const showPost = () => {
+export const showPost = (callback) => {
   firebase.auth().onAuthStateChanged((user) => {
     if (user) {
       orderPostbyTimeDesc()
@@ -31,10 +30,10 @@ export const showPost = () => {
           querySnapshot.forEach((doc) => {
             output.push({ id: doc.id, ...doc.data() });
           });
-          setupPosts(output);
+          callback(output);
         });
     } else {
-      setupPosts([]);
+      callback([]);
     }
   });
 };

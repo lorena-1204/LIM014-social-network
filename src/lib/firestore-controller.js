@@ -14,7 +14,7 @@ export const addPost = (textPost, id, mail) => firebase.firestore().collection('
     post: textPost,
     idUser: id,
     email: mail,
-    timePost: new Date(),
+    timePost: new Date().toLocaleDateString(),
   });
 // Crea propiedades de un usuario
 export const createUser = (nombre, email, id, photo) => {

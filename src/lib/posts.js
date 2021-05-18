@@ -1,21 +1,48 @@
 // eslint-disable-next-line import/no-cycle
-import { deletePost, orderPostbyTimeDesc } from './firestore-controller.js';
-import { templatePost } from './templates-sections.js';
+import { deletePost, orderPostbyTimeDesc, editPost } from './firestore-controller.js';
+import { templatePost, createAttributesButton } from './templates-sections.js';
 
 export const idDocumentPost = (e) => {
   const idPost = e.target.dataset.id;
   deletePost(idPost);
 };
-export const setupPosts = (data, templateInitialPage) => {
+export const setupPosts = (data, user, templateInitialPage) => {
   const postList = templateInitialPage.querySelector('.posts');
   postList.innerHTML = '';
   if (data.length) {
     data.forEach((doc) => {
-      console.log(templatePost(doc));
       const section = templatePost(doc);
-      const btnDeletePost = section.querySelector('.btn-delete');
-      btnDeletePost.addEventListener('click', idDocumentPost);
       postList.appendChild(section);
+      const buttonCancelEditPost = createAttributesButton('cancelar', 'btn-cancel-edit-post');
+      const textPost = section.querySelector('#text-post');
+      if (user === doc.idUser) {
+        // botón eliminar post
+        const btnDeletePost = createAttributesButton('eliminar', 'btn-delete', doc.id);
+        section.appendChild(btnDeletePost);
+        btnDeletePost.addEventListener('click', idDocumentPost);
+        // botón editar post
+        const buttonEditPost = createAttributesButton('editar', 'btn-edit', doc.id);
+        section.appendChild(buttonEditPost);
+        // creando input para editar post
+        const inputEditPost = document.createElement('input');
+        inputEditPost.value = textPost.textContent;
+        // creando botón para guardar lo editado
+        const buttonSaveEditPost = createAttributesButton('cambiar', 'btn-save-edit-Post', doc.id);
+        // reemplazando botones de seguridad
+        buttonEditPost.addEventListener('click', () => {
+          section.replaceChild(buttonCancelEditPost, btnDeletePost);
+          section.replaceChild(buttonSaveEditPost, buttonEditPost);
+          section.replaceChild(inputEditPost, textPost);
+        });
+        buttonCancelEditPost.addEventListener('click', () => {
+          section.replaceChild(btnDeletePost, buttonCancelEditPost);
+          section.replaceChild(buttonEditPost, buttonSaveEditPost);
+          section.replaceChild(textPost, inputEditPost);
+        });
+        buttonSaveEditPost.addEventListener('click', () => {
+          editPost(doc.id, inputEditPost.value);
+        });
+      }
     });
   } else {
     postList.innerHTML = '<h4 class="text-white">Login to See Posts</h4>';
@@ -30,7 +57,7 @@ export const showPost = (callback) => {
           querySnapshot.forEach((doc) => {
             output.push({ id: doc.id, ...doc.data() });
           });
-          callback(output);
+          callback(output, user.uid);
         });
     } else {
       callback([]);

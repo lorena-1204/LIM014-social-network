@@ -1,6 +1,6 @@
 // eslint-disable-next-line import/no-cycle
 import { deletePost, orderPostbyTimeDesc, editPost } from './firestore-controller.js';
-import { templatePost, createAttributesButton } from './templates-sections.js';
+import { templatePost, createAttributesButton, templateModal } from './templates-sections.js';
 
 export const idDocumentPost = (e) => {
   const idPost = e.target.dataset.id;
@@ -19,7 +19,21 @@ export const setupPosts = (data, user, templateInitialPage) => {
         // botón eliminar post
         const btnDeletePost = createAttributesButton('eliminar', 'btn-delete', doc.id);
         section.appendChild(btnDeletePost);
-        btnDeletePost.addEventListener('click', idDocumentPost);
+        // obteniendo nuevos valores
+        const templateModalValue = templateModal();
+        section.appendChild(templateModalValue);
+        const modalContainer = section.querySelector('.modal-container');
+        const optionYes = templateModalValue.querySelector('.btn-confirmYes');
+        optionYes.dataset.id = doc.id;
+        const optionNo = templateModalValue.querySelector('.btn-confirmNo');
+        btnDeletePost.addEventListener('click', () => {
+          modalContainer.style.display = 'flex';
+        });
+        optionNo.addEventListener('click', () => {
+          modalContainer.style.display = 'none';
+        });
+        optionYes.addEventListener('click', idDocumentPost);
+        postList.appendChild(section);
         // botón editar post
         const buttonEditPost = createAttributesButton('editar', 'btn-edit', doc.id);
         section.appendChild(buttonEditPost);

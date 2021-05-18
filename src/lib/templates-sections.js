@@ -4,6 +4,10 @@ export const templatePost = (doc) => {
   const template = `
     <h5 id ="ruta">${doc.email}</h5>
     <p id ="text-post">${doc.post}</p>
+    <button class="like__btn">
+      <span id="icon"><i class="far fa-thumbs-up"></i></span>
+      <span id="count">0</span> Like
+    </button>
     `;
   section.innerHTML = template;
   return section;

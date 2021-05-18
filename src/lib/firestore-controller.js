@@ -3,13 +3,13 @@ import { db } from '../main.js';
 // Elimina un post
 export const deletePost = (data) => db.collection('posts').doc(data).delete();
 
-export const editPost = (id, text) => db.collection('users').doc(id).update({
+export const editPost = (id, text) => db.collection('posts').doc(id).update({
   post: text,
   timePost: new Date(),
 });
 
 // Agrega un post
-export const addPost = (textPost, id, mail) => firebase.firestore().collection('posts')
+export const addPost = (textPost, id, mail) => db.collection('posts')
   .add({
     post: textPost,
     idUser: id,
@@ -18,7 +18,7 @@ export const addPost = (textPost, id, mail) => firebase.firestore().collection('
   });
 // Crea propiedades de un usuario
 export const createUser = (nombre, email, id, photo) => {
-  const addUserCollection = firebase.firestore().collection('users').doc(id).set({
+  const addUserCollection = db.collection('users').doc(id).set({
     Usuario: nombre,
     Correo: email,
     Id: id,
@@ -27,4 +27,4 @@ export const createUser = (nombre, email, id, photo) => {
   return addUserCollection;
 };
 // Ordena una colección por fecha más reciente a más antigua
-export const orderPostbyTimeDesc = () => firebase.firestore().collection('posts').orderBy('timePost', 'desc');
+export const orderPostbyTimeDesc = () => db.collection('posts').orderBy('timePost', 'desc');

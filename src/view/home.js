@@ -1,5 +1,5 @@
 export default () => {
-  const templateHome = document.createElement('section');
+  const templateHome = document.createElement('section'); // Nodo section
   const viewHome = `
   <nav>
     <a href="#/">I CHEF</a>

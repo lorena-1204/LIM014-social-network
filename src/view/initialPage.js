@@ -24,8 +24,8 @@ export default () => {
 
   templateInitialPage.classList.add('position');
   templateInitialPage.innerHTML = viewInitialPage;
-  showPost((data) => {
-    setupPosts(data, templateInitialPage);
+  showPost((data, userId) => {
+    setupPosts(data, userId, templateInitialPage);
   });
   const publicar = templateInitialPage.querySelector('#btn');
   publicar.addEventListener('click', () => {

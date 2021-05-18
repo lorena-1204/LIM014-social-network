@@ -6,11 +6,15 @@
     border-radius: 4px;
     text-decoration:none;
 }
-<<<<<<< HEAD
-=======
-
-body{
-    background:hotpink;
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@600&display=swap");
+.like__btn {
+  padding: 5px 10px;
+  background: #0080ff;
+  font-size: 12px;
+  font-family: "Open Sans", sans-serif;
+  border-radius: 5px;
+  color: #e8efff;
+  outline: none;
+  border: none;
+  cursor: pointer;
 }
-
->>>>>>> fdb6a4ced6107388bc6b09bd6c88a261fbaa838a

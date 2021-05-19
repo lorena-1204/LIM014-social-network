@@ -1,41 +1,34 @@
+// eslint-disable-next-line import/no-cycle
+import { registerNewUser, registerWithGoogle } from '../lib/view-controller.js';
+
 export default () => {
-  const viewSignUp = `<div class="Registro-vent">
+  const templateSignUp = document.createElement('section');
+  const viewSignUp = `<div>
+  <a href=#/>◀</a>
   <h2>Regístrate</h2>
   <input id="name" type="text" placeholder="Nombre Completo" required>
   <input id="username" type="text" placeholder="Nombre de usuario" required>
   <input id="email" type="email" placeholder="ichef@example.com" required>
   <p id= "errorMail" style="display: none"> Correo inválido. Por favor, revísalo nuevamente.</p>
-  <input id="password" type="password" placeholder="***" required>
+  <input id ="password" type ="password" placeholder = "*********" required>
   <button id="btn-google">Google</button>
+  <p id= "errorMailGoogle" style="display: none">No ingresaste con tu cuenta Google</p>
   <button id="btn-correo">Registrarse</button>
+  <p id="alert-sendEmailVerification" style="display: none">Verifica tu correo en la bandeja.</p>
   </div>`;
 
-  const divElemt = document.createElement('div');
-  divElemt.classList.add('position');
-  divElemt.innerHTML = viewSignUp;
+  templateSignUp.classList.add('position');
+  templateSignUp.innerHTML = viewSignUp;
 
-  const btnRegistrar = divElemt.querySelector('#btn-correo');
-  btnRegistrar.addEventListener('click', () => {
-    // console.log('btnRegistrar');
-
-    const email = divElemt.querySelector('#email').value;
-    const password = divElemt.querySelector('#password').value;
-    // console.log(email, password);
-
-    const registrarNuevoUsuario = (email, password) => {
-      console.log('registrarNuevoUsuario');
-      firebase.auth()
-        .createUserWithEmailAndPassword(email, password)
-        .then(() => {
-          console.log('Correo Correcto');
-        })
-        .catch(() => {
-          document.getElementById('errorMail').style.display = 'block';
-        });
-    };
-
-    registrarNuevoUsuario(email, password);
+  const btnRegister = templateSignUp.querySelector('#btn-correo');
+  btnRegister.addEventListener('click', () => {
+    registerNewUser();
   });
 
-  return divElemt;
+  const btnRegisterGoogle = templateSignUp.querySelector('#btn-google');
+  btnRegisterGoogle.addEventListener('click', () => {
+    registerWithGoogle();
+  });
+
+  return templateSignUp;
 };

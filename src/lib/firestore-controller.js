@@ -3,7 +3,7 @@ import { db } from '../main.js';
 // Elimina un post
 export const deletePost = (data) => db.collection('posts').doc(data).delete();
 
-export const editPost = (id, text) => db.collection('users').doc(id).update({
+export const editPost = (id, text) => db.collection('posts').doc(id).update({
   post: text,
   timePost: new Date(),
 });
@@ -19,6 +19,7 @@ export const addPost = (textPost, id, mail) => db.collection('posts')
     email: mail,
     timePost: new Date().toLocaleString('GMT-0500'),
     like: [],
+
   });
 
 // Crea propiedades de un usuario

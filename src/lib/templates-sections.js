@@ -1,17 +1,34 @@
 export const templatePost = (doc) => {
+  const section = document.createElement('section');
+  section.style = 'background-color:skyblue';
   const template = `
-    <section style="background-color:skyblue;">
     <h5 id ="ruta">${doc.email}</h5>
-    <p>${doc.post}</p>
-    <button id=${doc.id} class="btn-delete" data-id=${doc.id}> eliminar </button>
-    <button id=${doc.id} class="btn-edit" data-id=${doc.id}> editar </button>
-
-   
-     <button id=${doc.id} class="btn-like" data-id=${doc.id}> like </button>
-    <article>
-    </article>
-
-    </section>
+    <p id ="text-post">${doc.post}</p>
+    <button class="like__btn">
+      <span id="icon"><i class="far fa-thumbs-up"></i></span>
+      <span id="count">0</span> Like
+    </button>
     `;
-  return template;
+  section.innerHTML = template;
+  return section;
+};
+export const templateModal = () => {
+  const createTemplate = document.createElement('div');
+  createTemplate.classList.add('modal-container');
+  createTemplate.id = 'modal-container';
+  const template = `
+  <div class="modal">
+  <h1>¿Estas seguro de eliminar esta publicación?</h1></br>
+  <button class="btn-confirmYes">Si</button>
+  <button class="btn-confirmNo">No</button>
+  </div>`;
+  createTemplate.innerHTML = template;
+  return createTemplate;
+};
+export const createAttributesButton = (textContentButton, classNameButton, docId) => {
+  const btnPost = document.createElement('button');
+  btnPost.textContent = textContentButton;
+  btnPost.classList = classNameButton;
+  btnPost.dataset.id = docId;
+  return btnPost;
 };

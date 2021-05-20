@@ -61,10 +61,14 @@ export const signInWithEmail = () => {
       document.getElementById('alert-sendEmailVerification').style.display = 'none';
     });
 };
-export const dataPost = () => {
-  const user = currentUser();
-  const textPost = document.querySelector('#textarea').value;
-  addPost(textPost, user.uid, user.email);
+export const dataPost = (textPost) => {
+  console.log(textPost);
+  if (textPost !== '') {
+    const user = currentUser();
+    addPost(textPost, user.uid, user.email);
+  } else {
+    console.log('cadena vácia');
+  }
 };
 
 export const signOutUser = () => {

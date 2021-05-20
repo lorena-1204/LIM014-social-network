@@ -65,7 +65,7 @@
   display: flex;
   margin: 8px 0 0 0;
 }
-.create-post textarea {
+.create-post input {
   border-radius: 40px;
   resize: none;
   overflow: auto;
@@ -74,6 +74,7 @@
   margin: 5px 0;
   outline: none;
   padding: 5px 15px 20px;
+  border: none;
 }
 .btn-post {
   display: flex;

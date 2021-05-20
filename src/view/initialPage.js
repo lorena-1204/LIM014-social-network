@@ -13,14 +13,14 @@ export default () => {
    <li>#Bebidas</li>
    <li id="signOut">Cerrar Sesión</li>
   </nav> 
-s  <article class = "create-post">
+  <article class = "create-post">
   <h2>Publica tus recetas</h2>
   <div class="img-textPost">
     <svg height="60" width="80">
       <circle cx="30" cy="30" r="25"/>
     </svg>
-    <textarea id="textarea" placeholder="Comparte tus recetas">
-    </textarea>
+    <input type="text" id="textarea" placeholder="Comparte tus recetas">
+    </input>
   </div>
   <hr>
   <div class="btn-post">
@@ -37,9 +37,10 @@ s  <article class = "create-post">
   showPost((data, userId) => {
     setupPosts(data, userId, templateInitialPage);
   });
+  const textPost = templateInitialPage.querySelector('#textarea');
   const createPost = templateInitialPage.querySelector('#btn');
   createPost.addEventListener('click', () => {
-    dataPost();
+    dataPost(textPost.value);
   });
   const signOutLink = templateInitialPage.querySelector('#signOut');
   signOutLink.addEventListener('click', (e) => {
@@ -47,12 +48,12 @@ s  <article class = "create-post">
     signOutUser();
   });
 
-  const eventTypeTextarea = templateInitialPage.querySelector('#textarea');
-  eventTypeTextarea.addEventListener('keydown', (event) => {
-    if (event.code === 'Enter') {
-      console.log(eventTypeTextarea.value);
-    }
-    console.log(event.code);
-  });
+  // const eventTypeTextarea = templateInitialPage.querySelector('#textarea');
+  // eventTypeTextarea.addEventListener('keydown', (event) => {
+  //   if (event.code === 'Enter') {
+  //     console.log(eventTypeTextarea.value);
+  //   }
+  //   console.log(event.code);
+  // });
   return templateInitialPage;
 };

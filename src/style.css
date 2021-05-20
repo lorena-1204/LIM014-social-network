@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
 .button {
     padding: 4px 25px;
     background: rgb(19, 143, 247);
@@ -46,4 +47,63 @@
   outline: none;
   border: none;
   cursor: pointer;
+}
+.create-post {
+  background-color:rgb(43,2,0, 0.7);
+  border-radius: 20px;
+  width: 40%;
+  padding: 12px 16px 10px;
+}
+.create-post h2 {
+  font-family: roboto;
+  color: #F5EBDC;
+  margin: 0;
+  font-size: 15px;
+  padding-left: 10px;
+}
+.img-textPost {
+  display: flex;
+  margin: 8px 0 0 0;
+}
+.create-post textarea {
+  border-radius: 40px;
+  resize: none;
+  overflow: auto;
+  width: 90%;
+  height: 20px;
+  margin: 5px 0;
+  outline: none;
+  padding: 5px 15px 20px;
+}
+.btn-post {
+  display: flex;
+  justify-content : flex-end;
+  align-items: center;
+  text-align: center;
+}
+.btn-post a {
+  font-family: roboto;
+  color: #F5EBDC;
+  font-size: 15px;
+  margin: 0 15px 0 0px;
+}
+#btn{
+  font-family: roboto;
+  color: #F5EBDC;
+  font-size: 14px;
+  background-color: #E83505;
+  border-radius: 5px;
+  outline: none;
+  box-sizing: border-box;
+  border: 0;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  letter-spacing: 0.04em;
+  padding: 6px;
+}
+hr {
+  margin: 0;
+  margin-bottom: 10px;
 }

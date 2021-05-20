@@ -8,14 +8,20 @@ export const editPost = (id, text) => db.collection('posts').doc(id).update({
   timePost: new Date(),
 });
 
+// like
+export const likePost = (id, like) => db.collection('posts').doc(id).update({ like });
+
 // Agrega un post
 export const addPost = (textPost, id, mail) => db.collection('posts')
   .add({
     post: textPost,
     idUser: id,
     email: mail,
-    timePost: new Date().toLocaleDateString(),
+    timePost: new Date().toLocaleString('GMT-0500'),
+    like: [],
+
   });
+
 // Crea propiedades de un usuario
 export const createUser = (nombre, email, id, photo) => {
   const addUserCollection = db.collection('users').doc(id).set({

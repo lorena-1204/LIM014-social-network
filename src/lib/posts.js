@@ -85,7 +85,11 @@ export const showPost = (callback) => {
         .onSnapshot((querySnapshot) => {
           const output = [];
           querySnapshot.forEach((doc) => {
-            output.push({ id: doc.id, ...doc.data() });
+            output.push({
+              id: doc.id,
+              ...doc.data(),
+              likes: doc.data().like,
+            });
           });
           callback(output, user.uid);
         });

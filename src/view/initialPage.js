@@ -26,7 +26,7 @@ export default () => {
   <div class="btn-post">
     <a>🥗 Comida</a>
     <a> 🍹 Bebida</a>
-    <button id="btn">Compartir</button>
+    <button id="btn" class="btn-to-post-default">Compartir</button>
   </div>
   </article>
   <div class="posts"></div>
@@ -39,8 +39,17 @@ export default () => {
   });
   const textPost = templateInitialPage.querySelector('#textarea');
   const createPost = templateInitialPage.querySelector('#btn');
+  textPost.addEventListener('input', () => {
+    if (textPost.value !== '') {
+      createPost.classList.remove('btn-to-post-default');
+      createPost.classList.add('string-text-post');
+    } else {
+      createPost.classList.remove('string-text-post');
+      createPost.classList.add('btn-to-post-default');
+    }
+  });
   createPost.addEventListener('click', () => {
-    dataPost(textPost.value);
+    dataPost(textPost.value, createPost);
   });
   const signOutLink = templateInitialPage.querySelector('#signOut');
   signOutLink.addEventListener('click', (e) => {

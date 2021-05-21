@@ -62,12 +62,9 @@ export const signInWithEmail = () => {
     });
 };
 export const dataPost = (textPost) => {
-  console.log(textPost);
   if (textPost !== '') {
     const user = currentUser();
     addPost(textPost, user.uid, user.email);
-  } else {
-    console.log('cadena vácia');
   }
 };
 

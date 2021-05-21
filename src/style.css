@@ -88,11 +88,11 @@
   font-size: 15px;
   margin: 0 15px 0 0px;
 }
-#btn{
+.btn-to-post-default, .string-text-post {
   font-family: roboto;
   color: #F5EBDC;
   font-size: 14px;
-  background-color: #E83505;
+  background-color: grey;
   border-radius: 5px;
   outline: none;
   box-sizing: border-box;
@@ -103,6 +103,11 @@
   text-align: center;
   letter-spacing: 0.04em;
   padding: 6px;
+  cursor: no-drop;
+}
+.string-text-post {
+  background-color: #E83505;
+  cursor: pointer;
 }
 hr {
   margin: 0;

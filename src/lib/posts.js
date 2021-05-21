@@ -1,21 +1,25 @@
 // eslint-disable-next-line import/no-cycle
 import { deletePost, orderPostbyTimeDesc, editPost } from './firestore-controller.js';
 import { templatePost, createAttributesButton, templateModal } from './templates-sections.js';
+// eslint-disable-next-line import/no-cycle
+import { notUserSignIn } from '../view/not-user-sign-in.js';
 
 export const idDocumentPost = (e) => {
   const idPost = e.target.dataset.id;
   deletePost(idPost);
 };
-export const setupPosts = (data, user, templateInitialPage) => {
+export const setupPosts = (data, dataUser, templateInitialPage) => {
   const postList = templateInitialPage.querySelector('.posts');
   postList.innerHTML = '';
+
   if (data.length) {
     data.forEach((doc) => {
       const section = templatePost(doc);
       postList.appendChild(section);
       const buttonCancelEditPost = createAttributesButton('cancelar', 'btn-cancel-edit-post');
       const textPost = section.querySelector('#text-post');
-      if (user === doc.idUser) {
+
+      if (dataUser.idUser === doc.idUser) {
         // botón eliminar post
         const btnDeletePost = createAttributesButton('eliminar', 'btn-delete', doc.id);
         section.appendChild(btnDeletePost);
@@ -66,16 +70,23 @@ export const setupPosts = (data, user, templateInitialPage) => {
 export const showPost = (callback) => {
   firebase.auth().onAuthStateChanged((user) => {
     if (user) {
-      orderPostbyTimeDesc()
+      const dataUser = {
+        email: user.email,
+        idUser: user.uid,
+      };
+      orderPostbyTimeDesc('posts')
         .onSnapshot((querySnapshot) => {
           const output = [];
           querySnapshot.forEach((doc) => {
             output.push({ id: doc.id, ...doc.data() });
           });
-          callback(output, user.uid);
+          callback(output, dataUser);
         });
     } else {
-      callback([]);
+      const container = document.getElementById('container');
+      container.innerHTML = '';
+      // callback([]);
+      container.appendChild(notUserSignIn());
     }
   });
 };

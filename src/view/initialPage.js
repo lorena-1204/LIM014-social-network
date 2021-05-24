@@ -13,8 +13,10 @@ export default () => {
    <li>#Bebidas</li>
    <li id="signOut">Cerrar Sesión</li>
   </nav> 
+
+
   <article class = "create-post">
-  <h2>Publica tus recetas</h2>
+    <h2>Publica tus recetas</h2>
   <div class="img-textPost">
     <svg height="60" width="80">
       <circle cx="30" cy="30" r="25"/>
@@ -29,6 +31,8 @@ export default () => {
     <button id="btn" class="btn-to-post-default">Compartir</button>
   </div>
   </article>
+
+
   <div class="posts"></div>
    `;
 

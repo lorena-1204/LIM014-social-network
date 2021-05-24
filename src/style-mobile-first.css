@@ -1,0 +1,36 @@
+@media screen and (max-width: 600px) {
+    .info-redirect-home-page {
+        display: flex;
+        justify-content: center;
+    }      
+    .info-redirect-h1 { 
+        margin: 15% 8%;
+        min-width: 100%;
+        max-width: 100%;
+        font-size: 25px;
+    }
+    .template-not-user article {
+        flex-direction: column;
+    }
+    .template-not-user section { 
+        width: 40%;
+        font-size: 12px;
+        margin-left: 0px;     
+
+        position: absolute ;
+        top: 20vh;
+        left: 20vw;
+    }
+    .template-not-user section h3 {
+        font-size: 16px;
+        margin: 0;
+    }
+    .template-not-user section span {
+        font-size: 16px;
+        margin: -15px 0 1px;
+        padding: 0;
+    }
+    .info-redirect-home-page a {
+        padding: 5px;
+      }        
+}

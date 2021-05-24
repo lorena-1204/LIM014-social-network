@@ -86,7 +86,7 @@ export const showPost = (callback) => {
       const container = document.getElementById('container');
       container.innerHTML = '';
       // callback([]);
-      container.appendChild(notUserSignIn());
+      container.appendChild(notUserSignIn(container));
     }
   });
 };

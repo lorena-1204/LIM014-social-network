@@ -19,7 +19,7 @@ export const addPost = (textPost, id, mail) => db.collection('posts')
 // Crea propiedades de un usuario
 export const createUser = (name, nickName, email, id, photo) => {
   const addUserCollection = db.collection('users').doc(id).set({
-    NombreCompleto: name,
+    displayName: name,
     Usuario: nickName,
     Correo: email,
     Id: id,

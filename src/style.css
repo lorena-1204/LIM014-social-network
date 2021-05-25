@@ -5,12 +5,21 @@ margin: 0;
 padding: 0;
 }
 .button {
-    padding: 4px 25px;
-    background: rgb(19, 143, 247);
-    border: 1px solid #1161B0;
-    color: #fff;
+    padding: 15px 35px;
+    font-size: 12px;
     border-radius: 4px;
     text-decoration:none;
+
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 900;
+    font-size: 10px;
+    line-height: 15px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
 }
 .modal-container{
   display: none;
@@ -126,14 +135,14 @@ hr {
   background-color: rgba(204, 200, 200, 0.8);
   filter:brightness(0.5);
 }
-.gallery {
+.gallery, .gallery_template_home {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-auto-rows: 150px;
+  grid-auto-rows: 158px;
   grid-gap: 10px;
   padding: 5px;
 }
-.gallery_img {
+.gallery_img, .gallery_img_not_user {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -147,6 +156,12 @@ hr {
 }
 .gallery_item:nth-child(9) {
   grid-column-start: span 2;
+}
+.gallery_item:nth-child(10) {
+  display: none;
+}
+#background-mobile-first {
+  display: none;
 }
 .template-not-user {
   display: flex;
@@ -187,6 +202,10 @@ hr {
   font-size: 25px; 
   padding: 10px 40px 20px;
   margin: 5% 16%;
+  text-align: center;
+}
+#info-redirect-home-page_section {
+  width: 18%;
 }
 .info-redirect-home-page section h3 {
   display: inline-block;
@@ -236,6 +255,8 @@ hr {
 
 }
 .info-redirect-home-page a {
+  text-decoration: none;
+
   color: #fff;
   font-family: Roboto;
   font-style: normal;
@@ -244,9 +265,11 @@ hr {
   letter-spacing: 0;
   text-align: left;
   border: 1px solid;
+  height: 5px; 
   width: 100%;
   display: flex;
   justify-content: center;
+  align-items: center;
   margin: 10px 0;
   border-radius: 20px;
   padding: 15px;
@@ -259,6 +282,7 @@ hr {
   background-color: #000 ;
 }
 #button-redirect-home-page {
+  cursor: pointer;
   margin: 0;
   border-radius: 23px;
   color: rgb(51, 51, 51); 
@@ -268,7 +292,30 @@ hr {
   height: 20%;
   margin: 5px 0;
 }
- footer {
+.button-mobile {
+  display: none;
+}
+.post-text-background{
+  display: none;
+}
+.example-iChef {
+  display: none;
+  color: #fff;
+}
+.logo-iChef-background {
+  display: none;
+}
+#condictions-iChef {
+  max-width: 90%;
+  font-size: 10px;
+  color: rgb(104, 104, 104); 
+  margin: 10px 0;
+}
+.buttons-info a img {
+  width: 6%;
+  padding-right: 10px;
+}
+footer {
   display: flex;
   align-items: flex-end;
   justify-content: center;

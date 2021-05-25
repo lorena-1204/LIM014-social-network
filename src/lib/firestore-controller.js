@@ -17,14 +17,18 @@ export const addPost = (textPost, id, mail) => db.collection('posts')
     timePost: new Date().toLocaleDateString(),
   });
 // Crea propiedades de un usuario
-export const createUser = (nombre, email, id, photo) => {
+export const createUser = (name, nickName, email, id, photo) => {
   const addUserCollection = db.collection('users').doc(id).set({
-    Usuario: nombre,
+    NombreCompleto: name,
+    Usuario: nickName,
     Correo: email,
     Id: id,
     Photo: photo,
   });
   return addUserCollection;
 };
+
+export const getUser = (id) => db.collection('users').doc(id);
+
 // Ordena una colección por fecha más reciente a más antigua
 export const orderPostbyTimeDesc = () => db.collection('posts').orderBy('timePost', 'desc');

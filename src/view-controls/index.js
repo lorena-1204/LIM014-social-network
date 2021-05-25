@@ -4,9 +4,9 @@ import { components } from '../view/components.js';
 import {
   HOME, INITIAL_PAGE, SIGN_UP, SIGN_IN, PERFIL_PAGE,
 } from '../lib/constants.js';
+// eslint-disable-next-line import/no-cycle
 import { getUser } from '../lib/firestore-controller.js';
-// console.log('hola');
-// console.log('Thalia');
+
 // con el appendChild estamos llamando al nodo section
 const changeView = (route) => {
   const container = document.getElementById('container');

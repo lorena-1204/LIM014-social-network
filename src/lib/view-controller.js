@@ -38,7 +38,7 @@ export const registerWithGoogle = () => {
   registerGoogle(provider)
     .then(() => {
       const user = currentUser();
-      createUser(user.displayName, user.email, user.uid, user.photoURL);
+      createUser(user.displayName, user.displayName, user.email, user.uid, user.photoURL);
       sessionStorage.setItem('id', user.uid);
       changeHash(INITIAL_PAGE);
     });

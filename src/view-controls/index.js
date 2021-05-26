@@ -21,7 +21,7 @@ const changeView = (route) => {
       container.appendChild(components.perfilPage());
 
       const userID = sessionStorage.getItem('id');
-      getUser(userID).get().then((userData) => {
+      getUser(userID, (userData) => {
         if (userData.exists) {
           const user = userData.data();
           const displayName = user.Usuario;
@@ -40,13 +40,9 @@ const changeView = (route) => {
         } else {
           console.log('No encontrado');
         }
-      }).catch((error) => {
-        console.log('Error getting document:', error);
       });
-
       break;
     }
-
     default:
     { return container.appendChild(components.home()); }
   }

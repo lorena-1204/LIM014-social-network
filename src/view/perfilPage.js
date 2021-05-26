@@ -1,9 +1,9 @@
 // eslint-disable-next-line import/no-cycle
 import { signOutUser, pageInitial, dataPost } from '../lib/view-controller.js';
 // eslint-disable-next-line import/no-cycle
-import { showPost, setupPosts } from '../lib/posts.js';
+import { setupPosts } from '../lib/posts.js';
 // eslint-disable-next-line import/no-cycle
-import { editDescriptions, getUser } from '../lib/firestore-controller.js';
+import { editDescriptions, getUser, showPostUserid } from '../lib/firestore-controller.js';
 // eslint-disable-next-line import/no-cycle
 import { currentUser } from '../lib/firebase-controller.js';
 
@@ -32,10 +32,11 @@ export default () => {
 
   templatePerfilPage.classList.add('position');
   templatePerfilPage.innerHTML = viewPerfilPage;
-  showPost((data, userId) => {
-    setupPosts(data, userId, templatePerfilPage);
-  });
 
+  const userID = sessionStorage.getItem('id');
+  showPostUserid((data) => {
+    setupPosts(data, userID, templatePerfilPage);
+  }, userID);
   const publicarDescripcion = templatePerfilPage.querySelector('#btnGuardar');
   const textDescription = templatePerfilPage.querySelector('#textareaDescription');
   publicarDescripcion.addEventListener('click', () => {
@@ -43,8 +44,7 @@ export default () => {
     editDescriptions(user.uid, textDescription.value);
   });
 
-  const userID = sessionStorage.getItem('id');
-  getUser(userID).get().then((userData) => {
+  getUser(userID, (userData) => {
     const user = userData.data();
     const description = user.Description;
     const postDescription = document.getElementById('descripcion');

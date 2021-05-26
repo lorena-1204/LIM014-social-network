@@ -21,7 +21,6 @@ export const addPost = (textPost, id, mail) => db.collection('posts')
     likes: [],
   });
 
-
 export const editDescriptions = (id, text) => db.collection('Descriptions').doc(id).update({
   post: text,
   timePost: new Date(),
@@ -51,7 +50,7 @@ export const createUser = (name, nickName, email, id, photo) => {
 export const getUser = (id) => db.collection('users').doc(id);
 
 // Ordena una colección por fecha más reciente a más antigua
-export const orderPostbyTimeDesc = (collectionName) => db.collection(collectionName).orderBy('timePost', 'desc');
+export const orderPostbyTimeDesc = () => db.collection('posts').orderBy('timePost', 'desc');
 
 // Comentar
 export const commnetPostCollection = (id, uidUser, comment, mail) => db.collection('commentPost').add({

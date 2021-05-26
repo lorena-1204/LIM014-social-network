@@ -70,7 +70,6 @@ export const dataPost = (textPost) => {
     const user = currentUser();
     addPost(textPost, user.uid, user.email);
   }
->>>>>>> test
 };
 // Cerrar Sesión
 export const signOutUser = () => {

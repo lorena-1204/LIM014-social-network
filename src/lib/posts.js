@@ -104,16 +104,14 @@ export const setupPosts = (data, user, templateInitialPage) => {
 export const showPost = (callback) => {
   firebase.auth().onAuthStateChanged((user) => {
     if (user) {
-
       orderPostbyTimeDesc('posts')
         .onSnapshot((querySnapshot) => {
           const output = [];
           querySnapshot.forEach((doc) => {
             output.push({ id: doc.id, ...doc.data() });
-
+          });
+          callback(output, user.uid);
         });
-        callback(output, user.uid);
-      });
     } else {
       const container = document.getElementById('container');
       container.innerHTML = '';

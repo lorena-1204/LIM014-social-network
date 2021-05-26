@@ -4,6 +4,7 @@ import { registerWithGoogle } from '../lib/view-controller.js';
 export default () => {
   const templateHome = document.createElement('section'); // Nodo section
   templateHome.classList.add('position');
+
   const viewHome = `
   <div class="background-opacity" id="background-opacity-none">
     <div class="gallery_template_home" >

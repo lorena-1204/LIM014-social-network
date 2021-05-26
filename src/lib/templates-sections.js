@@ -3,6 +3,7 @@ import { currentUser } from './firebase-controller.js';
 
 export const templatePost = (doc) => {
   const section = document.createElement('section');
+
   // section.style = 'background-color:skyblue';
   section.classList.add('container-post');
   const userId = currentUser().uid;
@@ -16,7 +17,6 @@ export const templatePost = (doc) => {
     <p>${doc.likes.length}</p>
     <p class="counter-text">likes</p>
    `;
-
   section.innerHTML = template;
   return section;
 };

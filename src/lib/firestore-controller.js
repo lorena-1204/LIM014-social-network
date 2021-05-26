@@ -49,10 +49,18 @@ export const createUser = (name, nickName, email, id, photo, textDescription) =>
   return addUserCollection;
 };
 
-export const getUser = (id) => db.collection('users').doc(id);
+export const getUser = (id, callback) => db.collection('users').doc(id).onSnapshot((doc) => {
+  callback(doc);
+});
 
 // Ordena una colección por fecha más reciente a más antigua
-export const orderPostbyTimeDesc = () => db.collection('posts').orderBy('timePost', 'desc');
+export const orderPostbyTimeDesc = (callback, userId) => db.collection('posts').orderBy('timePost', 'desc').onSnapshot((querySnapshot) => {
+  const output = [];
+  querySnapshot.forEach((doc) => {
+    output.push({ id: doc.id, ...doc.data() });
+  });
+  callback(output, userId);
+});
 
 // Comentar
 export const commnetPostCollection = (id, uidUser, comment, mail) => db.collection('commentPost').add({
@@ -61,4 +69,11 @@ export const commnetPostCollection = (id, uidUser, comment, mail) => db.collecti
   idUser: uidUser,
   email: mail,
   timePost: new Date(),
+});
+export const showPostUserid = (callback, userID) => db.collection('posts').where('idUser', '==', userID).orderBy('timePost', 'desc').onSnapshot((querySnapshot) => {
+  const output = [];
+  querySnapshot.forEach((doc) => {
+    output.push({ id: doc.id, ...doc.data() });
+  });
+  callback(output, userID);
 });

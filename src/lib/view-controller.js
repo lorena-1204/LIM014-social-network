@@ -70,6 +70,12 @@ export const dataPost = () => {
   const textPost = document.querySelector('#textarea').value;
   addPost(textPost, user.uid, user.email);
 };
+// Description
+export const dataDescription = () => {
+  const user = currentUser();
+  const textPost = document.querySelector('#textareaDescription').value;
+  addPost(textPost, user.uid, user.nickName);
+};
 // Cerrar Sesión
 export const signOutUser = () => {
   signOut().then(() => {

@@ -7,7 +7,6 @@ import {
 // eslint-disable-next-line import/no-cycle
 import { getUser } from '../lib/firestore-controller.js';
 
-// con el appendChild estamos llamando al nodo section
 const changeView = (route) => {
   const container = document.getElementById('container');
   container.innerHTML = '';

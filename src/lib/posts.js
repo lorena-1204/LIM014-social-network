@@ -1,28 +1,25 @@
 // eslint-disable-next-line import/no-cycle
 import {
-
   deletePost, orderPostbyTimeDesc, editPost, likePost,
 } from './firestore-controller.js';
 // eslint-disable-next-line import/no-cycle
 import { templatePost, createAttributesButton, templateModal } from './templates-sections.js';
-
+// eslint-disable-next-line import/no-cycle
+import { notUserSignIn } from '../view/not-user-sign-in.js';
 
 export const idDocumentPost = (e) => {
   const idPost = e.target.dataset.id;
   deletePost(idPost);
 };
-
 export const setupPosts = (data, user, templateInitialPage) => {
   const postList = templateInitialPage.querySelector('.posts');
   postList.innerHTML = '';
+
   if (data.length) {
     data.forEach((doc) => {
       const section = templatePost(doc);
       postList.appendChild(section);
-      const buttonCancelEditPost = createAttributesButton(
-        'cancelar',
-        'btn-cancel-edit-post',
-      );
+      const buttonCancelEditPost = createAttributesButton('cancelar', 'btn-cancel-edit-post');
       const textPost = section.querySelector('#text-post');
 
       // likes
@@ -62,21 +59,13 @@ export const setupPosts = (data, user, templateInitialPage) => {
         optionYes.addEventListener('click', idDocumentPost);
         postList.appendChild(section);
         // botón editar post
-        const buttonEditPost = createAttributesButton(
-          'editar',
-          'btn-edit',
-          doc.id,
-        );
+        const buttonEditPost = createAttributesButton('editar', 'btn-edit', doc.id);
         section.appendChild(buttonEditPost);
         // creando input para editar post
         const inputEditPost = document.createElement('input');
         inputEditPost.value = textPost.textContent;
         // creando botón para guardar lo editado
-        const buttonSaveEditPost = createAttributesButton(
-          'cambiar',
-          'btn-save-edit-Post',
-          doc.id,
-        );
+        const buttonSaveEditPost = createAttributesButton('cambiar', 'btn-save-edit-Post', doc.id);
         // reemplazando botones de seguridad
         buttonEditPost.addEventListener('click', () => {
           section.replaceChild(buttonCancelEditPost, btnDeletePost);
@@ -92,10 +81,7 @@ export const setupPosts = (data, user, templateInitialPage) => {
           editPost(doc.id, inputEditPost.value);
         });
       }
-
-      // implementar likes
     });
-
   } else {
     postList.innerHTML = '<h4 class="text-white">Login to See Posts</h4>';
   }
@@ -104,15 +90,19 @@ export const setupPosts = (data, user, templateInitialPage) => {
 export const showPost = (callback) => {
   firebase.auth().onAuthStateChanged((user) => {
     if (user) {
-      orderPostbyTimeDesc().onSnapshot((querySnapshot) => {
-        const output = [];
-        querySnapshot.forEach((doc) => {
-          output.push({ id: doc.id, ...doc.data() });
+      orderPostbyTimeDesc()
+        .onSnapshot((querySnapshot) => {
+          const output = [];
+          querySnapshot.forEach((doc) => {
+            output.push({ id: doc.id, ...doc.data() });
+          });
+          callback(output, user.uid);
         });
-        callback(output, user.uid);
-      });
     } else {
-      callback([]);
+      const container = document.getElementById('container');
+      container.innerHTML = '';
+      // callback([]);
+      container.appendChild(notUserSignIn(container));
     }
   });
 };

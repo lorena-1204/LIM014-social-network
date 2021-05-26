@@ -1,5 +1,5 @@
 // eslint-disable-next-line import/no-cycle
-import { dataPost, signOutUser } from '../lib/view-controller.js';
+import { dataPost, signOutUser, perfilPageUser } from '../lib/view-controller.js';
 // eslint-disable-next-line import/no-cycle
 import { showPost, setupPosts } from '../lib/posts.js';
 
@@ -7,10 +7,7 @@ export default () => {
   const templateInitialPage = document.createElement('section');
   const viewInitialPage = `
   <nav>
-   <li>Inicio</li>
-   <li>Mi Perfil</li>
-   <li>#Comidas</li>
-   <li>#Bebidas</li>
+   <li id="myPerfil">Mi Perfil</li>
    <li id="signOut">Cerrar Sesión</li>
   </nav> 
   <article>
@@ -31,7 +28,10 @@ export default () => {
   publicar.addEventListener('click', () => {
     dataPost();
   });
-
+  const perfilUser = templateInitialPage.querySelector('#myPerfil');
+  perfilUser.addEventListener('click', () => {
+    perfilPageUser();
+  });
   const signOutLink = templateInitialPage.querySelector('#signOut');
   signOutLink.addEventListener('click', (e) => {
     e.preventDefault();

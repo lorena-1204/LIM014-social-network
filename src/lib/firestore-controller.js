@@ -21,28 +21,30 @@ export const addPost = (textPost, id, mail) => db.collection('posts')
     likes: [],
   });
 
-export const editDescriptions = (id, text) => db.collection('Descriptions').doc(id).update({
-  post: text,
+export const editDescriptions = (id, text) => db.collection('users').doc(id).update({
+  Description: text,
   timePost: new Date(),
 });
 
 // Agrega una Descripción
-export const addDescription = (textPost, id, nickName) => db.collection('Descriptions')
-  .add({
-    description: textPost,
-    idUser: id,
-    Usuario: nickName,
-    timePost: new Date().toLocaleDateString(),
-  });
+// export const addDescription = (textPost, id, nickName) => db.collection('Descriptions')
+//   .add({
+//     description: textPost,
+//     idUser: id,
+//     Usuario: nickName,
+//     timePost: new Date().toLocaleDateString(),
+//   });
 
 // Crea propiedades de un usuario
-export const createUser = (name, nickName, email, id, photo) => {
+export const createUser = (name, nickName, email, id, photo, textDescription) => {
   const addUserCollection = db.collection('users').doc(id).set({
     displayName: name,
     Usuario: nickName,
     Correo: email,
     Id: id,
     Photo: photo,
+    Description: textDescription,
+
   });
   return addUserCollection;
 };

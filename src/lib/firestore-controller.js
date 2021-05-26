@@ -20,13 +20,10 @@ export const addPost = (textPost, id, mail) => db.collection('posts')
     timePost: new Date().toLocaleString('GMT-0500'),
     likes: [],
   });
-
-
 export const editDescriptions = (id, text) => db.collection('Descriptions').doc(id).update({
   post: text,
   timePost: new Date(),
 });
-
 // Agrega una Descripción
 export const addDescription = (textPost, id, nickName) => db.collection('Descriptions')
   .add({

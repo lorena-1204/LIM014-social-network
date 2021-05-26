@@ -16,6 +16,20 @@ export const addPost = (textPost, id, mail) => db.collection('posts')
     email: mail,
     timePost: new Date().toLocaleDateString(),
   });
+
+export const editDescriptions = (id, text) => db.collection('Descriptions').doc(id).update({
+  post: text,
+  timePost: new Date(),
+});
+
+// Agrega una Descripción
+export const addDescription = (textPost, id, nickName) => db.collection('Descriptions')
+  .add({
+    description: textPost,
+    idUser: id,
+    Usuario: nickName,
+    timePost: new Date().toLocaleDateString(),
+  });
 // Crea propiedades de un usuario
 export const createUser = (name, nickName, email, id, photo) => {
   const addUserCollection = db.collection('users').doc(id).set({

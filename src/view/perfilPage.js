@@ -13,9 +13,11 @@ export default () => {
     <article>
     <img id="user-pic" class="demo-avatar">
     <h2 id="name"></h2>
-    <h3 id="user-name"></h3>
-    <p>Descripción del usuario</p>
-    <h2>Publica tus recetas</h2>
+    <h2 id="user-name"></h2>
+    <textarea id="textareaDescription" name="publica" placeholder="Acerca de mi">
+    </textarea>
+    <button id="btnGuardar">Guardar</button>
+    <h3>Publica tus recetas</h3>
     <textarea id="textarea" name="publica" placeholder="Publica tu receta">
     </textarea>
     <button id="btn">Compartir</button>

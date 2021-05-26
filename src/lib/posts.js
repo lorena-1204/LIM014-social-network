@@ -1,11 +1,9 @@
 // eslint-disable-next-line import/no-cycle
 import {
-
   deletePost, orderPostbyTimeDesc, editPost, likePost,
 } from './firestore-controller.js';
 // eslint-disable-next-line import/no-cycle
 import { templatePost, createAttributesButton, templateModal } from './templates-sections.js';
-
 
 export const idDocumentPost = (e) => {
   const idPost = e.target.dataset.id;
@@ -92,10 +90,7 @@ export const setupPosts = (data, user, templateInitialPage) => {
           editPost(doc.id, inputEditPost.value);
         });
       }
-
-      // implementar likes
     });
-
   } else {
     postList.innerHTML = '<h4 class="text-white">Login to See Posts</h4>';
   }

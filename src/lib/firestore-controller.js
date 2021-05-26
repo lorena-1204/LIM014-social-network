@@ -21,7 +21,6 @@ export const addPost = (textPost, id, mail) => db.collection('posts')
     likes: [],
   });
 
-
 export const editDescriptions = (id, text) => db.collection('Descriptions').doc(id).update({
   post: text,
   timePost: new Date(),

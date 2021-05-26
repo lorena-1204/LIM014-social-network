@@ -5,16 +5,17 @@ import {
 } from './firestore-controller.js';
 // eslint-disable-next-line import/no-cycle
 import { templatePost, createAttributesButton, templateModal } from './templates-sections.js';
-
+// eslint-disable-next-line import/no-cycle
+import { notUserSignIn } from '../view/not-user-sign-in.js';
 
 export const idDocumentPost = (e) => {
   const idPost = e.target.dataset.id;
   deletePost(idPost);
 };
-
 export const setupPosts = (data, user, templateInitialPage) => {
   const postList = templateInitialPage.querySelector('.posts');
   postList.innerHTML = '';
+
   if (data.length) {
     data.forEach((doc) => {
       const section = templatePost(doc);
@@ -95,7 +96,6 @@ export const setupPosts = (data, user, templateInitialPage) => {
 
       // implementar likes
     });
-
   } else {
     postList.innerHTML = '<h4 class="text-white">Login to See Posts</h4>';
   }
@@ -104,15 +104,21 @@ export const setupPosts = (data, user, templateInitialPage) => {
 export const showPost = (callback) => {
   firebase.auth().onAuthStateChanged((user) => {
     if (user) {
-      orderPostbyTimeDesc().onSnapshot((querySnapshot) => {
-        const output = [];
-        querySnapshot.forEach((doc) => {
-          output.push({ id: doc.id, ...doc.data() });
+
+      orderPostbyTimeDesc('posts')
+        .onSnapshot((querySnapshot) => {
+          const output = [];
+          querySnapshot.forEach((doc) => {
+            output.push({ id: doc.id, ...doc.data() });
+
         });
         callback(output, user.uid);
       });
     } else {
-      callback([]);
+      const container = document.getElementById('container');
+      container.innerHTML = '';
+      // callback([]);
+      container.appendChild(notUserSignIn(container));
     }
   });
 };

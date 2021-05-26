@@ -49,6 +49,7 @@ export default () => {
   });
   createPost.addEventListener('click', () => {
     dataPost(textPost.value, createPost);
+    textPost.value = '';
   });
 
   const perfilUser = templateInitialPage.querySelector('#myPerfil');

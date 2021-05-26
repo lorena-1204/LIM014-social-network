@@ -8,14 +8,19 @@ export const editPost = (id, text) => db.collection('posts').doc(id).update({
   timePost: new Date(),
 });
 
+// like
+export const likePost = (id, likes) => db.collection('posts').doc(id).update({ likes });
+
 // Agrega un post
 export const addPost = (textPost, id, mail) => db.collection('posts')
   .add({
     post: textPost,
     idUser: id,
     email: mail,
-    timePost: new Date().toLocaleDateString(),
+    timePost: new Date().toLocaleString('GMT-0500'),
+    likes: [],
   });
+
 
 export const editDescriptions = (id, text) => db.collection('Descriptions').doc(id).update({
   post: text,
@@ -30,6 +35,7 @@ export const addDescription = (textPost, id, nickName) => db.collection('Descrip
     Usuario: nickName,
     timePost: new Date().toLocaleDateString(),
   });
+
 // Crea propiedades de un usuario
 export const createUser = (name, nickName, email, id, photo) => {
   const addUserCollection = db.collection('users').doc(id).set({

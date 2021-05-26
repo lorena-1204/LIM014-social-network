@@ -1,11 +1,19 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+
 .button {
-    padding: 4px 25px;
+    padding: 2px 25px;
     background: rgb(19, 143, 247);
-    border: 1px solid #1161B0;
     color: #fff;
     border-radius: 4px;
     text-decoration:none;
 }
+.container-button{
+  margin-top:550px;
+}
+
 .modal-container{
   display: none;
   background-color: rgb(0, 0,0,0.3);
@@ -36,14 +44,13 @@
 }
 
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@600&display=swap");
-.like__btn {
-  padding: 5px 10px;
-  background: #0080ff;
-  font-size: 12px;
-  font-family: "Open Sans", sans-serif;
-  border-radius: 5px;
-  color: #e8efff;
-  outline: none;
-  border: none;
-  cursor: pointer;
-}
+
+
+/* like */
+.liked {
+    color: red;
+  }
+
+  .unliked {
+    color: black;
+  }

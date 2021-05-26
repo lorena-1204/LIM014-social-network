@@ -1,11 +1,12 @@
 export default () => {
   const templateHome = document.createElement('section'); // Nodo section
+  templateHome.classList.add('container-frist');
   const viewHome = `
   <nav>
     <a href="#/">I CHEF</a>
   </nav>
 
-  <section>
+  <section class = "container-button">
     <a href="#/SignIn" class="button">Iniciar Sesión</a>
     <!--Pestaña de Inicia Sesión-->
     <a href="#/SignUp" class="button">Regístrate</a>

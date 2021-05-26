@@ -1,11 +1,15 @@
 // eslint-disable-next-line import/no-cycle
-import { deletePost, orderPostbyTimeDesc, editPost } from './firestore-controller.js';
+import {
+  deletePost, orderPostbyTimeDesc, editPost, likePost,
+} from './firestore-controller.js';
+// eslint-disable-next-line import/no-cycle
 import { templatePost, createAttributesButton, templateModal } from './templates-sections.js';
 
 export const idDocumentPost = (e) => {
   const idPost = e.target.dataset.id;
   deletePost(idPost);
 };
+
 export const setupPosts = (data, user, templateInitialPage) => {
   const postList = templateInitialPage.querySelector('.posts');
   postList.innerHTML = '';
@@ -15,6 +19,20 @@ export const setupPosts = (data, user, templateInitialPage) => {
       postList.appendChild(section);
       const buttonCancelEditPost = createAttributesButton('cancelar', 'btn-cancel-edit-post');
       const textPost = section.querySelector('#text-post');
+
+      // likes
+      const likes = section.querySelector('#btn-like');
+      likes.addEventListener('click', () => {
+        const result = doc.likes.indexOf(user);
+        if (result === -1) {
+          doc.likes.push(user);
+          likePost(doc.id, doc.likes);
+        } else {
+          doc.likes.splice(result, 1);
+          likePost(doc.id, doc.likes);
+        }
+      });
+
       if (user === doc.idUser) {
         // botón eliminar post
         const btnDeletePost = createAttributesButton('eliminar', 'btn-delete', doc.id);
@@ -57,27 +75,14 @@ export const setupPosts = (data, user, templateInitialPage) => {
           editPost(doc.id, inputEditPost.value);
         });
       }
-    });
-    // añadir botón like
-    const likeBtn = document.querySelector('.like__btn');
-    const likeIcon = document.querySelector('#icon');
-    const count = document.querySelector('#count');
-    let clicked = false;
-    likeBtn.addEventListener('click', () => {
-      if (!clicked) {
-        clicked = true;
-        likeIcon.innerHTML = '<i class="fas fa-thumbs-up"></i>';
-        count.textContent++;
-      } else {
-        clicked = false;
-        likeIcon.innerHTML = '<i class="far fa-thumbs-up"></i>';
-        count.textContent--;
-      }
+
+      // implementar likes
     });
   } else {
     postList.innerHTML = '<h4 class="text-white">Login to See Posts</h4>';
   }
 };
+
 export const showPost = (callback) => {
   firebase.auth().onAuthStateChanged((user) => {
     if (user) {
@@ -88,7 +93,7 @@ export const showPost = (callback) => {
             output.push({
               id: doc.id,
               ...doc.data(),
-              likes: doc.data().like,
+              // likes: doc.data().likes,
             });
           });
           callback(output, user.uid);

@@ -2,6 +2,10 @@
 import { signOutUser, pageInitial, dataPost } from '../lib/view-controller.js';
 // eslint-disable-next-line import/no-cycle
 import { showPost, setupPosts } from '../lib/posts.js';
+// eslint-disable-next-line import/no-cycle
+import { editDescriptions, getUser } from '../lib/firestore-controller.js';
+// eslint-disable-next-line import/no-cycle
+import { currentUser } from '../lib/firebase-controller.js';
 
 export default () => {
   const templatePerfilPage = document.createElement('section');
@@ -17,6 +21,7 @@ export default () => {
     <textarea id="textareaDescription" name="publica" placeholder="Acerca de mi">
     </textarea>
     <button id="btnGuardar">Guardar</button>
+    <p id="descripcion"></p>
     <h3>Publica tus recetas</h3>
     <textarea id="textarea" name="publica" placeholder="Publica tu receta">
     </textarea>
@@ -30,6 +35,22 @@ export default () => {
   showPost((data, userId) => {
     setupPosts(data, userId, templatePerfilPage);
   });
+
+  const publicarDescripcion = templatePerfilPage.querySelector('#btnGuardar');
+  const textDescription = templatePerfilPage.querySelector('#textareaDescription');
+  publicarDescripcion.addEventListener('click', () => {
+    const user = currentUser();
+    editDescriptions(user.uid, textDescription.value);
+  });
+
+  const userID = sessionStorage.getItem('id');
+  getUser(userID).get().then((userData) => {
+    const user = userData.data();
+    const description = user.Description;
+    const postDescription = document.getElementById('descripcion');
+    postDescription.textContent = description;
+  });
+
   const publicar = templatePerfilPage.querySelector('#btn');
   publicar.addEventListener('click', () => {
     dataPost();

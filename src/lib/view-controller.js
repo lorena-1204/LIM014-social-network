@@ -18,7 +18,7 @@ export const registerNewUser = () => {
   register(email, password)
     .then((userCredential) => {
       const user = userCredential.user;
-      createUser(CompleteName, userName, user.email, user.uid, user.photoURL);
+      createUser(CompleteName, userName, user.email, user.uid, user.photoURL, user.textDescription);
       sendEmailVerification().then(() => {
         document.getElementById('alert-sendEmailVerification').style.display = 'block';
       }).catch(() => {
@@ -38,7 +38,9 @@ export const registerWithGoogle = () => {
   registerGoogle(provider)
     .then(() => {
       const user = currentUser();
-      createUser(user.displayName, user.displayName, user.email, user.uid, user.photoURL);
+      const description = null;
+      // eslint-disable-next-line max-len
+      createUser(user.displayName, user.displayName, user.email, user.uid, user.photoURL, description);
       sessionStorage.setItem('id', user.uid);
       changeHash(INITIAL_PAGE);
     });
@@ -70,6 +72,12 @@ export const dataPost = (textPost) => {
     const user = currentUser();
     addPost(textPost, user.uid, user.email);
   }
+};
+// Description
+export const dataDescription = () => {
+  const user = currentUser();
+  const textPost = document.querySelector('#textareaDescription').value;
+  addPost(textPost, user.uid, user.nickName);
 };
 // Cerrar Sesión
 export const signOutUser = () => {

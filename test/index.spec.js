@@ -1,8 +1,15 @@
-// importamos la funcion que vamos a testear
-// import { myFunction } from '../src/lib/index';
+// import { register, registerWithGoogle, signInEmail} from '../src/lib/firebase-controller';
 
-// describe('myFunction', () => {
-//   it('debería ser una función', () => {
-//     expect(typeof myFunction).toBe('function');
-//   });
-// });
+// // configurando firebase mock
+// const firebasemock = require('firebase-mock');
+
+// const mockauth = new firebasemock.MockAuthentication();
+
+// mockauth.autoFlush();
+
+// global.firebase = firebasemock.MockFirebaseSdk(
+//   // use null if your code does not use RTDB
+//   () => null,
+//   () => mockauth,
+
+// );

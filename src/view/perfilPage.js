@@ -67,14 +67,6 @@ export default () => {
   //   }
   // });
   // unsubscribe(); // para desactivar el onsnapshot, el observador se quita
-  getUser(userID, (doc) => {
-    const user = doc.data();
-    if (user && user.Description) {
-      const description = user.Description;
-      const postDescription = document.getElementById('descripcion');
-      postDescription.textContent = description;
-    }
-  });
 
   const publicar = templatePerfilPage.querySelector('#btn');
   publicar.addEventListener('click', () => {

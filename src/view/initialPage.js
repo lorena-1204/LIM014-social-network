@@ -3,7 +3,7 @@ import { dataPost, signOutUser, perfilPageUser } from '../lib/view-controller.js
 // eslint-disable-next-line import/no-cycle
 import { showPost, setupPosts } from '../lib/posts.js';
 // eslint-disable-next-line import/no-cycle
-import { getUser } from '../lib/firestore-controller.js';
+// import { getUser } from '../lib/firestore-controller.js';
 
 export default () => {
   const templateInitialPage = document.createElement('section');
@@ -15,8 +15,8 @@ export default () => {
    </svg-->  
    <ul>
     <div class="menu-perfil">
-      <img id="user-pic-initalPage">
-      <li id="myPerfil"></li>
+      <!--img id="user-pic-initalPage" class="demo-avatar"-->
+      <li id="myPerfil">Mi Perfil</li>
     </div>
       <li id="signOut">Cerrar Sesión</li>
    </ul>
@@ -76,28 +76,28 @@ export default () => {
     signOutUser();
   });
 
-  const userID = sessionStorage.getItem('id');
-  getUser(userID, (userData) => {
-    if (userData.exists) {
-      const user = userData.data();
-      const name = user.Usuario;
-      const userNameComplete = document.getElementById('myPerfil');
+  // const userID = sessionStorage.getItem('id');
+  // getUser(userID, (userData) => {
+  //   if (userData.exists) {
+  //     const user = userData.data();
+  //     const name = user.Usuario;
+  //     const userNameComplete = document.getElementById('myPerfil');
 
-      const separador = ' '; // un espacio en blanco
-      const arregloDeSubCadenas = name.split(separador); // SEPARA EL NOMBRE EN CADENAS INDIVIDUALES
-      // IMPRIME EL NOMBRE INGRESADO
-      for (let x = 1; x < arregloDeSubCadenas.length; x++) {
-        const nameUser = `${arregloDeSubCadenas[0]}`;
-        userNameComplete.textContent = nameUser;
-      }
-      const userImage = document.getElementById('user-pic-initalPage');
-      const userPhoto = user.Photo;
-      if (userPhoto != null) {
-        userImage.src = userPhoto;
-      } else {
-        userImage.src = '../img/avatar.png';
-      }
-    }
-  });
+  //     const separador = ' '; // un espacio en blanco
+  // eslint-disable-next-line max-len
+  //     const arregloDeSubCadenas = name.split(separador); // SEPARA EL NOMBRE EN CADENAS INDIVIDUALES
+  //     // IMPRIME EL NOMBRE INGRESADO
+  //     const nameUser = arregloDeSubCadenas[0];
+  //     userNameComplete.textContent = nameUser;
+
+  //     const userImage = document.getElementById('user-pic-initalPage');
+  //     const userPhoto = user.Photo;
+  //     if (userPhoto != null) {
+  //       userImage.src = userPhoto;
+  //     } else {
+  //       userImage.src = '../img/avatar.png';
+  //     }
+  //   }
+  // });
   return templateInitialPage;
 };

@@ -2,13 +2,24 @@
 import { dataPost, signOutUser, perfilPageUser } from '../lib/view-controller.js';
 // eslint-disable-next-line import/no-cycle
 import { showPost, setupPosts } from '../lib/posts.js';
+// eslint-disable-next-line import/no-cycle
+import { getUser } from '../lib/firestore-controller.js';
 
 export default () => {
   const templateInitialPage = document.createElement('section');
   const viewInitialPage = `
   <nav>
-   <li id="myPerfil">Mi Perfil</li>
-   <li id="signOut">Cerrar Sesión</li>
+   <!--Respetar los id del menú-->
+   <!--svg height="60" width="80">
+    <circle cx="30" cy="30" r="25" />
+   </svg-->  
+   <ul>
+    <div class="menu-perfil">
+      <img id="user-pic-initalPage">
+      <li id="myPerfil"></li>
+    </div>
+      <li id="signOut">Cerrar Sesión</li>
+   </ul>
   </nav> 
 
   <article class = "create-post">
@@ -63,12 +74,28 @@ export default () => {
     signOutUser();
   });
 
-  // const eventTypeTextarea = templateInitialPage.querySelector('#textarea');
-  // eventTypeTextarea.addEventListener('keydown', (event) => {
-  //   if (event.code === 'Enter') {
-  //     console.log(eventTypeTextarea.value);
-  //   }
-  //   console.log(event.code);
-  // });
+  const userID = sessionStorage.getItem('id');
+  getUser(userID, (userData) => {
+    if (userData.exists) {
+      const user = userData.data();
+      const name = user.Usuario;
+      const userNameComplete = document.getElementById('myPerfil');
+
+      const separador = ' '; // un espacio en blanco
+      const arregloDeSubCadenas = name.split(separador); // SEPARA EL NOMBRE EN CADENAS INDIVIDUALES
+      // IMPRIME EL NOMBRE INGRESADO
+      for (let x = 1; x < arregloDeSubCadenas.length; x++) {
+        const nameUser = `${arregloDeSubCadenas[0]}`;
+        userNameComplete.textContent = nameUser;
+      }
+      const userImage = document.getElementById('user-pic-initalPage');
+      const userPhoto = user.Photo;
+      if (userPhoto != null) {
+        userImage.src = userPhoto;
+      } else {
+        userImage.src = '../img/avatar.png';
+      }
+    }
+  });
   return templateInitialPage;
 };

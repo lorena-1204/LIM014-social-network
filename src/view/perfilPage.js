@@ -22,11 +22,25 @@ export default () => {
     </textarea>
     <button id="btnGuardar">Guardar</button>
     <p id="descripcion"></p>
-    <h3>Publica tus recetas</h3>
-    <textarea id="textarea" name="publica" placeholder="Publica tu receta">
-    </textarea>
-    <button id="btn">Compartir</button>
     </article>
+
+    <article class = "create-post">
+      <h2>Publica tus recetas</h2>
+    <div class="img-textPost">
+      <svg height="60" width="80">
+        <circle cx="30" cy="30" r="25"/>
+      </svg>
+      <input type="text" id="textarea" placeholder="Comparte tus recetas">
+      </input>
+    </div>
+    <hr>
+    <div class="btn-post">
+      <a>🥗 Comida</a>
+      <a> 🍹 Bebida</a>
+      <button id="btn" class="btn-to-post-default">Compartir</button>
+    </div>
+    </article>
+
     <div class="posts"></div>
      `;
 
@@ -63,6 +77,22 @@ export default () => {
   signOutLink.addEventListener('click', (e) => {
     e.preventDefault();
     signOutUser();
+  });
+
+  const textPost = templatePerfilPage.querySelector('#textarea');
+  const createPost = templatePerfilPage.querySelector('#btn');
+  textPost.addEventListener('input', () => {
+    if (textPost.value !== '') {
+      createPost.classList.remove('btn-to-post-default');
+      createPost.classList.add('string-text-post');
+    } else {
+      createPost.classList.remove('string-text-post');
+      createPost.classList.add('btn-to-post-default');
+    }
+  });
+  createPost.addEventListener('click', () => {
+    dataPost(textPost.value, createPost);
+    textPost.value = '';
   });
 
   return templatePerfilPage;

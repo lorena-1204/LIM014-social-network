@@ -11,8 +11,8 @@ export const idDocumentPost = (e) => {
   const idPost = e.target.dataset.id;
   deletePost(idPost);
 };
-export const setupPosts = (data, user, templateInitialPage) => {
-  const postList = templateInitialPage.querySelector('.posts');
+export const setupPosts = (data, user, template) => {
+  const postList = template.querySelector('.posts');
   postList.innerHTML = '';
 
   if (data.length) {

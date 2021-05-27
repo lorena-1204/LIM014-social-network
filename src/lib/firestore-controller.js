@@ -27,15 +27,13 @@ export const editDescriptions = (id, text) => db.collection('users').doc(id).upd
 });
 
 // Crea propiedades de un usuario
-export const createUser = (name, nickName, email, id, photo, textDescription) => {
+export const createUser = (name, nickName, email, id, photo) => {
   const addUserCollection = db.collection('users').doc(id).set({
     displayName: name,
     Usuario: nickName,
     Correo: email,
     Id: id,
     Photo: photo,
-    Description: textDescription,
-
   });
   return addUserCollection;
 };

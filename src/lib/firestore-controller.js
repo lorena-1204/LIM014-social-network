@@ -44,7 +44,6 @@ export const createUser = (name, nickName, email, id, photo, textDescription) =>
     Id: id,
     Photo: photo,
     Description: textDescription,
-
   });
   return addUserCollection;
 };

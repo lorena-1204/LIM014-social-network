@@ -38,9 +38,13 @@ export const registerWithGoogle = () => {
   registerGoogle(provider)
     .then(() => {
       const user = currentUser();
-      const description = null;
       // eslint-disable-next-line max-len
-      createUser(user.displayName, user.displayName, user.email, user.uid, user.photoURL, description);
+      firebase.firestore().collection('users').doc(user.uid).get()
+        .then((doc) => {
+          if (!doc.exists) {
+            createUser(user.displayName, user.displayName, user.email, user.uid, user.photoURL);
+          }
+        });
       sessionStorage.setItem('id', user.uid);
       changeHash(INITIAL_PAGE);
     });
@@ -68,7 +72,7 @@ export const signInWithEmail = () => {
 };
 
 export const dataPost = (textPost) => {
-  if (textPost !== '') {
+  if (textPost && textPost !== '') {
     const user = currentUser();
     addPost(textPost, user.uid, user.email);
   }

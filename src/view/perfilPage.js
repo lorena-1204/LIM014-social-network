@@ -57,12 +57,23 @@ export default () => {
     const user = currentUser();
     editDescriptions(user.uid, textDescription.value);
   });
-
-  getUser(userID, (userData) => {
-    const user = userData.data();
-    const description = user.Description;
-    const postDescription = document.getElementById('descripcion');
-    postDescription.textContent = description;
+  // const unsubscribe = firebase.firestore().collection('users').doc(userID).onSnapshot((doc) => {
+  //   console.log(doc.data());
+  //   const user = doc.data();
+  //   if (user && user.Description) {
+  //     const description = user.Description;
+  //     const postDescription = document.getElementById('descripcion');
+  //     postDescription.textContent = description;
+  //   }
+  // });
+  // unsubscribe(); // para desactivar el onsnapshot, el observador se quita
+  getUser(userID, (doc) => {
+    const user = doc.data();
+    if (user && user.Description) {
+      const description = user.Description;
+      const postDescription = document.getElementById('descripcion');
+      postDescription.textContent = description;
+    }
   });
 
   const publicar = templatePerfilPage.querySelector('#btn');
@@ -93,6 +104,8 @@ export default () => {
   createPost.addEventListener('click', () => {
     dataPost(textPost.value, createPost);
     textPost.value = '';
+    createPost.classList.remove('string-text-post');
+    createPost.classList.add('btn-to-post-default');
   });
 
   return templatePerfilPage;

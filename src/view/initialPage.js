@@ -61,6 +61,8 @@ export default () => {
   createPost.addEventListener('click', () => {
     dataPost(textPost.value, createPost);
     textPost.value = '';
+    createPost.classList.remove('string-text-post');
+    createPost.classList.add('btn-to-post-default');
   });
 
   const perfilUser = templateInitialPage.querySelector('#myPerfil');

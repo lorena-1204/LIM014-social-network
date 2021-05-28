@@ -5,18 +5,117 @@
 margin: 0;
 padding: 0;
 }
+
+.tabs {
+  padding: 4px;
+  margin-bottom: 1rem;
+  border-bottom-left-radius: 18px;
+  border-bottom-right-radius: 18px;
+  background: linear-gradient(-30deg, #21897e 0%, #3ba99c 25%, #69d1c5 50%, #7ebce6 75%, #8980f5 100%);
+}
+/*
+.tabs.colors-2 {
+  background: linear-gradient(-30deg, #6dd3ce 0%, #c8e9a0 25%, #f7a278 50%, #a13d63 75%, #f7a278 100%);
+}
+.tabs.colors-3 {
+  background: linear-gradient(-30deg, #f5ffc6 0%, #b4e1ff 25%, #ab87ff 50%, #fface4 75%, #c1ff9b 100%);
+}
+.tabs.colors-4 {
+  background: linear-gradient(-30deg, #f72585 0%, #7209b7 25%, #3a0ca3 50%, #4361ee 75%, #4cc9f0 100%);
+}
+*/
+
+.tabs__inner {
+  display: flex;
+  width: auto;
+  min-width: 360px;
+  justify-content: space-evenly;
+  align-items: center;
+  background-color:rgb(43,2,0,0.75);
+  /*background-color: #222233;*/
+  padding: 0.4rem;
+  border-radius: 16px;
+}
+.tabs__item img {
+  width: 50%;
+}
+#bar-chart {
+  width: 40px;
+}
+#logOut {
+  transform: scaleX(-1);
+}
+.tabs__inner .tabs__item {
+  color: white;
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+  width: 50px;
+  transition: 0.2s ease;
+  border-radius: 16px;
+  position: relative;
+}
+ #menu-perfil {
+  height: 50px;
+  width: 150px;
+}
+.tabs__inner .tabs__item:hover, .tabs__inner .tabs__item.tabs__item--active, #menu-perfil:hover {
+  background-color: rgba(200, 200, 200, 0.05);
+}
+.tabs__inner .tabs__item .tabs__tooltip {
+  background-color: #222233;
+  border-radius: 10px;
+  color: #ccc;
+  font-family: Allerta Stencil;
+  padding: 0.4rem;
+  font-size: 14px;
+  display: block;
+  width: auto;
+  min-width: 80px;
+  text-align: center;
+  position: absolute;
+  user-select: none;
+  top: 50%;
+  opacity: 0;
+  transform: scale(0.4);
+  transition: 0.2s ease;
+}
+.tabs__inner .tabs__item:hover .tabs__tooltip {
+  transform: scale(1);
+  opacity: 1;
+  top: calc( 100% + 0.4rem + 4px + 4px ); /*Height, tabbar, border, spacing*/
+}
+
+
 #user-pic-initalPage {
   width: 40px;
   height: 40px;
   border-radius:150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#backgroung-img {
+  background: -webkit-linear-gradient(-30deg, #21897e 0%, #3ba99c 25%, #69d1c5 50%, #7ebce6 75%, #8980f5 100%);
+  background: linear-gradient(-30deg, #21897e 0%, #3ba99c 25%, #69d1c5 50%, #7ebce6 75%, #8980f5 100%);
+  border-radius: 150px;
+  padding: 2.5px;
 }
 .menu-perfil {
   display: flex;
   flex-direction: row;
   align-items: center;
 }
-.menu-perfil li {
+#myPerfil {
   padding-left: 5px;
+  font-family: Allerta Stencil;
+
+  background: -webkit-linear-gradient(-30deg, #21897e 0%, #3ba99c 25%, #69d1c5 50%, #7ebce6 75%, #8980f5 100%);
+  background: linear-gradient(-30deg, #21897e 0%, #3ba99c 25%, #69d1c5 50%, #7ebce6 75%, #8980f5 100%);
+  -webkit-background-clip: text;  
+  -webkit-text-fill-color: transparent;  
 }
 nav ul {
   list-style: none;

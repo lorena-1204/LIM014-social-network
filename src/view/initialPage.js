@@ -3,24 +3,48 @@ import { dataPost, signOutUser, perfilPageUser } from '../lib/view-controller.js
 // eslint-disable-next-line import/no-cycle
 import { showPost, setupPosts } from '../lib/posts.js';
 // eslint-disable-next-line import/no-cycle
-// import { getUser } from '../lib/firestore-controller.js';
+import { getUser } from '../lib/firestore-controller.js';
 
 export default () => {
   const templateInitialPage = document.createElement('section');
   const viewInitialPage = `
-  <nav>
-   <!--Respetar los id del menú-->
-   <!--svg height="60" width="80">
+  <!--nav>
+   <Respetar los id del menú>
+   <svg height="60" width="80">
     <circle cx="30" cy="30" r="25" />
-   </svg-->  
+   </svg>  
    <ul>
     <div class="menu-perfil">
-      <!--img id="user-pic-initalPage" class="demo-avatar"-->
-      <li id="myPerfil">Mi Perfil</li>
+      <img id="user-pic-initalPage" class="demo-avatar">
+      <li id="myPerfil"></li>
     </div>
       <li id="signOut">Cerrar Sesión</li>
    </ul>
-  </nav> 
+  </nav--> 
+
+  <div class="tabs">
+    <div class="tabs__inner">
+        <a class="tabs__item">
+          <img data-feather="home" src="../img/verde pasto.png" id="bar-chart"></img>
+          <span class="tabs__tooltip">I CHEF</span>
+        </a>
+        <a class="tabs__item tabs__item--active">
+          <img data-feather="home" src="https://image.flaticon.com/icons/png/512/747/747589.png"></img>
+          <span class="tabs__tooltip">Inicio</span>
+        </a>
+        <a class="tabs__item" id="menu-perfil">
+          <div id="backgroung-img">
+            <img id="user-pic-initalPage" class="demo-avatar">
+          </div>
+          <span id="myPerfil"></span>
+          <span class="tabs__tooltip">Mi Perfil</span>
+        </a>
+        <a class="tabs__item" id="signOut">
+          <img data-feather="logOut" src="https://image.flaticon.com/icons/png/512/747/747514.png" id="logOut"></img>
+          <span class="tabs__tooltip">Cerrar Sesión</span>
+        </a>
+    </div>
+  </div>
 
   <article class = "create-post">
     <h2>Publica tus recetas</h2>
@@ -65,7 +89,7 @@ export default () => {
     createPost.classList.add('btn-to-post-default');
   });
 
-  const perfilUser = templateInitialPage.querySelector('#myPerfil');
+  const perfilUser = templateInitialPage.querySelector('#menu-perfil');
   perfilUser.addEventListener('click', () => {
     perfilPageUser();
   });
@@ -76,28 +100,30 @@ export default () => {
     signOutUser();
   });
 
-  // const userID = sessionStorage.getItem('id');
-  // getUser(userID, (userData) => {
-  //   if (userData.exists) {
-  //     const user = userData.data();
-  //     const name = user.Usuario;
-  //     const userNameComplete = document.getElementById('myPerfil');
+  const userID = sessionStorage.getItem('id');
+  getUser(userID, (userData) => {
+    if (userData.exists) {
+      const user = userData.data();
+      const name = user.Usuario;
+      const userNameComplete = templateInitialPage.querySelectorAll('#myPerfil');
 
-  //     const separador = ' '; // un espacio en blanco
-  // eslint-disable-next-line max-len
-  //     const arregloDeSubCadenas = name.split(separador); // SEPARA EL NOMBRE EN CADENAS INDIVIDUALES
-  //     // IMPRIME EL NOMBRE INGRESADO
-  //     const nameUser = arregloDeSubCadenas[0];
-  //     userNameComplete.textContent = nameUser;
-
-  //     const userImage = document.getElementById('user-pic-initalPage');
-  //     const userPhoto = user.Photo;
-  //     if (userPhoto != null) {
-  //       userImage.src = userPhoto;
-  //     } else {
-  //       userImage.src = '../img/avatar.png';
-  //     }
-  //   }
-  // });
+      const separador = ' '; // un espacio en blanco
+      const arregloDeSubCadenas = name.split(separador); // SEPARA EL NOMBRE EN CADENAS INDIVIDUALES
+      // IMPRIME EL NOMBRE INGRESADO
+      const nameUser = arregloDeSubCadenas[0];
+      userNameComplete.forEach((e) => {
+        e.textContent = nameUser;
+      });
+      const userImage = templateInitialPage.querySelectorAll('#user-pic-initalPage');
+      const userPhoto = user.Photo;
+      userImage.forEach((e) => {
+        if (userPhoto != null) {
+          e.src = userPhoto;
+        } else {
+          e.src = '../img/avatar.png';
+        }
+      });
+    }
+  });
   return templateInitialPage;
 };

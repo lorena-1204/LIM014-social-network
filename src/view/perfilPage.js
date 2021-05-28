@@ -3,7 +3,7 @@ import { signOutUser, pageInitial, dataPost } from '../lib/view-controller.js';
 // eslint-disable-next-line import/no-cycle
 import { setupPosts } from '../lib/posts.js';
 // eslint-disable-next-line import/no-cycle
-import { editDescriptions, getUser, showPostUserid } from '../lib/firestore-controller.js';
+import { editDescriptions, showPostUserid } from '../lib/firestore-controller.js';
 // eslint-disable-next-line import/no-cycle
 import { currentUser } from '../lib/firebase-controller.js';
 
@@ -18,8 +18,9 @@ export default () => {
     <img id="user-pic" class="demo-avatar">
     <h2 id="name"></h2>
     <h2 id="user-name"></h2>
-    <textarea id="textareaDescription" name="publica" placeholder="Acerca de mi">
-    </textarea>
+    <div>
+    <input id="textareaDescription" name="publica" placeholder="Acerca de mi">
+    </input>
     <button id="btnGuardar">Guardar</button>
     <p id="descripcion"></p>
     </article>

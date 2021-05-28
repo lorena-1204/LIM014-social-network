@@ -345,4 +345,37 @@ footer {
   align-items: flex-end;
   justify-content: center;
 }
+/* Página de Perfil */
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@1,100&display=swap');
+.post{
+  display: grid;
+  grid-template-columns:1fr;
+  grid-gap:1em;
+
+  border:1px dashed #777;
+  height:300px
+}
+.container-post {
+  padding:1em;
+  border: 1px solid #000;
+  border-radius: 10px;
+  width: 60%;
+}
+.container-post .like-counter{
+  text-align: center;
+}
+.container-post .like-counter #btn-like{
+  display: inline-block;
+}
+.container-post .like-counter .numberLikes{
+  display: inline-block;
+}
+.container-post .like-counter .counter-text{
+  display: inline-block;
+}
+#text-post{
+  text-align: center;
+  font-family:Thin 100 italic;
+  font-size: 20px;
+}
 

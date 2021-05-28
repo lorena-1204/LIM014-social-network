@@ -13,8 +13,8 @@ export const templatePost = (doc) => {
     <p id ="text-post">${doc.post}</p>
     
     <section class="like-counter">
-    <a><i class="far fa-heart ${(doc.likes.indexOf(userId) === -1) ? 'unliked' : 'liked'}" id="btn-like"></i></a>
-    <p>${doc.likes.length}</p>
+    <a class="imagenLike"><i class="far fa-heart ${(doc.likes.indexOf(userId) === -1) ? 'unliked' : 'liked'}" id="btn-like"></i></a>
+    <p class="numberLikes">${doc.likes.length}</p>
     <p class="counter-text">likes</p>
    `;
   section.innerHTML = template;

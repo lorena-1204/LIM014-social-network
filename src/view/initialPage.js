@@ -44,9 +44,10 @@ export default () => {
 
   templateInitialPage.classList.add('position');
   templateInitialPage.innerHTML = viewInitialPage;
-  showPost((data, userId) => {
+  const newFn = (data, userId) => {
     setupPosts(data, userId, templateInitialPage);
-  });
+  };
+  showPost(newFn);
   const textPost = templateInitialPage.querySelector('#textarea');
   const createPost = templateInitialPage.querySelector('#btn');
   textPost.addEventListener('input', () => {

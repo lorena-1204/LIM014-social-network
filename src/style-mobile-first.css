@@ -138,8 +138,18 @@
         color: #fff;
         background: #E83505;
     } 
+
     footer {
         display: none;
     }
-  
+}
+
+@media screen and (max-width: 880px) {
+     .logIn,.register{
+        grid-template-columns: 1fr;
+    }
+
+    .left{
+		height: 200px;
+	}
 }

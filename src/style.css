@@ -88,10 +88,11 @@ nav ul {
   }
 
 .create-post {
-  background-color:rgb(43,2,0, 0.7);
+  background-color: rgb(43,2,0, 0.7);
   border-radius: 20px;
-  width: 40%;
+  width: 90%;
   padding: 12px 16px 10px;
+  margin: 30px 10px 15px 20px;
 }
 .create-post h2 {
   font-family: roboto;
@@ -101,7 +102,7 @@ nav ul {
   padding-left: 10px;
 }
 .img-textPost {
-  display: flex;
+ 
   margin: 8px 0 0 0;
 }
 .create-post input {
@@ -347,19 +348,35 @@ footer {
 }
 /* Página de Perfil */
 @import url('https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@1,100&display=swap');
+.grid{
+  display:grid;
+  grid-template-columns: 50% 50%;
+}
+.page_left{
+  background-color: rgb(218, 219, 216);
+}
+.page_right{
+  background-color:rgb(218, 219, 216);
+}
 .post{
   display: grid;
   grid-template-columns:1fr;
   grid-gap:1em;
-
   border:1px dashed #777;
-  height:300px
+  height:300px;  
 }
 .container-post {
-  padding:1em;
+  padding:2rem;
   border: 1px solid #000;
   border-radius: 10px;
-  width: 60%;
+  width: 70%;
+  margin-bottom: 20px;
+  box-shadow: 5px 5px 5px #999;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 5%;
+  margin-bottom: 5%;
+  background-color: rgb(184, 181, 181);
 }
 .container-post .like-counter{
   text-align: center;
@@ -378,4 +395,105 @@ footer {
   font-family:Thin 100 italic;
   font-size: 20px;
 }
+.btn-edit, .btn-delete{
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  position:relative;
+  float: inline-start;
+}
+.btn-edit:hover, .btn-delete:hover{
+  transform: scale(1.1);
+}
+.demo-avatar{
+  
+  width: calc(20% - 1rem);
+ 
+  border-radius: 50%;
+  box-shadow: 5px 5px 5px #999;
+}
+#name, #user-name{
+ 
+  justify-content: center;
+  align-items: center;
+  margin-right: auto;
+  margin-left: auto;
+  padding-top: 10px;
+  text-shadow: 5px 5px 5px #999;
+}
+#textareaDescription {
+border-radius: 40px;
+resize: none;
+overflow: auto;
+width: 90%;
+height: 20px;
+margin: 30px 10px 15px 20px;
+outline: none;
+padding: 5px 10px 15px;
+border: none;
+}
+#btnGuardar{
+  font-family: roboto;
+  color: #F5EBDC;
+  font-size: 14px;
+  background-color: #E83505;
+  border-radius: 5px;
+  outline: none;
+  box-sizing: border-box;
+  border: 0;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  letter-spacing: 0.04em;
+  padding: 6px;
+  cursor: no-drop;
+  margin-left: 85%;
+}
+#descripcion{
+  text-align: center;
+  font-family:Thin 100 italic;
+  font-size: 20px;
+  padding-bottom: 5%;
+  padding-top: 5%;
+}
+.linePost{
+  height: 2px;
+  background-color: black;
+  width: 100%;
+}
 
+.infoUser {
+  border: 1px solid #000 ;
+  display: block;
+  border-radius: 10px;
+  padding: 15px;
+}
+
+.infoUser_data {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.create-post-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: left;
+}
+
+.post-row{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+.position {
+  padding: 10px;
+}
+
+#ruta{
+  margin-right: auto;
+}

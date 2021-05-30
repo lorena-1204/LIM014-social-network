@@ -34,9 +34,11 @@ const changeView = (route) => {
           userName.textContent = displayName;
           userDescripcion.textContent = user.Description;
           const userImage = document.getElementById('user-pic');
+          const userImagePost = document.getElementById('user-pic-post');
           const userPhoto = user.Photo;
           if (userPhoto != null) {
             userImage.src = userPhoto;
+            userImagePost.src = userPhoto;
           } else {
             userImage.src = '../img/avatar.png';
           }

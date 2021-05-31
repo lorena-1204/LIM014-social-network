@@ -3,8 +3,7 @@ import { currentUser } from './firebase-controller.js';
 
 export const templatePost = (doc) => {
   const section = document.createElement('section');
-  // section.style = 'background-color:skyblue';
-  console.log("docu",doc);
+  // section.style = 'bacgit skyblue';
   section.classList.add('container-post');
   const userId = currentUser().uid;
   // console.log(userId);

@@ -88,9 +88,10 @@ export const setupPosts = (data, user, template) => {
     postList.innerHTML = '<h4 class="text-white">Login to See Posts</h4>';
   }
 };
-
+// callback = newFn
 export const showPost = (callback) => {
   firebase.auth().onAuthStateChanged((user) => {
+    // console.log(user)
     if (user) {
       orderPostbyTimeDesc(callback, user.uid);
     } else {

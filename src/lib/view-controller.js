@@ -41,6 +41,7 @@ export const registerWithGoogle = () => {
       // eslint-disable-next-line max-len
       firebase.firestore().collection('users').doc(user.uid).get()
         .then((doc) => {
+          // console.log(doc.data())
           if (!doc.exists) {
             createUser(user.displayName, user.displayName, user.email, user.uid, user.photoURL);
           }
@@ -82,7 +83,6 @@ export const dataPost = (textPost) => {
 export const dataDescription = () => {
   const user = currentUser();
   const textPost = document.querySelector('#textareaDescription').value;
-  console.log("uu2",user);
   addPost(textPost, user.uid, user.nickName, user.photoURL);
 };
 // Cerrar Sesión

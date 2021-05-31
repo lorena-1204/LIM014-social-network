@@ -1,21 +1,18 @@
-// eslint-disable-next-line import/no-cycle
-import { auth } from '../main.js';
 // Funciones Firebase
-
 // registro con email
 // eslint-disable-next-line max-len
-export const register = (email, password) => auth.createUserWithEmailAndPassword(email, password);
+export const register = (email, password) => firebase.auth().createUserWithEmailAndPassword(email, password);
 
 // registro con google
 // eslint-disable-next-line max-len
-export const registerGoogle = (provider) => auth.signInWithPopup(provider);
+export const registerGoogle = (provider) => firebase.auth().signInWithPopup(provider);
+
+export const currentUser = () => firebase.auth().currentUser;
+
+export const sendEmailVerification = () => firebase.auth().currentUser.sendEmailVerification();
 
 // ingreso con email
 // eslint-disable-next-line max-len
-export const signInEmail = (email, password) => auth.signInWithEmailAndPassword(email, password);
+export const signInEmail = (email, password) => firebase.auth().signInWithEmailAndPassword(email, password);
 
-export const currentUser = () => auth.currentUser;
-
-export const sendEmailVerification = () => auth.currentUser.sendEmailVerification();
-
-export const signOut = () => auth.signOut();
+export const signOut = () => firebase.auth().signOut();

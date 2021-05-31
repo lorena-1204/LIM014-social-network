@@ -38,7 +38,6 @@ export default () => {
         
           <h2>Publica tus recetas</h2>
         </div>
-
         <div class="img-textPost">
         <textarea  id="textarea" placeholder="Comparte tus recetas"></textarea>
           <div class="btn-post">
@@ -106,6 +105,31 @@ export default () => {
     textPost.value = '';
     createPost.classList.remove('string-text-post');
     createPost.classList.add('btn-to-post-default');
+  });
+
+  getUser(userID, (userData) => {
+    if (userData.exists) {
+      const user = userData.data();
+      const name = user.Usuario;
+      const userNameComplete = templatePerfilPage.querySelectorAll('#myPerfil');
+
+      const separador = ' '; // un espacio en blanco
+      const arregloDeSubCadenas = name.split(separador); // SEPARA EL NOMBRE EN CADENAS INDIVIDUALES
+      // IMPRIME EL NOMBRE INGRESADO
+      const nameUser = arregloDeSubCadenas[0];
+      userNameComplete.forEach((e) => {
+        e.textContent = nameUser;
+      });
+      const userImage = templatePerfilPage.querySelectorAll('#user-pic-initalPage');
+      const userPhoto = user.Photo;
+      userImage.forEach((e) => {
+        if (userPhoto != null) {
+          e.src = userPhoto;
+        } else {
+          e.src = '../img/avataar.png';
+        }
+      });
+    }
   });
 
   return templatePerfilPage;

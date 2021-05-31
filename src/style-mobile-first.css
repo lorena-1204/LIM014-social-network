@@ -1,4 +1,77 @@
 @media screen and (max-width: 600px) {
+    .tabs {
+        background: inherit;
+    }
+    .tabs__inner {
+        position: fixed;
+        bottom: 0;
+        border-radius: 50px;
+        width: 10%;
+
+    }      
+    .tabs__inner .tabs__item h1 {
+        font-size: 15px;
+    }
+    .tabs .tabs__inner {
+        width: 10%;
+    }
+}
+@media screen and (max-width: 650px) {
+    .tabs__item img {
+        width: 35%;
+    }
+    .tabs__inner .tabs__item h1 {
+        display: none;
+        font-size: 10px;
+    }
+    #bar-chart {
+        width: 90%;
+    }
+    #myPerfil-Inital {
+        display: none;
+        font-size: 10px;
+        height: 20px;
+        width: 80px;      
+    }
+    .tabs__inner .tabs__item:nth-child(1) {
+        width: 50px;
+    }      
+    #menu-perfil {
+        height: 50px;
+        width: 80px;
+    }
+    .tabs__inner {
+        display: flex;
+        width: auto;
+        min-width: 250px;
+        justify-content: space-evenly;
+    }
+}
+@media screen and (max-width: 450px) {
+    .tabs__inner {
+        display: flex;
+        width: auto;
+        min-width: 200px;
+        justify-content: space-evenly;
+    }
+    #menu-perfil {
+        height: 50px;
+        width: 60px;
+    }
+}
+@media screen and (max-width: 350px) {
+    .tabs__inner {
+        display: flex;
+        width: auto;
+        min-width: 150px;
+        justify-content: space-evenly;
+    }
+    #menu-perfil {
+        height: 50px;
+        width: 60px;
+    }
+}
+@media screen and (max-width: 300px) {
     #background-opacity-none {
         background-color: rgba(255, 255, 255);
         filter:brightness(1);      
@@ -142,4 +215,17 @@
         display: none;
     }
   
+}
+@media screen and (max-width: 600px) {
+    .tabs {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        justify-content: center;
+    }
+    .tabs .tabs__inner{
+        width: 30%;
+        justify-content: space-around;
+
+    }
 }

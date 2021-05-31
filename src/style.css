@@ -1,4 +1,3 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Allerta+Stencil&display=swap');
 *{
@@ -7,11 +6,11 @@ padding: 0;
 }
 
 .tabs {
-  padding: 4px;
+  padding-bottom: 4px;
   margin-bottom: 1rem;
-  border-bottom-left-radius: 18px;
-  border-bottom-right-radius: 18px;
-  background: linear-gradient(-30deg, #21897e 0%, #3ba99c 25%, #69d1c5 50%, #7ebce6 75%, #8980f5 100%);
+  /*border-bottom-left-radius: 18px;
+  border-bottom-right-radius: 18px;*/
+  background: linear-gradient(-30deg, #e83505 0%, #FF8408 25%, #ab0050 50%, #fa3f0d 75%, #8b3306 100%);
 }
 /*
 .tabs.colors-2 {
@@ -23,6 +22,9 @@ padding: 0;
 .tabs.colors-4 {
   background: linear-gradient(-30deg, #f72585 0%, #7209b7 25%, #3a0ca3 50%, #4361ee 75%, #4cc9f0 100%);
 }
+.tabs.colors-5 {
+  background: linear-gradient(-30deg, #21897e 0%, #3ba99c 25%, #69d1c5 50%, #7ebce6 75%, #8980f5 100%);
+  }
 */
 
 .tabs__inner {
@@ -31,22 +33,48 @@ padding: 0;
   min-width: 360px;
   justify-content: space-evenly;
   align-items: center;
-  background-color:rgb(43,2,0,0.75);
-  /*background-color: #222233;*/
+  background-color: rgb(34,34,51);
+  
+  /*background-color:rgb(157,36,3,0.9);*/
+  /*background-color:rgb(43,2,0,0.6);*/
+  /*background-color: rgb(34,34,51,0.85);*/
+  /*background-color: #fff;*/
   padding: 0.4rem;
-  border-radius: 16px;
+
 }
 .tabs__item img {
   width: 50%;
 }
 #bar-chart {
-  width: 40px;
+  width: 50px;
+}
+.tabs__inner .tabs__item:nth-child(1) {
+  display: flex;
+  width: 150px;
+}
+.tabs__inner .tabs__item h1 {
+  padding: 5px;
+  font-family: Allerta Stencil;
+  font-style: normal;
+  font-weight: 900;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  letter-spacing: -0.015em;
+  font-size: 25px;
+
+  background: -webkit-linear-gradient(30deg, #97461a 0%, #aa6709 35%, #fbd8c5 50%,#aa6709 75%, #942604 100%);
+  background: linear-gradient(30deg, #97461a 0%, #aa6709 35%, #fbd8c5 50%,#aa6709 75%, #942604 100%);
+  -webkit-background-clip: text;  
+  -webkit-text-fill-color: transparent;  
+  filter: drop-shadow(2px 2px #000);
+
 }
 #logOut {
   transform: scaleX(-1);
 }
 .tabs__inner .tabs__item {
-  color: white;
+  color: #bbb4b4;
   text-decoration: none;
   display: flex;
   justify-content: center;
@@ -61,8 +89,18 @@ padding: 0;
   height: 50px;
   width: 150px;
 }
-.tabs__inner .tabs__item:hover, .tabs__inner .tabs__item.tabs__item--active, #menu-perfil:hover {
-  background-color: rgba(200, 200, 200, 0.05);
+#menu-perfil-page {
+  height: 50px;
+  width: 150px;
+}
+.tabs__inner .tabs__item.tabs__item--active {
+  background-color: rgba(143, 140, 140, 0.15);;
+}
+.tabs__inner .tabs__item.tabs__item--active:hover, #menu-perfil-page, #menu-perfil-page:hover {
+  background-color: rgba(143, 140, 140, 0.15);;
+}
+.tabs__inner .tabs__item:hover, #menu-perfil:hover {
+  background-color: rgba(0, 0, 0, 0.25);;
 }
 .tabs__inner .tabs__item .tabs__tooltip {
   background-color: #222233;
@@ -88,10 +126,9 @@ padding: 0;
   top: calc( 100% + 0.4rem + 4px + 4px ); /*Height, tabbar, border, spacing*/
 }
 
-
 #user-pic-initalPage {
-  width: 40px;
-  height: 40px;
+  width: 35px;
+  height: 35px;
   border-radius:150px;
   display: flex;
   align-items: center;
@@ -99,7 +136,7 @@ padding: 0;
 }
 #backgroung-img {
   background: -webkit-linear-gradient(-30deg, #21897e 0%, #3ba99c 25%, #69d1c5 50%, #7ebce6 75%, #8980f5 100%);
-  background: linear-gradient(-30deg, #21897e 0%, #3ba99c 25%, #69d1c5 50%, #7ebce6 75%, #8980f5 100%);
+  background: linear-gradient(-30deg, #e83505 0%, #FF8408 25%, #ab0050 50%, #fa3f0d 75%, #8b3306 100%);
   border-radius: 150px;
   padding: 2.5px;
 }
@@ -111,11 +148,17 @@ padding: 0;
 #myPerfil {
   padding-left: 5px;
   font-family: Allerta Stencil;
-
-  background: -webkit-linear-gradient(-30deg, #21897e 0%, #3ba99c 25%, #69d1c5 50%, #7ebce6 75%, #8980f5 100%);
-  background: linear-gradient(-30deg, #21897e 0%, #3ba99c 25%, #69d1c5 50%, #7ebce6 75%, #8980f5 100%);
+  color: #fff;
+ /* background: -webkit-linear-gradient(-30deg, #21897e 0%, #3ba99c 25%, #69d1c5 50%, #7ebce6 75%, #8980f5 100%);
+  background: #fff;
   -webkit-background-clip: text;  
-  -webkit-text-fill-color: transparent;  
+  -webkit-text-fill-color: transparent;  */
+}
+#myPerfil-Inital {
+  padding-left: 5px;
+  font-family: Allerta Stencil; 
+  color: #fff;
+
 }
 nav ul {
   list-style: none;
@@ -124,6 +167,7 @@ nav ul {
   width: 20%;
   padding: 20px;
 }
+/**/
 .button {
   padding: 15px 35px;
   font-size: 12px;

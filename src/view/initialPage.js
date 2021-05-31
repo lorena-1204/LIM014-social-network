@@ -87,10 +87,11 @@ export default () => {
       const separador = ' '; // un espacio en blanco
       const arregloDeSubCadenas = name.split(separador); // SEPARA EL NOMBRE EN CADENAS INDIVIDUALES
       // IMPRIME EL NOMBRE INGRESADO
-      for (let x = 1; x < arregloDeSubCadenas.length; x++) {
-        const nameUser = `${arregloDeSubCadenas[0]}`;
-        userNameComplete.textContent = nameUser;
-      }
+      const nameUser = arregloDeSubCadenas[0];
+      userNameComplete.forEach((e) => {
+        e.textContent = nameUser;
+      });
+
       const userImage = document.getElementById('user-pic-initalPage');
       const userPhoto = user.Photo;
       if (userPhoto != null) {

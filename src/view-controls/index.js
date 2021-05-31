@@ -38,7 +38,7 @@ const changeView = (route) => {
             userImage.src = '../img/avatar.png';
           }
         } else {
-          console.log('No encontrado');
+          // console.log('No encontrado');
         }
       });
       break;
@@ -46,6 +46,7 @@ const changeView = (route) => {
     default:
     { return container.appendChild(components.home()); }
   }
+  return changeView;
 };
 
 const changeHash = (nameHash, setData) => {

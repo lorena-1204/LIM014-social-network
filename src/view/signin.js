@@ -8,7 +8,6 @@ export default () => {
   <article class="left"></article>
    <article class="right">
     <a class="back" href=#/>↩</a>
-    
     <h1 class="letter"> Inicia Sesión </h1> <input class="email" id="email" type="email" placeholder="usuario@example.com">
     <input class="password" id="password" type="password" placeholder="********">
     <p class="errorMail" id= "errorMail" style="display: none"> Correo inválido. Por favor, revísalo nuevamente.</p>

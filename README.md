@@ -1,341 +1,152 @@
-# Creando una Red Social
-
-## Índice
-
-* [1. Preámbulo](#1-preámbulo)
-* [2. Resumen del proyecto](#2-resumen-del-proyecto)
-* [3. Objetivos de aprendizaje](#3-objetivos-de-aprendizaje)
-* [4. Consideraciones generales](#4-consideraciones-generales)
-* [5. Criterios de aceptación mínimos del proyecto](#5-criterios-de-aceptación-mínimos-del-proyecto)
-* [6. Hacker edition](#6-hacker-edition)
-* [7. Entrega](#7-entrega)
-* [8. Pistas, tips y lecturas complementarias](#8-pistas-tips-y-lecturas-complementarias)
-
-## 1. Preámbulo
-
-Instagram, Snapchat, Twitter, Facebook, Twitch, Linkedin, etc. Las redes
-sociales han invadido nuestras vidas. Las amamos u odiamos, y muchos no podemos
-vivir sin ellas.
-
-Hay redes sociales de todo tipo y para todo tipo de intereses. Por ejemplo,
-en una ronda de financiamiento con inversionistas, se presentó una red social
-para químicos en la que los usuarios podían publicar artículos sobre sus
-investigaciones, comentar en los artículos de sus colegas, y filtrar artículos
-de acuerdo a determinadas etiquetas o su popularidad, lo más reciente, o lo
-más comentado.
-
-## 2. Resumen del proyecto
-
-En este proyecto construirás una Red Social sobre lo que decidan tú y tu equipo.
-Podría ser, por ejemplo, sobre alimentación saludable, feminismo, educación,
-salud, energías renovables, amantes de las [Empanadas](https://es.wikipedia.org/wiki/Empanada)
-o de los [Tacos de Canasta](https://es.wikipedia.org/wiki/Taco), de la
-[Feijoada](https://es.wikipedia.org/wiki/Feijoada), o de lo que sea.
-
-Tu Red Social tendrá que permitir a cualquier usuario crear una cuenta de
-acceso y loguearse con ella; crear, editar, borrar y _"likear"_ publicacciones.
-
-## 3. Objetivos de aprendizaje
-
-El objetivo principal de aprendizaje de este proyecto es construir una
-[Single-page Application (SPA)](https://es.wikipedia.org/wiki/Single-page_application)
-[_responsive_](../../topics/css/02-responsive) (con más de una vista / página)
-en la que podamos **leer y escribir datos.**
-
-### HTML y CSS
-
-* [ ] [Uso de HTML semántico.](https://developer.mozilla.org/en-US/docs/Glossary/Semantics#Semantics_in_HTML)
-* [ ] Uso de selectores de CSS.
-* [ ] [Uso de flexbox en CSS.](https://css-tricks.com/snippets/css/a-guide-to-flexbox/)
-* [ ] [Uso de CSS Grid Layout](https://css-tricks.com/snippets/css/complete-guide-grid/)
-
-A continuación te proporcionamos el layout (diseño) de la vista mobile y desktop que deberás replicar visualmente y cuyo contenido, colores y fuentes de texto, dejaremos a tu elección.
-
-* Vista mobile
-
-    ![mobile](https://user-images.githubusercontent.com/32286663/56174616-ec9f6100-5fb8-11e9-9edb-d5ef7c251d9c.png)
-
-* Vista Desktop
-
-    ![desktop](https://user-images.githubusercontent.com/32286663/56174626-fcb74080-5fb8-11e9-8854-26e8d9c4e25f.png)
-
-### DOM y Web APIs
-
-* [ ] Uso de selectores del DOM.
-* [ ] Manejo de eventos del DOM (addEventListener, removeEventListener,
-Event objeto, delegación de eventos)
-* [ ] [Manipulación dinámica del DOM](
-  https://developer.mozilla.org/es/docs/Referencia_DOM_de_Gecko/Introducci%C3%B3n)
-(appendChild | createElement | createTextNode | innerHTML | textContent | etc.)
-* [ ] Implementación de routing ([History API.](
-  https://developer.mozilla.org/es/docs/DOM/Manipulando_el_historial_del_navegador
-  ) | `hashchange`)
-
-### JavaScript
-
-* [ ] Uso de condicionales (if-else | switch | operador ternario)
-* [ ] Uso de funciones (parámetros | argumentos | valor de retorno)
-* [ ] Manipular arrays (filter | map | sort | reduce)
-* [ ] Manipular objects (key | value)
-* [ ] Uso ES modules ([`import`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import)
-| [`export`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/export))
-* [ ] Diferenciar entre expression y statements.
-* [ ] Diferenciar entre tipos de datos atómicos y estructurados.
-* [ ] [Uso de callbacks.](https://developer.mozilla.org/es/docs/Glossary/Callback_function)
-* [ ] [Consumo de Promesas.](https://scotch.io/tutorials/javascript-promises-for-dummies#toc-consuming-promises)
-
-### Testing
-
-* [ ] [Testeo unitario.](https://jestjs.io/docs/es-ES/getting-started)
-* [ ] [Testeo asíncrono.](https://jestjs.io/docs/es-ES/asynchronous)
-* [ ] [Uso de librerias de Mock.](https://jestjs.io/docs/es-ES/manual-mocks)
-
-### Estructura del código y guía de estilo
-
-* [ ] Organizar y dividir el código en módulos (Modularización)
-* [ ] Uso de identificadores descriptivos (Nomenclatura | Semántica)
-* [ ] Uso de linter (ESLINT)
-
-### Git y Github
-
-* [ ] Uso de comandos de git (add | commit | pull | status | push)
-* [ ] Manejo de repositorios de GitHub (clone | fork | gh-pages)
-* [ ] Colaboración en Github (branches | pull requests | |tags)
-* [ ] Organización en Github (projects | issues | labels | milestones)
-
-### Firebase
-
-* [ ] [Firestore.](https://firebase.google.com/docs/firestore)
-* [ ] [Firebase Auth.](https://firebase.google.com/docs/auth/web/start)
-* [ ] [Firebase security rules.](https://firebase.google.com/docs/rules)
-* [ ] Observadores. ([onAuthStateChanged](https://firebase.google.com/docs/auth/web/manage-users?hl=es#get_the_currently_signed-in_user)
- | [onSnapshot](https://firebase.google.com/docs/firestore/query-data/listen#listen_to_multiple_documents_in_a_collection))
-
-### UX
-
-* [ ] Diseñar la aplicación pensando y entendiendo al usuario.
-* [ ] Crear prototipos para obtener feedback e iterar.
-* [ ] Aplicar los principios de diseño visual (contraste, alineación, jerarquía)
-* [ ] Planear y ejecutar tests de usabilidad.
-
-## 4. Consideraciones generales
-
-* Este proyecto se debe trabajar en equipos de tres.
-
-* La lógica del proyecto debe estar implementada completamente en JavaScript
-  (ES6+), HTML y CSS :smiley:. Para este proyecto **no está permitido** utilizar
-  _frameworks_ o librerías de CSS y JS.
-
-* La división y organización del trabajo debe permitir, sin excepciones, que
-  **cada integrante** del equipo practique el aprendizaje de todo lo involucrado
-  en **cada historia**. _No se dividan el trabajo como en una fábrica._
-  - ¿Hasta acá has avanzado en tus proyectos con cierta fluidez y sin mayores
-    problemas? Sé generosa con tus compañeras, permíteles aprender y practicar
-    sin restricciones, aunque tome un poco más de tiempo. Aproveha de
-    _coachearlas_, de hacer _pair programming_, una de las mejores maneras de
-    aprender es explicando verbalmente.
-
-  - ¿Se te está haciendo difícil y te cuesta un poco más avanzar? No te quedes
-    con las partes "fáciles" del proyecto, conversa, negocia, exige tu oportunidad
-    para practicar y aprender lo que se te hace más difícil.
-
-* Solamente pueden trabajar en una única historia por vez, no pueden avanzar a
-  la siguiente sin haber completado la anterior. La historia se completa cuando
-  se cumplen **todos** sus Criterios de Aceptación + **toda** su Definición
-  de Terminado.
-
-Para comenzar tendrás que hacer un _fork_ y _clonar_ este repositorio.
-
-## 5. Criterios de aceptación mínimos del proyecto
-
-### 5.1 Boilerplate
-
-Este proyecto no incluye un _boilerplate_, así es que tendrás que definir la
-estructura de carpetas y escribir tus propias Pruebas Unitarias (_tests_). Para
-hacerlo, puedes guiarte de los proyectos anteriores.
-
-### 5.2 Definición del producto
-
-En el `README.md` cuéntanos brevemente cómo descubriste las necesidades de los
-usuarios y cómo llegaste a la definición final de tu producto. Es importante
-que detalles:
-
-* Quiénes son los principales usuarios de producto.
-* Qué problema resuelve el producto / para qué le servirá a estos usuarios.
-
-### 5.3 Historias de usuario
-
-Una vez que entiendas las necesidades de tus usuarixs, escribe las Historias de
-Usuario que representen todo lo que necesitan hacer/ver en la Red Social. Cada
-una de tus Historias de Usuario debe tener:
-
-* **Criterios de Aceptación:** todo lo que debe ocurrir para satisfacer las
-  necesidades del usuario.
-
-* **Definición de terminado:** todos los aspectos técnicos que deben cumplirse
-  para que, como equipo, sepan que esa historia está terminada y lista
-  para publicarse. **Todas** tus Historias de Usuario (salvo excepciones), deben
-  incluir estos aspectos en su Definición de Terminado (más todo lo que
-  necesiten agregar):
-
-  - Debe ser una SPA.
-  - Debe ser _responsive_.
-  - Deben haber recibido _code review_ de al menos una compañera de otro equipo.
-  - Hicieron los _test_ unitarios
-  - Testearon manualmente buscando errores e imperfecciones simples.
-  - Hicieron _pruebas_ de usabilidad e incorporaron el _feedback_ de los
-    usuarios como mejoras.
-  - Desplegaron su aplicación y etiquetaron la versión (git tag).
-
-### 5.4 Diseño de la Interfaz de Usuario (prototipo de baja fidelidad)
-
-Debes definir cuál será el flujo que seguirá el usuario dentro de tu aplicación
-y, con eso, diseña la Interfaz de Usuario (UI por sus siglas en inglés) que
-siga este flujo.
-
-### 5.5 Responsive
-
-Debe verse bien en dispositivos de pantallas grandes
-(computadoras/es, laptops, etc.) y pequeñas (_tablets_, celulares, etc.). Te
-sugerimos seguir la técnica de _`mobile first`_ (más detalles sobre esta técnica
-al final).
-
-### 5.6 Consideraciones del comportamiento de la interfaz de usuario (UI)
-
-Estas consideraciones te ayudarán a escribir las Definiciones de Terminado de
-tus H.U.:
-
-#### Creación de cuenta de usuario e inicio de sesión
-
-* _Login_ con Firebase:
-  - Para el _login_ y las publicaciones en el muro puedes utilizar [Firebase](https://firebase.google.com/products/database/)
-  - Creación de cuenta de acceso y autenticación con cuenta de correo y
-    contraseña, y también con una cuenta de Google.
-* Validaciones:
-  - Solamente se permite el acceso a usuarios con cuentas válidas.
-  - No pueden haber usuarios repetidos.
-  - La cuenta de usuario debe ser un correo electrónico válido.
-  - Lo que se escriba en el campo (_input_) de contraseña debe ser secreto.
-* Comportamiento:
-  - Al enviarse el formulario de registro o inicio de sesión, debe validarse.
-  - Si hay errores, se deben mostrar mensajes descriptivos para ayudar al
-  usuario a corregirlos.
-
-#### Muro/timeline
-
-* Validaciones:
-  - Al publicar, se debe validar que exista contenido en el _input_.
-* Comportamiento:
-  - Al recargar la aplicación, se debe verificar si el usuario está _logueado_
-    antes de mostrar contenido.
-  - Poder publicar un _post_.
-  - Poder dar y quitar _like_ a una publicación. Máximo uno por usuario.
-  - Llevar un conteo de los _likes_.
-  - Poder eliminar un post específico.
-  - Pedir confirmación antes de eliminar un _post_.
-  - Al dar _click_ para editar un _post_, debe cambiar el texto por un _input_
-    que permita editar el texto y luego guardar los cambios.
-  - Al guardar los cambios debe cambiar de vuelta a un texto normal pero con la
-    información editada.
-  - Al recargar la página debo de poder ver los textos editados.
-
-### 5.7 Consideraciones técnicas Front-end
-
-* Separar la manipulación del DOM de la lógica (Separación de responsabilidades).
-* Contar con múltiples vistas. Para esto, tu aplicación debe ser una
- [Single Page Application (SPA)](https://es.wikipedia.org/wiki/Single-page_application)
-* Alterar y persistir datos. Los datos que agregues o modifiques deberán
-  persistir a lo largo de la aplicación. Te recomendamos que uses
-  [Firebase](https://firebase.google.com/) para eso también.
-
-#### Pruebas unitarias (unit tests)
-
-* Recuerda que no hay un _setup_ de **tests** definido, dependerá de
-  la estructura de tu proyecto. Algo que no debes de olvidar es pensar en éstas
-  pruebas, te pueden ayudar a definir la estructura y nomenclatura de tu lógica.
-
-* Los tests unitarios deben cubrir un mínimo del 70% de _statements_, _functions_,
-  _lines_, y _branches_.
-
-### 5.8 Consideraciones técnicas UX
-
-* Hacer al menos 2 entrevistas con usuarios.
-* Hacer un  prototipo de baja fidelidad.
-* Asegurarte de que la implementación en código siga los lineamientos del
-  diseño.
-* Hacer sesiones de _testing de usabilidad_ con el producto en HTML.
-
-## 6. Hacker edition
-
-Las secciones llamadas _Hacker Edition_ son **opcionales**. Si **terminaste**
-con todo lo anterior y te queda tiempo, intenta completarlas. Así podrás
-profundizar y/o ejercitar más sobre los objetivos de aprendizaje del proyecto.
-
-* Permite crear posts con imágenes.
-* Permite buscar usuarios, agregar y eliminar "amigos".
-* Permite definir la privacidad de los _posts_ (público o solamente para amigos).
-* Permite ver su muro de cualquier usuario "no-amigo" (solamente los
-  posts _públicos_).
-* Permite comentar o responder una publicación.
-* Permite editar perfil.
-
-## 7. Entrega
-
-El proyecto será _entregado_ subiendo tu código a GitHub (`commit`/`push`) y la
-interfaz será desplegada usando GitHub pages u otro servicio de hosting que
-puedas haber encontrado en el camino.
-
+# Red Social: IChef 
+(っ＾▿＾)۶🍸🌟🍺٩(˘◡˘ )
 ***
 
-## 8. Pistas, tips y Lecturas complementarias
+## 1. Definición
+IChef, es una red social creada para amantes de la cocina, esta plataforma permite que los usuarios publiquen sus recetas, visualizar las recetas de otras personas, den like a sus recetas favoritas.\
+Si no sabes que cocinar el día de hoy  visita IChef y encuentre deliciosas comidas.
 
-### Mobile first
+## 2. Prototipo
 
-El concepto de [_mobile first_](https://www.mediaclick.es/blog/diseno-web-responsive-design-y-la-importancia-del-mobile-first/)
-hace referencia a un proceso de diseño y desarrollo donde partimos de cómo se ve
-y cómo funciona la aplicación en un dispositivo móvil primero, y más adelante se
-ve como adaptar la aplicación a pantallas progresivamente grandes y
-características específicas del entorno desktop. Esto es en contraposición al
-modelo tradicional, donde primero se diseñaban los websites (o webapps) para
-desktop y después se trataba de _arrugar_ el diseño para que entre en pantallas
-más chicas. La clave acá es asegurarse de que desde el principio diseñan usando
-la vista _responsive_ de las herramientas de desarrollador (developer tools) del
-navegador. De esa forma, partimos de cómo se ve y comporta la aplicación en una
-pantalla y entorno móvil.
 
-### Múltiples vistas
+## 3. Historia de Usuario
 
-En proyectos anteriores nuestras aplicaciones habían estado compuestas de una
-sola _vista_ principal (una sóla _página_). En este proyecto se introduce la
-necesidad de tener que dividir nuestra interfaz en varias _vistas_ o _páginas_
-y ofrecer una manera de navegar entre estas vistas. Este problema se puede
-afrontar de muchas maneras: con archivos HTML independientes (cada uno con su
-URL) y links tradicionales, manteniendo estado en memoria y rederizando
-condicionalmente (sin refrescar la página), [manipulando el historial del
-navegador](https://developer.mozilla.org/es/docs/DOM/Manipulando_el_historial_del_navegador)
-con [`window.history`](https://developer.mozilla.org/es/docs/Web/API/Window/history).
-En este proyecto te invitamos a explorar opciones y decidir una opción
-de implementación.
+### 3.1 **Historia de usuario  1 - Registro**
+**Como:** Usuario nuevo de una red social.\
+**Quiero:** Poder registrarme con o sin tener un correo gmail e ingresar una contraseña y tener un nombre de usuario.\
+**Para:** Poder ingresar a la red social.
 
-### Escritura de datos
+**Criterios de aceptación:** 
+* **H1.0 -  mobile** 
+  - Mostrar un botón que te lleve a la página de iniciar sesión.
+  - Mostrar un botón que te lleve a la página de Registrarse.
 
-En los proyectos anteriores hemos consumido (leído) datos, pero todavía no
-habíamos escrito datos (salvar cambios, crear datos, borrar, ...). En este
-proyecto tendrás que crear (salvar) nuevos datos, así como leer, actualizar y
-modificar datos existentes. Estos datos se podrán guardar de forma remota
-usando [Firebase](https://firebase.google.com/).
+* **H.U 1.1 - Ingresar por correo**
+  - Se visualiza input donde el usuario ingrese sus datos:  nombre completo, nombre de usuario, correo y contraseña.
+  - Botón para poder confirmar que se registro.
+  - Si el usuario coloca mal sus datos o deja algún espacio en blanco saldrá un mensaje : “El correo que ingresó es invalido, vuelva a intentarlo.”
+  - Visualizar los datos en la base firebase 
 
-### Otras:
+* **H.U 1.2 - Ingresar por google**
+  - Poder registrarse con una cuenta de google.
+  - Crear un Botón para que se registre.
+  - Visualizar los datos en la base firebase 
+ 
+### 3.2 **Historia de usuario   2 - Loguearse**
+**Como:** Usuario de una red social.\
+**Quiero:** Poder ingresar a través de mi gmail o colocar mi usuario y contraseña.\
+**Para:** Logearme.
 
-* [Pildora SPA](https://www.loom.com/share/fa63a8ad0e9a43428222c15b6f6613d3)
-* [Repositorio de pildora de SPA](https://github.com/betsyvies/bootcamp-spa)
-* [Pildora de mock Firebase](https://www.youtube.com/watch?v=06myVn41OTY&t=1s)
-* [Repositorio de pildora de mock Firebase](https://github.com/Danielalab/2018-2-Testing)
-* [Pildora MVC](https://github.com/merunga/todomvc-vanillajs)
-* [Modulos: Export](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Sentencias/export)
-* [Modulos: Import](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Sentencias/import)
-* [Diseño web, responsive design y la importancia del mobile first - Media Click](https://www.mediaclick.es/blog/diseno-web-responsive-design-y-la-importancia-del-mobile-first/)
-* [Mobile First: el enfoque actual del diseño web móvil - 1and1](https://www.1and1.es/digitalguide/paginas-web/diseno-web/mobile-first-la-nueva-tendencia-del-diseno-web/)
-* [Mobile First - desarrolloweb.com](https://desarrolloweb.com/articulos/mobile-first-responsive.html)
-* [Mobile First - ZURB](https://zurb.com/word/mobile-first)
-* [Mobile First Is NOT Mobile Only - Nielsen Norman Group](https://www.nngroup.com/articles/mobile-first-not-mobile-only/)
+**Criterios mínimos de aceptación:**
+* **H.U. 2.0 - Loguearse por correo**
+  - Input donde se coloque el usuario y contraseña.
+  - Crear un botón que te permita validar el correo y usuario. 
+  - Si el correo no está registrado , mostrar un mensaje: “Correo no válido”.
+  - Si los datos son correctos  pasar a la página de Inicio.
+
+* **H.U. 2.1 - Loguearse por google**
+  - Boton , donde se ingresará a través de gmail.
+  - Si los datos son correctos  pasar a la página de Inicio.
+
+### 3.3 **Historia de usuario  3 - Crear post, modificar contenido y eliminar post**
+**Como:** Usuario.\
+**Quiero:**  Publicar, editar, borrar y visualizar mi  publicación.\
+**Para:** Poder dar a conocer mis recetas
+
+**Criterios de aceptación:**
+* **H.U. 3.0 - Crear sección publicar post**
+  - Crear un input donde se pueda escribir lo que se desea publicar.
+  - Crear un botón para publicar.
+  - Guardar los cambios (actualizado automático o al recargar) .
+* **H.U. 3.1 - Modificación de un post personal ya publicado**
+  - Crear un botón para editar la publicación.
+  - Crear un botón para guardar los cambios.
+  - Guardar los cambios (actualizado automático o al recargar).
+* **H.U. 3.2 - Eliminar de un post personal ya publicado**
+  - Crear un botón para eliminar la publicación.
+  - Se mostrará un modal  para confirmar la eliminación de la publicación con el siguiente mensaje “¿Seguro que quieres eliminar esta publicación? ”.
+  - El modal debe llevar dos botones : “Cancelar” para no eliminar el post y “Eliminar” para confirmar la eliminación del post.
+  - Guardar los cambios (actualizado automático o al recargar).
+* **H.U. 3.3 - Historial de posts del usuario**
+  - Visualizar mis anteriores publicaciones.
+  - De orden vertical y por fecha del más reciente al más antiguo.
+  - Poder hacer scroll hasta el inicio de mis publicaciones. 
+ 
+### 3.4 **Historia de usuario  4 - Filtrar comidas y bebidas por # menú & post**
+**Como:** Usuario de la red social.  
+**Quiero:**  Poder filtrar los post con las diferentes categorías (#comida #bebida).\
+**Para:** Visualizar mejor el contenido.
+
+**Criterios mínimos de aceptación** 
+* **H.U. 4.0 - Sección de post publicar dos botones**
+  - Se mostrará dos botones para filtrar los post según según #comida o #bebida.
+  - El uso de los “#” debe ser obligatorio en cada post.
+  - Guardar el añadido al publicar el post (actualizado automático o al recargar).
+
+* **H.U. 4.1 - Sección de menú dos botones**
+  - Se mostrará dos botones para filtrar los post según según #comida o #bebida.
+  - Según el botón que se seleccione solo mostrará los post que contengan el “#” correspondiente. 
+  - Mostrar los cambios, actualizado automático.
+  - De orden vertical y por fecha del más reciente al más antiguo.
+  - Al mostrar la data poder hacer scroll. 
+
+### 3.5 **Historia de usuario 5 - Página de inicio**
+**Como:**  Usuario logueado.\
+**Quiero:**  Visualizar las publicaciones de otros. 
+**Para:** Leer diversas recetas.
+ 
+**Criterios mínimos de aceptación**
+* **H.U. 5.0 - Visualizar otros post**
+  - El usuario visualizará las recetas de otros usuarios. 
+  - El orden será del más reciente al más antiguo según la fecha posteada por el servidor.
+  - Se actualizará la página solo al recargar. 
+
+### 3.6 **Historia de usuario  6 - Dar like - autolike** 
+**Como:**  Usuario logueado.\
+**Quiero:**  Dar like, quitar mi like de la publicación y visualizar cuantos like tiene una publicación.\
+**Para:** Mostrar mi interés por la publicación
+criterios mínimos de aceptación.\
+* **H.U. 6.0 - Publicaciones externas**
+  - El usuario encontrará un botón con el cual podrá dar like a las publicación que más le gusten.
+  - El usuario podrá visualizar a que publicaciones le dio like, ya que tendrán el botón pintado de color rojo.
+  - El usuario podrá quitar el like a las publicaciones, pulsando el botón antes mencionado y se  quitará el color rojo. 
+  - EL usuario visualizará  la cantidad de likes que tiene una publicación.
+  - Guardar los cambios (actualizado automático).
+ 
+* **H.U. 6.1 - Autolike** 
+  - El usuario encontrará un botón con el cual podrá dar like a sus  publicaciones.
+  - El usuario podrá visualizar cuantos like tiene  ya que tendrán el botón pintado de color rojo.
+  - El usuario podrá quitar el like a sus publicaciones, pulsando el botón antes mencionado y se  quitará el color rojo. 
+  - EL usuario visualizará  la cantidad de likes que tiene en una publicación.
+  - Guardar los cambios (actualizado automático).
+ 
+### 3.7 **Historia de usuario  7 -  Ser responsive** 
+**Como:** Usuario de una red social.\
+**Quiero:** Poder visualizar la página en diversos dispositivos.\
+**Para:** Tener la información cuando la requiera. 
+ 
+**Criterios mínimos de aceptación** 
+* **H.U. 7.0 - Otros dispositivos**
+  - La red social estará adaptada para cualquier dispositivo.
+  - Se realizará la misma en diseño responsive usando los tamaños como : 1920×1080 (escritorio grande), 1366×768 (ordenador portátil medio) y 360×640 (móvil pequeño).
+  - Para el diseño en tablet y celular se creará un menú hamburguesa en la parte superior de la página.
+  - Para el diseño en escritorio, no se visualizará el menú hamburguesa, pero el contenido será desplegado (inicio,#comida # bebida , cerrar sesión)
+ 
+### 3.8 **Historia de usuario  8  - Pantalla del perfil** 
+**Como:** Usuario logueado en la red social.\
+**Quiero:** Visualizar y dar a conocer mi información personal.\
+**Para:** Subir y cambiar mi foto de perfil , editar mi información personal.\
+**Criterios mínimos de aceptación**
+* **H.U. 8.0 - foto de perfil y portada:** 
+  - El usuario podrá subir una foto de perfil.
+  - El usuario podrá cambiar su foto de perfil
+  - Si el usuario no desea colocar una foto, aparecerá una imagen predeterminada.
+  - Cuando se encuentre en desktop, se mostrará una imagen predeterminada en la portada.
+
+* **H.U.8.1 - Datos del usuario**
+  - El usuario podrá editar su información como: nombre.
+  - El usuario podrá agregar una breve descripción sobre ella si lo desea.
+  - El usuario podrá editar la descripción ingresada. 
+
+## 4. Consideraciones generales
+* Quiénes son los principales usuarios de producto.

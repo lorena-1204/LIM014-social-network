@@ -173,11 +173,9 @@ nav ul {
 /*buttons*/
 .button {
   padding: 15px 35px;
-
   border-radius: 4px;
   text-decoration:none;
-
-  font-family: Roboto, sans-serif;
+  font-family:Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   font-style: normal;
   font-weight: 900;
   font-size: 10px;
@@ -188,6 +186,7 @@ nav ul {
   letter-spacing: 1.5px;
   text-transform: uppercase;
 }
+
 .container-button{
   margin-top:550px;
 }
@@ -221,15 +220,12 @@ nav ul {
 
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@600&display=swap");
 
-/* like */
-.liked {
-    color: red;
-  }
+body{
+  width: 100%;
+  height:100vh;
+}
 
-  .unliked {
-    color: black;
-  }
-
+/*Post*/
 .create-post {
   background-color:rgb(43,2,0, 0.7);
   border-radius: 20px;
@@ -237,7 +233,7 @@ nav ul {
   padding: 12px 16px 10px;
 }
 .create-post h2 {
-  font-family: Roboto, sans-serif;
+  font-family: Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   color: #F5EBDC;
   margin: 0;
   font-size: 15px;
@@ -265,13 +261,13 @@ nav ul {
   text-align: center;
 }
 .btn-post a {
-  font-family: Roboto, sans-serif;
+  font-family: Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   color: #F5EBDC;
   font-size: 15px;
   margin: 0 15px 0 0px;
 }
 .btn-to-post-default, .string-text-post {
-  font-family: Roboto, sans-serif;
+  font-family: Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   color: #F5EBDC;
   font-size: 14px;
   background-color: grey;
@@ -340,14 +336,13 @@ hr {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-
   position: absolute;
   top: 0;
   padding: 0 30px ;
   margin: 0;
 }
 .info-redirect-h1 {
-  font-family: Roboto, sans-serif;
+  font-family: Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   display: flex;
   flex-wrap: wrap;
   color: #fff;
@@ -355,7 +350,6 @@ hr {
   max-width: 30%;
   font-size: 70px;
   font-weight: 600;
-
 }
 .info-redirect-home-page section { 
   display: flex;
@@ -363,7 +357,6 @@ hr {
   flex-direction: column;
   align-items: center;
   align-self: center;
-
   background-color: #fff;
   border-radius: 20px;
   width: 25%;
@@ -388,10 +381,9 @@ hr {
   padding: 0;
 }
 .info-redirect-home-page section span {
-  font-family: Allerta Stencil, sans-serif;
+  font-family: Allerta Stencil,sans-serif;
   display: flex;
   justify-content: center;
-
   font-size: 25px;
   font-style: normal;
   font-weight: 400;
@@ -407,7 +399,7 @@ hr {
 }
 .info-redirect-home-page p {
   align-self: center;
-  font-family: Roboto, sans-serif;
+  font-family: Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   font-style: normal;
   font-size: 13px;
   color: rgb(112, 112, 112); 
@@ -420,13 +412,11 @@ hr {
   align-items :center;
   align-content :center;
   margin-top: 20px;
-
 }
 .info-redirect-home-page a {
   text-decoration: none;
-
   color: #fff;
-  font-family: Roboto, sans-serif;
+  font-family: Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   font-style: normal;
   font-size: 12px;
   line-height: 18px;
@@ -441,19 +431,28 @@ hr {
   margin: 10px 0;
   border-radius: 20px;
   padding: 15px;
-
 }
 .button-redirect-sign-in {
   background-color: #E83505 ;
 }
+.button-redirect-sign-in:hover{
+  transform: scale(1.1);
+}
 .button-redirect-sign-up {
   background-color: #000 ;
 }
+.button-redirect-sign-up:hover{
+  transform: scale(1.1);
+}
+
 #button-redirect-home-page {
   cursor: pointer;
   margin: 0;
   border-radius: 23px;
   color: rgb(51, 51, 51); 
+}
+#button-redirect-home-page:hover{
+  transform: scale(1.1);
 }
 .logo-iChef{
   width: 20%;
@@ -483,9 +482,158 @@ hr {
   width: 6%;
   padding-right: 10px;
 }
+
+/*********** Registro, Iniciar Sesión ************/
+.positionLogin,.positionRegister{
+ position:relative;
+ display:flex;
+ justify-content:center;
+ align-items: center;
+ width: 100%;
+ height: 100vh;
+ /* padding: 5px, 10px; */
+}
+.positionLogin:after{
+	content: '';
+	position: absolute;
+	width: 100%;
+	height: 100vh;
+	left: 0;
+	top: 0;
+	background: url("./img/Comidas.jpg") no-repeat center;
+	background-size: cover;
+	filter: blur(50px);
+	z-index: -1;
+}
+.positionRegister:after{
+	content: '';
+	position: absolute;
+	width: 100%;
+	height: 100vh;
+	left: 0;
+	top: 0;
+  background: url("./img/postre.jpg") no-repeat center;
+	background-size: cover;
+	filter: blur(50px);
+	z-index: -1;
+}
+.logIn,.register{
+  max-width: 850px;
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	background-color: #fff;
+	box-shadow: 0px 0px 19px 5px rgba(0,0,0,0.19);
+}
+.left{
+	background: url("./img/Comidas.jpg") no-repeat center;
+	background-size: cover;
+	height: 100%;
+}
+.leftR{
+  background: url("./img/postre.jpg") no-repeat center;
+	background-size: cover;
+	height: 100%;
+}
+
+.right{
+	padding: 20px 35px;
+}
+.back{
+  color:orangered;
+  margin:auto;
+  cursor: pointer; 
+  position:relative;
+  right:150px;
+  text-decoration:none;
+  /* ◀ */
+}
+.back:hover{
+  transform: scale(1.1);
+  color: rgb(34,34,51);
+} 
+.letter{
+  position: relative;
+	padding: 0 0 10px;
+	margin-bottom: 10px;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 28px;
+  line-height: 40px;
+  color: #E83505;
+}
+.letter:after{
+	content: '';
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  height: 4px;
+  width: 50px;
+  background-color:#E83505;
+}
+.email,.password,.name,.username{
+  width: 80%;
+  border: none;
+	outline: none;
+  border-bottom: 2px solid rgb(146, 146, 146);
+	padding: 0.5rem 1rem;
+	font-size: 1.1rem;
+	margin-bottom: 22px;
+	transition: .3s;
+}
+.email:hover,.password:hover,.name:hover,.username:hover{
+  border-bottom: 2px solid orangered;
+  transform: scale(1.1);
+}
+.google{
+  width: 50px;
+  height: 50px;
+  margin:auto;
+  cursor: pointer; 
+  padding:10px;
+  display:block;
+}
+.google:hover{
+  transform: scale(1.1);
+}
+.errorMail{
+  font-size: 16px;
+  color:#E83505;
+  padding:10px;
+}
+.btn-correo{
+  width: 60%;
+	padding: 0.5rem 1rem;
+	background-color:orangered;
+	color: #fff;
+	font-size: 1.1rem;
+	border: none;
+	outline: none;
+	cursor: pointer;
+  border-radius: 25px;
+	transition: .3s;
+}
+.btn-correo:hover{
+  transform: scale(1.1);
+  background-color: rgb(34,34,51);
+}
+
+/*********** like ***********/
+.liked {
+  color: red;
+}
+.unliked {
+  color: black;
+}
+
+/*********** footer ***********/
 footer {
   display: flex;
   align-items: flex-end;
   justify-content: center;
+  position:relative;
 }
-

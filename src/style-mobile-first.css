@@ -159,7 +159,7 @@
         margin: 5px;
     }
     .post-text-background div div p:nth-child(1){
-        font-family: Roboto, sans-serif;
+        font-family: Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
         font-size: 13px;
         font-style: normal;
         font-weight: 600;
@@ -169,7 +169,7 @@
     }
     .post-text-background div div p:nth-child(2){
         color: rgba(206, 205, 205, 0.8);
-        font-family: Roboto, sans-serif;
+        font-family: Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
         font-size: 11px;
         font-style: normal;
         font-weight: 0;
@@ -211,10 +211,26 @@
         color: #fff;
         background: #E83505;
     } 
+}
+
+@media screen and (max-width: 810px){
+
+    .positionLogin,.positionRegister{
+        height: 98vh;
+    }
+    
+	.logIn,.register{
+		grid-template-columns: 1fr;
+	}
+	.left{
+		height: 120px;
+	}
+    .leftR{
+		height: 120px;
+	}
     footer {
         display: none;
     }
-  
 }
 @media screen and (max-width: 600px) {
     .tabs {

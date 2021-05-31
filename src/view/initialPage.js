@@ -67,9 +67,10 @@ export default () => {
 
   templateInitialPage.classList.add('position');
   templateInitialPage.innerHTML = viewInitialPage;
-  showPost((data, userId) => {
+  const newFn = (data, userId) => {
     setupPosts(data, userId, templateInitialPage);
-  });
+  };
+  showPost(newFn);
   const textPost = templateInitialPage.querySelector('#textarea');
   const createPost = templateInitialPage.querySelector('#btn');
   textPost.addEventListener('input', () => {
@@ -114,6 +115,7 @@ export default () => {
       userNameComplete.forEach((e) => {
         e.textContent = nameUser;
       });
+
       const userImage = templateInitialPage.querySelectorAll('#user-pic-initalPage');
       const userPhoto = user.Photo;
       userImage.forEach((e) => {

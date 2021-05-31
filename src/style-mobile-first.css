@@ -138,18 +138,24 @@
         color: #fff;
         background: #E83505;
     } 
+}
 
+@media screen and (max-width: 810px){
+
+    .positionLogin,.positionRegister{
+        height: 98vh;
+    }
+    
+	.logIn,.register{
+		grid-template-columns: 1fr;
+	}
+	.left{
+		height: 120px;
+	}
+    .leftR{
+		height: 120px;
+	}
     footer {
         display: none;
     }
-}
-
-@media screen and (max-width: 880px) {
-     .logIn,.register{
-        grid-template-columns: 1fr;
-    }
-
-    .left{
-		height: 200px;
-	}
 }

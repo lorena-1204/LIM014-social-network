@@ -1,18 +1,5 @@
-// eslint-disable-next-line import/no-cycle
-import { db } from '../main.js';
-// Elimina un post
-export const deletePost = (data) => db.collection('posts').doc(data).delete();
-
-export const editPost = (id, text) => db.collection('posts').doc(id).update({
-  post: text,
-  timePost: new Date(),
-});
-
-// like
-export const likePost = (id, likes) => db.collection('posts').doc(id).update({ likes });
-
 // Agrega un post
-export const addPost = (textPost, id, mail) => db.collection('posts')
+export const addPost = (textPost, id, mail) => firebase.firestore().collection('posts')
   .add({
     post: textPost,
     idUser: id,
@@ -20,14 +7,24 @@ export const addPost = (textPost, id, mail) => db.collection('posts')
     timePost: new Date().toLocaleString('GMT-0500'),
     likes: [],
   });
+export const editPost = (id, text) => firebase.firestore().collection('posts').doc(id).update({
+  post: text,
+  timePost: new Date(),
+});
+// Elimina un post
+export const deletePost = (data) => firebase.firestore().collection('posts').doc(data).delete();
 
-export const editDescriptions = (id, text) => db.collection('users').doc(id).update({
+// like
+export const likePost = (id, likes) => firebase.firestore().collection('posts').doc(id).update({ likes });
+
+export const editDescriptions = (id, text) => firebase.firestore().collection('users').doc(id).update({
   Description: text,
   timePost: new Date(),
 });
 
 // Agrega una Descripción
-// export const addDescription = (textPost, id, nickName) => db.collection('Descriptions')
+// eslint-disable-next-line max-len
+// export const addDescription = (textPost, id, nickName) => firebase.firestore().collection('Descriptions')
 //   .add({
 //     description: textPost,
 //     idUser: id,
@@ -37,7 +34,7 @@ export const editDescriptions = (id, text) => db.collection('users').doc(id).upd
 
 // Crea propiedades de un usuario
 export const createUser = (name, nickName, email, id, photo) => {
-  const addUserCollection = db.collection('users').doc(id).set({
+  const addUserCollection = firebase.firestore().collection('users').doc(id).set({
     displayName: name,
     Usuario: nickName,
     Correo: email,
@@ -47,12 +44,12 @@ export const createUser = (name, nickName, email, id, photo) => {
   return addUserCollection;
 };
 
-export const getUser = (id, callback) => db.collection('users').doc(id).onSnapshot((doc) => {
+export const getUser = (id, callback) => firebase.firestore().collection('users').doc(id).onSnapshot((doc) => {
   callback(doc);
 });
 
 // Ordena una colección por fecha más reciente a más antigua
-export const orderPostbyTimeDesc = (callback, userId) => db.collection('posts').orderBy('timePost', 'desc').onSnapshot((querySnapshot) => {
+export const orderPostbyTimeDesc = (callback, userId) => firebase.firestore().collection('posts').orderBy('timePost', 'desc').onSnapshot((querySnapshot) => {
   const output = [];
   querySnapshot.forEach((doc) => {
     output.push({ id: doc.id, ...doc.data() });
@@ -61,17 +58,19 @@ export const orderPostbyTimeDesc = (callback, userId) => db.collection('posts').
 });
 
 // Comentar
-export const commnetPostCollection = (id, uidUser, comment, mail) => db.collection('commentPost').add({
-  DocIdPostOrigin: id,
-  CommentPost: comment,
-  idUser: uidUser,
-  email: mail,
-  timePost: new Date(),
-});
-export const showPostUserid = (callback, userID) => db.collection('posts').where('idUser', '==', userID).orderBy('timePost', 'desc').onSnapshot((querySnapshot) => {
-  const output = [];
-  querySnapshot.forEach((doc) => {
-    output.push({ id: doc.id, ...doc.data() });
+// export const commnetPostCollection = (id, uidUser, comment, mail) => {}
+// firebase.firestore().collection('commentPost').add({
+//   DocIdPostOrigin: id,
+//   CommentPost: comment,
+//   idUser: uidUser,
+//   email: mail,
+//   timePost: new Date(),
+// });
+export const showPostUserid = (callback, userID) => firebase.firestore().collection('posts').where('idUser', '==', userID).orderBy('timePost', 'desc')
+  .onSnapshot((querySnapshot) => {
+    const output = [];
+    querySnapshot.forEach((doc) => {
+      output.push({ id: doc.id, ...doc.data() });
+    });
+    callback(output, userID);
   });
-  callback(output, userID);
-});

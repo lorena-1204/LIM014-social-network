@@ -20,7 +20,7 @@ export const likePost = (id, likes) => firebase.firestore().collection('posts').
 export const editDescriptions = (id, text) => firebase.firestore().collection('users').doc(id).update({
   Description: text,
   timePost: new Date(),
-  
+});
 // Crea propiedades de un usuario
 export const createUser = (name, nickName, email, id, photo) => {
   const addUserCollection = firebase.firestore().collection('users').doc(id).set({

@@ -4,7 +4,8 @@ import { components } from '../view/components.js';
 import {
   HOME, INITIAL_PAGE, SIGN_UP, SIGN_IN, PERFIL_PAGE,
 } from '../lib/constants.js';
-// eslint-disable-next-line import/no-cycle
+
+// eslint-disable-next-line import/named
 import { getUser } from '../lib/firestore-controller.js';
 
 const changeView = (route) => {

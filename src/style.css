@@ -27,10 +27,9 @@ nav ul {
 }
 .button {
   padding: 15px 35px;
-  font-size: 12px;
   border-radius: 4px;
   text-decoration:none;
-  font-family: Roboto;
+  font-family:Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   font-style: normal;
   font-weight: 900;
   font-size: 10px;
@@ -90,7 +89,7 @@ body{
   padding: 12px 16px 10px;
 }
 .create-post h2 {
-  font-family: roboto;
+  font-family: Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   color: #F5EBDC;
   margin: 0;
   font-size: 15px;
@@ -118,13 +117,13 @@ body{
   text-align: center;
 }
 .btn-post a {
-  font-family: roboto;
+  font-family: Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   color: #F5EBDC;
   font-size: 15px;
   margin: 0 15px 0 0px;
 }
 .btn-to-post-default, .string-text-post {
-  font-family: roboto;
+  font-family: Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   color: #F5EBDC;
   font-size: 14px;
   background-color: grey;
@@ -199,7 +198,7 @@ hr {
   margin: 0;
 }
 .info-redirect-h1 {
-  font-family: roboto;
+  font-family: Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   display: flex;
   flex-wrap: wrap;
   color: #fff;
@@ -239,7 +238,7 @@ hr {
   padding: 0;
 }
 .info-redirect-home-page section span {
-  font-family: Allerta Stencil;
+  font-family: Allerta Stencil,sans-serif;
   display: flex;
   justify-content: center;
   font-size: 25px;
@@ -257,7 +256,7 @@ hr {
 }
 .info-redirect-home-page p {
   align-self: center;
-  font-family: roboto;
+  font-family: Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   font-style: normal;
   font-size: 13px;
   color: rgb(112, 112, 112); 
@@ -274,7 +273,7 @@ hr {
 .info-redirect-home-page a {
   text-decoration: none;
   color: #fff;
-  font-family: Roboto;
+  font-family: Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   font-style: normal;
   font-size: 12px;
   line-height: 18px;
@@ -370,7 +369,6 @@ hr {
 	height: 100vh;
 	left: 0;
 	top: 0;
-	/* background: url("./img/bebidas.jpg") no-repeat center; */
   background: url("./img/postre.jpg") no-repeat center;
 	background-size: cover;
 	filter: blur(50px);
@@ -392,7 +390,6 @@ hr {
 	height: 100%;
 }
 .leftR{
-	/* background: url("./img/bebidas.jpg") no-repeat center; */
   background: url("./img/postre.jpg") no-repeat center;
 	background-size: cover;
 	height: 100%;

@@ -35,7 +35,8 @@ const changeView = (route) => {
           if (userPhoto != null) {
             userImage.src = userPhoto;
           } else {
-            userImage.src = '../img/avatar.png';
+            console.log(userImage)
+            userImage.src = '../img/avataar.png';
           }
         } else {
           console.log('No encontrado');

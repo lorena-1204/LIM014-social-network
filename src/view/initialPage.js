@@ -25,22 +25,21 @@ export default () => {
   <div class="tabs">
     <div class="tabs__inner">
         <a class="tabs__item">
-          <img data-feather="home" src="../img/verde pasto.png" id="bar-chart"></img>
+          <img data-feather="home" src="../img/ichef oro.png" id="bar-chart"></img>
+          <h1>I CHEF</h1>
           <span class="tabs__tooltip">I CHEF</span>
         </a>
         <a class="tabs__item tabs__item--active">
-          <img data-feather="home" src="https://image.flaticon.com/icons/png/512/747/747589.png"></img>
+          <img data-feather="home" src="../img/menu/home.png"></img>
           <span class="tabs__tooltip">Inicio</span>
         </a>
         <a class="tabs__item" id="menu-perfil">
-          <div id="backgroung-img">
-            <img id="user-pic-initalPage" class="demo-avatar">
-          </div>
-          <span id="myPerfil"></span>
+          <img id="user-pic-initalPage" class="demo-avatar">
+          <span id="myPerfil-Inital"></span>
           <span class="tabs__tooltip">Mi Perfil</span>
         </a>
         <a class="tabs__item" id="signOut">
-          <img data-feather="logOut" src="https://image.flaticon.com/icons/png/512/747/747514.png" id="logOut"></img>
+          <img data-feather="logOut" src="../img/menu/log out.png" id="logOut"></img>
           <span class="tabs__tooltip">Cerrar Sesión</span>
         </a>
     </div>
@@ -105,7 +104,7 @@ export default () => {
     if (userData.exists) {
       const user = userData.data();
       const name = user.Usuario;
-      const userNameComplete = templateInitialPage.querySelectorAll('#myPerfil');
+      const userNameComplete = templateInitialPage.querySelectorAll('#myPerfil-Inital');
 
       const separador = ' '; // un espacio en blanco
       const arregloDeSubCadenas = name.split(separador); // SEPARA EL NOMBRE EN CADENAS INDIVIDUALES
@@ -120,7 +119,7 @@ export default () => {
         if (userPhoto != null) {
           e.src = userPhoto;
         } else {
-          e.src = '../img/avatar.png';
+          e.src = '../img/avataar.png';
         }
       });
     }

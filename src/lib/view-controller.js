@@ -41,6 +41,7 @@ export const registerWithGoogle = () => {
       // eslint-disable-next-line max-len
       firebase.firestore().collection('users').doc(user.uid).get()
         .then((doc) => {
+          // console.log(doc.data())
           if (!doc.exists) {
             createUser(user.displayName, user.displayName, user.email, user.uid, user.photoURL);
           }

@@ -89,6 +89,7 @@ export const setupPosts = (data, user, template) => {
 
 export const showPost = (callback) => {
   firebase.auth().onAuthStateChanged((user) => {
+    // console.log(user)
     if (user) {
       orderPostbyTimeDesc(callback, user.uid);
     } else {

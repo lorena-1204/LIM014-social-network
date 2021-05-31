@@ -103,6 +103,7 @@ export default () => {
   getUser(userID, (userData) => {
     if (userData.exists) {
       const user = userData.data();
+      // console.log(user)
       const name = user.Usuario;
       const userNameComplete = templateInitialPage.querySelectorAll('#myPerfil-Inital');
 

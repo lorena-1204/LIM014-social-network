@@ -12,10 +12,11 @@ export const editPost = (id, text) => db.collection('posts').doc(id).update({
 export const likePost = (id, likes) => db.collection('posts').doc(id).update({ likes });
 
 // Agrega un post
-export const addPost = (textPost, id, mail) => db.collection('posts')
+export const addPost = (textPost, id, mail, userImage) => db.collection('posts')
   .add({
     post: textPost,
     idUser: id,
+    userImage: userImage,
     email: mail,
     timePost: new Date().toLocaleString('GMT-0500'),
     likes: [],

@@ -3,7 +3,7 @@ import { dataPost, signOutUser, perfilPageUser } from '../lib/view-controller.js
 // eslint-disable-next-line import/no-cycle
 import { showPost, setupPosts } from '../lib/posts.js';
 // eslint-disable-next-line import/no-cycle
-// import { getUser } from '../lib/firestore-controller.js';
+import { getUser } from '../lib/firestore-controller.js';
 
 export default () => {
   const templateInitialPage = document.createElement('section');
@@ -25,16 +25,11 @@ export default () => {
   <article class = "create-post">
     <h2>Publica tus recetas</h2>
   <div class="img-textPost">
-    <svg height="60" width="80">
-      <circle cx="30" cy="30" r="25"/>
-    </svg>
+  <img id="user-pic" class="demo-avatar" src="" />
     <input type="text" id="textarea" placeholder="Comparte tus recetas">
     </input>
   </div>
-  <hr>
   <div class="btn-post">
-    <a>🥗 Comida</a>
-    <a> 🍹 Bebida</a>
     <button id="btn" class="btn-to-post-default">Compartir</button>
   </div>
   </article>
@@ -44,6 +39,7 @@ export default () => {
 
   templateInitialPage.classList.add('position');
   templateInitialPage.innerHTML = viewInitialPage;
+ 
   showPost((data, userId) => {
     setupPosts(data, userId, templateInitialPage);
   });

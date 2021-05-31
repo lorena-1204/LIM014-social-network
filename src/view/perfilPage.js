@@ -34,14 +34,13 @@ export default () => {
       <article class = "create-post">
         
         <div class = "create-post-row">
-        <img id="user-pic-post" class="demo-avatar">
+        <img class="demo-avatar user-pic-post"/>
         
           <h2>Publica tus recetas</h2>
         </div>
 
         <div class="img-textPost">
-        <input type="text" id="textarea" placeholder="Comparte tus recetas">
-        </input>
+        <textarea  id="textarea" placeholder="Comparte tus recetas"></textarea>
           <div class="btn-post">
            <button id="btn" class="btn-to-post-default">Compartir</button>
           </div>

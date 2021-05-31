@@ -22,7 +22,7 @@ export const setupPosts = (data, user, template) => {
       const section = templatePost(doc);
       postList.appendChild(section);
       const buttonCancelEditPost = createAttributesButton('cancelar', 'btn-cancel-edit-post');
-      const textPost = section.querySelector('#text-post');
+      const textPost = section.querySelector('.text-post');
 
       // likes
       const likes = section.querySelector('#btn-like');
@@ -101,3 +101,4 @@ export const showPost = (callback) => {
     }
   });
 };
+

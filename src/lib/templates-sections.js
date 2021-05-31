@@ -3,18 +3,18 @@ import { currentUser } from './firebase-controller.js';
 
 export const templatePost = (doc) => {
   const section = document.createElement('section');
-
   // section.style = 'background-color:skyblue';
+  console.log("docu",doc);
   section.classList.add('container-post');
   const userId = currentUser().uid;
   // console.log(userId);
   const template = `
     <div class="post-row"> 
+    <img class="demo-avatar user-pic-post" src="${doc.userImage !== null ? doc.userImage : '../img/avatar.png' }"/>
       <h5 id ="ruta">${doc.email}</h5>
-
     </div>
     
-    <p id ="text-post">${doc.post}</p>
+    <p class ="text-post">${doc.post}</p>
     <section class="like-counter">
     <a class="imagenLike"><i class="far fa-heart ${(doc.likes.indexOf(userId) === -1) ? 'unliked' : 'liked'}" id="btn-like"></i></a>
     <p class="numberLikes">${doc.likes.length}</p>

@@ -3,7 +3,7 @@
 ***
 
 ## 1. Definición
-IChef, es una red social creada para amantes de la cocina, esta plataforma permite que los usuarios publiquen sus recetas, visualizar las recetas de otras personas, den like a sus recetas favoritas.
+IChef, es una red social creada para amantes de la cocina, esta plataforma permite que los usuarios publiquen sus recetas, visualizar las recetas de otras personas, den like a sus recetas favoritas.\
 Si no sabes que cocinar el día de hoy  visita IChef y encuentre deliciosas comidas.
 
 ## 2. Prototipo

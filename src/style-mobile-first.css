@@ -231,7 +231,16 @@
     footer {
         display: none;
     }
+
+  /*********** Thalia ************/
+  /* Página de perfil */
+/*   .grid{
+    display:grid;
+    grid-template-columns: 100%;
+    height: 100vh;
+  } */
 }
+/*********** dev ************/
 @media screen and (max-width: 600px) {
     .tabs {
         display: flex;
@@ -241,6 +250,5 @@
     .tabs .tabs__inner{
         width: 30%;
         justify-content: space-around;
-
     }
 }

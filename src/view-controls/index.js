@@ -16,7 +16,20 @@ const changeView = (route) => {
     case SIGN_IN: { return container.appendChild(components.signin()); }
     case SIGN_UP: { return container.appendChild(components.signup()); }
     case INITIAL_PAGE: {
-      return container.appendChild(components.initalPage());
+      container.appendChild(components.initalPage());
+      const userID = sessionStorage.getItem('id');
+      getUser(userID, (userData) => {
+        if (userData.exists) {
+          const user = userData.data();
+          const userImage = document.getElementById('user-pic');
+          const userPhoto = user.Photo;
+          userImage.src = userPhoto != null ? userPhoto : '../img/avatar.png';
+          userImage.style.width = '50px';
+        } else {
+          console.log('No encontrado');
+        }
+      });
+      break;
     }
     case PERFIL_PAGE: {
       container.appendChild(components.perfilPage());
@@ -29,14 +42,18 @@ const changeView = (route) => {
           const name = user.NombreCompleto;
           const userNameComplete = document.getElementById('name');
           const userName = document.getElementById('user-name');
+          const userDescripcion = document.getElementById('descripcion');
+
           userNameComplete.textContent = name;
           userName.textContent = displayName;
+          userDescripcion.textContent = user.Description;
           const userImage = document.getElementById('user-pic');
+          const userImagePost = document.getElementsByClassName('user-pic-post');
           const userPhoto = user.Photo;
-          if (userPhoto != null) {
-            userImage.src = userPhoto;
-          } else {
-            userImage.src = '../img/avataar.png';
+
+          userImage.src = userPhoto != null ? userPhoto : '../img/avatar.png';
+          for (let i = 0; i < userImagePost.length; i++) {
+            userImagePost[i].src = userPhoto != null ? userPhoto : '../img/avatar.png';
           }
         } else {
           document.write('No encontrado');

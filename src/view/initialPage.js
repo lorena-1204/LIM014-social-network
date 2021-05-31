@@ -48,16 +48,11 @@ export default () => {
   <article class = "create-post">
     <h2>Publica tus recetas</h2>
   <div class="img-textPost">
-    <svg height="60" width="80">
-      <circle cx="30" cy="30" r="25"/>
-    </svg>
+  <img id="user-pic" class="demo-avatar" src="" />
     <input type="text" id="textarea" placeholder="Comparte tus recetas">
     </input>
   </div>
-  <hr>
   <div class="btn-post">
-    <a>🥗 Comida</a>
-    <a> 🍹 Bebida</a>
     <button id="btn" class="btn-to-post-default">Compartir</button>
   </div>
   </article>
@@ -67,7 +62,8 @@ export default () => {
 
   templateInitialPage.classList.add('position');
   templateInitialPage.innerHTML = viewInitialPage;
-  const newFn = (data, userId) => {
+  
+  showPost((data, userId) => {
     setupPosts(data, userId, templateInitialPage);
   };
   showPost(newFn);

@@ -35,10 +35,10 @@ const changeView = (route) => {
           if (userPhoto != null) {
             userImage.src = userPhoto;
           } else {
-            userImage.src = '../img/avatar.png';
+            userImage.src = '../img/avataar.png';
           }
         } else {
-          // console.log('No encontrado');
+          document.write('No encontrado');
         }
       });
       break;
@@ -46,7 +46,7 @@ const changeView = (route) => {
     default:
     { return container.appendChild(components.home()); }
   }
-  return changeView;
+  return route;
 };
 
 const changeHash = (nameHash, setData) => {

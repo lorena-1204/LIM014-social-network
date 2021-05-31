@@ -10,12 +10,40 @@ import { currentUser } from '../lib/firebase-controller.js';
 export default () => {
   const templatePerfilPage = document.createElement('section');
   const viewPerfilPage = `
-    <nav>
+    <!--nav>
      <li id="inicio">Inicio</li>
      <li id="signOut">Cerrar Sesión</li>
-    </nav> 
+    </nav--> 
+
+    <div class="tabs">
+    <div class="tabs__inner">
+        <a class="tabs__item">
+          <img data-feather="home" src="../img/ichef oro.png" id="bar-chart"></img>
+          <h1>I CHEF</h1>
+          <span class="tabs__tooltip">I CHEF</span>
+        </a>
+        <a class="tabs__item" id="inicio">
+          <img data-feather="home" src="../img/menu/home.png"></img>
+          <span class="tabs__tooltip">Inicio</span>
+        </a>
+        <a class="tabs__item tabs__item--active" id="menu-perfil-page">
+          <div id="backgroung-img">
+            <img id="user-pic-initalPage" class="demo-avatar">
+          </div>
+          <span id="myPerfil"></span>
+          <span class="tabs__tooltip">Mi Perfil</span>
+        </a>
+        <a class="tabs__item" id="signOut">
+          <img data-feather="logOut" src="../img/menu/log out.png" id="logOut"></img>
+          <span class="tabs__tooltip">Cerrar Sesión</span>
+        </a>
+    </div>
+  </div>
+
+
+
     <article>
-    <img id="user-pic" class="demo-avatar">
+    <img id="user-pic-initalPage" class="demo-avatar">
     <h2 id="name"></h2>
     <h2 id="user-name"></h2>
     <textarea id="textareaDescription" name="publica" placeholder="Acerca de mi">
@@ -106,6 +134,31 @@ export default () => {
     textPost.value = '';
     createPost.classList.remove('string-text-post');
     createPost.classList.add('btn-to-post-default');
+  });
+
+  getUser(userID, (userData) => {
+    if (userData.exists) {
+      const user = userData.data();
+      const name = user.Usuario;
+      const userNameComplete = templatePerfilPage.querySelectorAll('#myPerfil');
+
+      const separador = ' '; // un espacio en blanco
+      const arregloDeSubCadenas = name.split(separador); // SEPARA EL NOMBRE EN CADENAS INDIVIDUALES
+      // IMPRIME EL NOMBRE INGRESADO
+      const nameUser = arregloDeSubCadenas[0];
+      userNameComplete.forEach((e) => {
+        e.textContent = nameUser;
+      });
+      const userImage = templatePerfilPage.querySelectorAll('#user-pic-initalPage');
+      const userPhoto = user.Photo;
+      userImage.forEach((e) => {
+        if (userPhoto != null) {
+          e.src = userPhoto;
+        } else {
+          e.src = '../img/avataar.png';
+        }
+      });
+    }
   });
 
   return templatePerfilPage;

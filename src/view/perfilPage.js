@@ -3,22 +3,45 @@ import { signOutUser, pageInitial, dataPost } from '../lib/view-controller.js';
 // eslint-disable-next-line import/no-cycle
 import { setupPosts } from '../lib/posts.js';
 // eslint-disable-next-line import/no-cycle
-import { editDescriptions, showPostUserid } from '../lib/firestore-controller.js';
+import { editDescriptions, getUser, showPostUserid } from '../lib/firestore-controller.js';
 // eslint-disable-next-line import/no-cycle
 import { currentUser } from '../lib/firebase-controller.js';
 
 export default () => {
   const templatePerfilPage = document.createElement('section');
   const viewPerfilPage = `
+   <div class="tabs">
+    <div class="tabs__inner">
+        <a class="tabs__item">
+          <img data-feather="home" src="../img/ichef oro.png" id="bar-chart"></img>
+          <h1>I CHEF</h1>
+          <span class="tabs__tooltip">I CHEF</span>
+        </a>
+        <a class="tabs__item" id="inicio">
+          <img data-feather="home" src="../img/menu/home.png"></img>
+          <span class="tabs__tooltip">Inicio</span>
+        </a>
+        <a class="tabs__item tabs__item--active" id="menu-perfil">
+          <img id="user-pic-initalPage" class="demo-avataar">
+          <span id="myPerfil-Inital"></span>
+          <span class="tabs__tooltip">Mi Perfil</span>
+        </a>
+        <a class="tabs__item" id="signOut">
+          <img data-feather="logOut" src="../img/menu/log out.png" id="logOut"></img>
+          <span class="tabs__tooltip">Cerrar Sesión</span>
+        </a>
+    </div>
+  </div>
+  
   <div class="grid">
     <div class="page_left">
-      <nav>
-       <li id="inicio">Inicio</li>
-       <li id="signOut">Cerrar Sesión</li>
-      </nav> 
       <article class="infoUser">
+      <div class="portada">
+     <img class="portada" src ="../img/comida.jpg">
+      </img>
+      </div>
         <div class="infoUser_data">
-          <img id="user-pic" class="demo-avatar">
+          <img id="user-pic" class="demo-avataar">
           <div style="margin-left:10px">
               <h2 id="name"></h2>
               <h2 id="user-name"></h2>
@@ -34,7 +57,7 @@ export default () => {
       <article class = "create-post">
         
         <div class = "create-post-row">
-        <img class="demo-avatar user-pic-post"/>
+        <img class="demo-avataar user-pic-post"/>
         
           <h2>Publica tus recetas</h2>
         </div>
@@ -111,7 +134,7 @@ export default () => {
     if (userData.exists) {
       const user = userData.data();
       const name = user.Usuario;
-      const userNameComplete = templatePerfilPage.querySelectorAll('#myPerfil');
+      const userNameComplete = templatePerfilPage.querySelectorAll('#myPerfil-Inital');
 
       const separador = ' '; // un espacio en blanco
       const arregloDeSubCadenas = name.split(separador); // SEPARA EL NOMBRE EN CADENAS INDIVIDUALES

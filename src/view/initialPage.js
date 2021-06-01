@@ -15,7 +15,7 @@ export default () => {
    </svg>  
    <ul>
     <div class="menu-perfil">
-      <img id="user-pic-initalPage" class="demo-avatar">
+      <img id="user-pic-initalPage" class="demo-avataar">
       <li id="myPerfil"></li>
     </div>
       <li id="signOut">Cerrar Sesión</li>
@@ -34,7 +34,7 @@ export default () => {
           <span class="tabs__tooltip">Inicio</span>
         </a>
         <a class="tabs__item" id="menu-perfil">
-          <img id="user-pic-initalPage" class="demo-avatar">
+          <img id="user-pic-initalPage" class="demo-avataar">
           <span id="myPerfil-Inital"></span>
           <span class="tabs__tooltip">Mi Perfil</span>
         </a>
@@ -48,7 +48,7 @@ export default () => {
   <article class = "create-post">
     <h2>Publica tus recetas</h2>
   <div class="img-textPost">
-  <img id="user-pic" class="demo-avatar" src="" />
+  <img id="user-pic" class="demo-avataar" src="" />
     <input type="text" id="textarea" placeholder="Comparte tus recetas">
     </input>
   </div>
@@ -56,17 +56,15 @@ export default () => {
     <button id="btn" class="btn-to-post-default">Compartir</button>
   </div>
   </article>
-
   <div class="posts"></div>
    `;
 
   templateInitialPage.classList.add('position');
   templateInitialPage.innerHTML = viewInitialPage;
-  
+
   showPost((data, userId) => {
     setupPosts(data, userId, templateInitialPage);
-  };
-  showPost(newFn);
+  });
   const textPost = templateInitialPage.querySelector('#textarea');
   const createPost = templateInitialPage.querySelector('#btn');
   textPost.addEventListener('input', () => {

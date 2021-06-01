@@ -75,7 +75,7 @@ export const signInWithEmail = () => {
 export const dataPost = (textPost) => {
   if (textPost && textPost !== '') {
     const user = currentUser();
-    console.log("uu1",user);
+    // console.log("uu1",user);
     addPost(textPost, user.uid, user.email, user.photoURL);
   }
 };

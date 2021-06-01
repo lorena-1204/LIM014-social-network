@@ -9,7 +9,7 @@ export const templatePost = (doc) => {
   // console.log(userId);
   const template = `
     <div class="post-row"> 
-    <img class="demo-avatar user-pic-post" src="${doc.userImage !== null ? doc.userImage : '../img/avatar.png' }"/>
+    <img class="demo-avataar user-pic-post" src="${doc.userImage !== null ? doc.userImage : '../img/avataar.png'}"/>
       <h5 id ="ruta">${doc.email}</h5>
     </div>
     
@@ -47,7 +47,7 @@ export const createAttributesButton = (textContentButton, classNameButton, docId
 export const createButtonDelete = (textContentButton, classNameButton, docId) => {
   const btnPost = document.createElement('img');
   // btnPost.textContent = textContentButton;
-  btnPost.setAttribute('src', '../img/papelera.png');
+  btnPost.setAttribute('src', '../img/trash.png');
   btnPost.classList = classNameButton;
   btnPost.dataset.id = docId;
   return btnPost;
@@ -55,7 +55,7 @@ export const createButtonDelete = (textContentButton, classNameButton, docId) =>
 export const createButtonEdit = (textContentButton, classNameButton, docId) => {
   const btnPost = document.createElement('img');
   // btnPost.textContent = textContentButton;
-  btnPost.setAttribute('src', '../img/edit negro.png');
+  btnPost.setAttribute('src', '../img/edit.png');
   btnPost.classList = classNameButton;
   btnPost.dataset.id = docId;
   return btnPost;

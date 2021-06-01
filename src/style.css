@@ -1,10 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Allerta+Stencil&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@600&display=swap');
 *{
 margin: 0;
 padding: 0;
 }
+body{
+  width: 100%;
+  height:100vh;
+}
 
+/***************** MENÚ HAMBURGUESA ***************/
 .tabs {
   padding-bottom: 4px;
   margin-bottom: 1rem;
@@ -24,8 +30,7 @@ padding: 0;
 }
 .tabs.colors-5 {
   background: linear-gradient(-30deg, #21897e 0%, #3ba99c 25%, #69d1c5 50%, #7ebce6 75%, #8980f5 100%);
-  }
-*/
+  } */
 
 .tabs__inner {
   display: flex;
@@ -34,13 +39,11 @@ padding: 0;
   justify-content: space-evenly;
   align-items: center;
   background-color: rgb(34,34,51);
-  
   /*background-color:rgb(157,36,3,0.9);*/
   /*background-color:rgb(43,2,0,0.6);*/
   /*background-color: rgb(34,34,51,0.85);*/
   /*background-color: #fff;*/
   padding: 0.4rem;
-
 }
 .tabs__item img {
   width: 50%;
@@ -77,13 +80,11 @@ padding: 0;
   text-align: center;
   letter-spacing: -0.015em;
   font-size: 25px;
-
   background: -webkit-linear-gradient(30deg, #97461a 0%, #aa6709 35%, #fbd8c5 50%,#aa6709 75%, #942604 100%);
   background: linear-gradient(30deg, #97461a 0%, #aa6709 35%, #fbd8c5 50%,#aa6709 75%, #942604 100%);
   -webkit-background-clip: text;  
   -webkit-text-fill-color: transparent;  
   filter: drop-shadow(2px 2px #000);
-
 }
 #logOut {
   transform: scaleX(-1);
@@ -161,7 +162,6 @@ padding: 0;
   padding-left: 5px;
   font-family: Allerta Stencil, sans-serif; 
   color: #fff;
-
 }
 nav ul {
   list-style: none;
@@ -218,16 +218,11 @@ nav ul {
   pointer-events: auto;
 }
 
-@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@600&display=swap");
-
-body{
-  width: 100%;
-  height:100vh;
-}
-
 /*Post*/
 .create-post {
-  background-color: rgb(43,2,0, 0.7);
+  /* background-color: rgb(43,2,0, 0.7); */
+  border: 3px solid rgb(34,34,51);
+  background-color:#F5EBDC;
   border-radius: 20px;
   width: 90%;
   padding: 12px 16px 10px;
@@ -235,13 +230,13 @@ body{
 }
 .create-post h2 {
   font-family: Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  color: #F5EBDC;
+  /* color: #F5EBDC; */
+  color:rgb(34,34,51);
   margin: 0;
   font-size: 15px;
   padding-left: 10px;
 }
 .img-textPost {
- 
   margin: 8px 0 0 0;
 }
 
@@ -258,7 +253,8 @@ body{
   margin: 5px 0;
   outline: none;
   padding: 5px 15px 20px;
-  border: none;
+  /* border: none; */
+  border: 1px solid rgb(34,34,51);
 }
 .btn-post {
   display: flex;
@@ -630,7 +626,7 @@ hr {
 
 /*********** like ***********/
 .liked {
-  color: red;
+  color: rgb(255, 255, 255);
 }
 .unliked {
   color: black;
@@ -642,12 +638,12 @@ hr {
   display:grid;
   grid-template-columns: 50% 50%;
 }
-.page_left{
+/* .page_left{
   background-color: rgb(218, 219, 216);
-}
-.page_right{
+} */
+/* .page_right{
   background-color:rgb(218, 219, 216);
-}
+} */
 .post{
   display: grid;
   grid-template-columns:1fr;
@@ -660,7 +656,7 @@ margin: 30px;
 }
 .container-post .like-counter{
   text-align: center;
-  background-color: #05e849;
+  background-color:orangered;
   padding: 10px 0px;
   border-radius: 0px 0px 10px 10px;
 }
@@ -676,7 +672,7 @@ margin: 30px;
 .text-post{
   text-align: center;
   background-color: #fff;
-  font-size: 14px;
+  font-size: 16px;
   padding: 5px;
   border-right: 1px solid #000;
   border-left: 1px solid #000;
@@ -692,21 +688,18 @@ margin: 30px;
 .btn-edit:hover, .btn-delete:hover{
   transform: scale(1.1);
 }
-.demo-avatar{
-  
+.demo-avataar{
   width: calc(20% - 1rem);
- 
   border-radius: 50%;
-  box-shadow: 5px 5px 5px #999;
+  box-shadow: 1px 1px 1px #999;
 }
 #name, #user-name{
- 
   justify-content: center;
   align-items: center;
   margin-right: auto;
   margin-left: auto;
   padding-top: 10px;
-  text-shadow: 5px 5px 5px #999;
+  text-shadow: 2px 2px 2px #999;
 }
 #textareaDescription {
 border-radius: 40px;
@@ -717,10 +710,10 @@ height: 20px;
 margin: 30px 10px 15px 20px;
 outline: none;
 padding: 5px 10px 15px;
-border: none;
+border: 1px solid rgb(34,34,51);
 }
 #btnGuardar{
-  font-family: roboto;
+  font-family:Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   color: #F5EBDC;
   font-size: 14px;
   background-color: #E83505;
@@ -739,7 +732,7 @@ border: none;
 }
 #descripcion{
   text-align: center;
-  font-family:Thin 100 italic;
+  font-family: Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   font-size: 20px;
   padding-bottom: 5%;
   padding-top: 5%;
@@ -751,10 +744,17 @@ border: none;
 }
 
 .infoUser {
-  border: 1px solid #000 ;
+  border: 3px solid rgb(34,34,51);
+  background-color: #fef2eb;
   display: block;
   border-radius: 10px;
   padding: 15px;
+}
+.portada{
+  width: 100%;
+  height:200px;
+  margin-bottom:15px;
+  border-radius: 5px;
 }
 
 .infoUser_data {

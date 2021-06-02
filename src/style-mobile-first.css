@@ -1,18 +1,52 @@
-@media screen and (max-width: 600px) {
-    .tabs {
-        background: inherit;
+@media screen and (max-width: 950px){
+    .positionLogin,.positionRegister{
+        height: 98vh;
     }
-    .tabs__inner {
-        position: fixed;
-        bottom: 0;
-        border-radius: 50px;
-        width: 10%;
-    }      
-    .tabs__inner .tabs__item h1 {
-        font-size: 15px;
+	.logIn,.register{
+		grid-template-columns: 1fr;
+	}
+	.left{
+		height: 120px;
+	}
+    .leftR{
+		height: 120px;
+	}
+      .grid{
+        display:grid;
+        grid-template-columns: 100%;
     }
-    .tabs .tabs__inner {
-        width: 10%;
+    .portada{
+        width: 90%;
+        height:150px;
+        margin-left: auto;
+    }
+    .demo-avataar{
+        width: 65px;
+        margin-left: 60px;
+    }
+    #textareaDescription{
+       margin-left: 70px;
+       margin-top: 10px; 
+       width: 70%;
+    }
+    .infoUser{
+        margin-left: auto;
+        margin-right: auto;
+        width: 60%;
+        height: 60%;
+    }
+    .create-post{
+        height:160px;
+    }
+    #btnGuardar{
+        width: 130px;
+        height: 40px;
+    }
+    .container-post .like-counter{
+        width:62%;
+    }
+    footer {
+        display: none;
     }
 }
 @media screen and (max-width: 650px) {
@@ -46,6 +80,30 @@
         justify-content: space-evenly;
     }
 }
+
+@media screen and (max-width: 600px) {
+    .tabs {
+        background: inherit;
+    }
+    .tabs__inner {
+        position: fixed;
+        bottom: 0;
+        border-radius: 50px;
+        width: 10%;
+    }      
+    .tabs__inner .tabs__item h1 {
+        font-size: 15px;
+    }
+    .tabs .tabs__inner {
+        /* width: 10%; */
+        width: 50%;
+        margin-left: 125px;
+    }
+     #btnGuardar{
+     margin-left: 60%;
+    }
+}
+
 @media screen and (max-width: 450px) {
     .tabs__inner {
         display: flex;
@@ -56,6 +114,27 @@
     #menu-perfil {
         height: 50px;
         width: 60px;
+    }
+    #ruta{
+        font-size: 11px;
+    }
+    .btn-edit, .btn-delete{
+        width: 20px;
+        height: 20px;
+    }
+    #btnGuardar{
+    margin-left: 45%;
+    }
+    .tabs .tabs__inner {
+        /* width: 10%; */
+        width: 50%;
+        margin-left: 60px;
+    }
+    .demo-avataar{
+        margin:0;
+    }
+    .container-post .like-counter{
+        width:64%;
     }
 }
 @media screen and (max-width: 350px) {
@@ -212,22 +291,3 @@
     } 
 }
 
-@media screen and (max-width: 810px){
-    .positionLogin,.positionRegister{
-        height: 98vh;
-    }
-    
-	.logIn,.register{
-		grid-template-columns: 1fr;
-	}
-	.left{
-		height: 120px;
-	}
-    .leftR{
-		height: 120px;
-	}
-    footer {
-        display: none;
-    }
-
-}

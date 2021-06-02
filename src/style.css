@@ -14,24 +14,8 @@ body{
 .tabs {
   padding-bottom: 4px;
   margin-bottom: 1rem;
-  /*border-bottom-left-radius: 18px;
-  border-bottom-right-radius: 18px;*/
   background: linear-gradient(-30deg, #e83505 0%, #FF8408 25%, #ab0050 50%, #fa3f0d 75%, #8b3306 100%);
 }
-/*
-.tabs.colors-2 {
-  background: linear-gradient(-30deg, #6dd3ce 0%, #c8e9a0 25%, #f7a278 50%, #a13d63 75%, #f7a278 100%);
-}
-.tabs.colors-3 {
-  background: linear-gradient(-30deg, #f5ffc6 0%, #b4e1ff 25%, #ab87ff 50%, #fface4 75%, #c1ff9b 100%);
-}
-.tabs.colors-4 {
-  background: linear-gradient(-30deg, #f72585 0%, #7209b7 25%, #3a0ca3 50%, #4361ee 75%, #4cc9f0 100%);
-}
-.tabs.colors-5 {
-  background: linear-gradient(-30deg, #21897e 0%, #3ba99c 25%, #69d1c5 50%, #7ebce6 75%, #8980f5 100%);
-  } */
-
 .tabs__inner {
   display: flex;
   width: auto;
@@ -39,10 +23,6 @@ body{
   justify-content: space-evenly;
   align-items: center;
   background-color: rgb(34,34,51);
-  /*background-color:rgb(157,36,3,0.9);*/
-  /*background-color:rgb(43,2,0,0.6);*/
-  /*background-color: rgb(34,34,51,0.85);*/
-  /*background-color: #fff;*/
   padding: 0.4rem;
 }
 .tabs__item img {
@@ -127,7 +107,7 @@ body{
 .tabs__inner .tabs__item:hover .tabs__tooltip {
   transform: scale(1);
   opacity: 1;
-  top: calc( 100% + 0.4rem + 4px + 4px ); /*Height, tabbar, border, spacing*/
+  top: calc( 100% + 0.4rem + 4px + 4px );
 }
 
 #user-pic-initalPage {
@@ -153,10 +133,6 @@ body{
   padding-left: 5px;
   font-family: Allerta Stencil, sans-serif;
   color: #fff;
- /* background: -webkit-linear-gradient(-30deg, #21897e 0%, #3ba99c 25%, #69d1c5 50%, #7ebce6 75%, #8980f5 100%);
-  background: #fff;
-  -webkit-background-clip: text;  
-  -webkit-text-fill-color: transparent;  */
 }
 #myPerfil-Inital {
   padding-left: 5px;
@@ -170,6 +146,7 @@ nav ul {
   width: 20%;
   padding: 20px;
 }
+
 /*buttons*/
 .button {
   padding: 15px 35px;
@@ -218,38 +195,44 @@ nav ul {
   pointer-events: auto;
 }
 
-/*Post*/
+/**********************  POST  ********************/
 .create-post {
   /* background-color: rgb(43,2,0, 0.7); */
   border: 3px solid rgb(34,34,51);
   background-color:#F5EBDC;
   border-radius: 20px;
-  width: 90%;
+  /* width: 90%; */
+  width: 55%;
+  height:250px;
   padding: 12px 16px 10px;
-  margin: 30px 8px 10px 5px;
+  margin: auto;
+  /* margin: 30px 8px 10px 5px; */
 }
 .create-post h2 {
   font-family: Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   /* color: #F5EBDC; */
   color:rgb(34,34,51);
   margin: 0;
-  font-size: 15px;
+  font-size: 16px;
   padding-left: 10px;
 }
 .img-textPost {
   margin: 8px 0 0 0;
 }
-
 .img-textPost textarea{
   width: 100%;
-  height: 50px;
+  height: 60px;
+  border-radius: 10px;
+  /* font-size: 14px; */
 }
 .create-post input {
-  border-radius: 40px;
+  /* border-radius: 40px; */
+  border-radius: 20px;
   resize: none;
   overflow: auto;
   width: 90%;
-  height: 20px;
+  /* height: 20px; */
+  height: 50px;
   margin: 5px 0;
   outline: none;
   padding: 5px 15px 20px;
@@ -261,6 +244,7 @@ nav ul {
   justify-content : flex-end;
   align-items: center;
   text-align: center;
+  padding: 20px;
 }
 .btn-post a {
   font-family: Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
@@ -487,13 +471,13 @@ hr {
 
 /*********** Registro, Iniciar Sesión ************/
 .positionLogin,.positionRegister{
- position:relative;
- display:flex;
- justify-content:center;
- align-items: center;
- width: 100%;
- height: 100vh;
- /* padding: 5px, 10px; */
+  position:relative;
+  display:flex;
+  justify-content:center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+  /* padding: 5px, 10px; */
 }
 .positionLogin:after{
 	content: '';
@@ -643,6 +627,12 @@ hr {
 } */
 /* .page_right{
   background-color:rgb(218, 219, 216);
+  width:100%;
+} */
+/* #postPerfil{
+  background:#69d1c5;
+  width:100%;
+  height: 200px;
 } */
 .post{
   display: grid;
@@ -652,13 +642,16 @@ hr {
   height:300px;  
 }
 .container-post {
-margin: 30px;
+  margin: 30px;
 }
 .container-post .like-counter{
   text-align: center;
   background-color:orangered;
   padding: 10px 0px;
   border-radius: 0px 0px 10px 10px;
+  height: 30px;
+  width:61%;
+  margin:auto;
 }
 .container-post .like-counter #btn-like{
   display: inline-block;
@@ -672,11 +665,13 @@ margin: 30px;
 .text-post{
   text-align: center;
   background-color: #fff;
-  font-size: 16px;
+  font-size: 20px;
   padding: 5px;
   border-right: 1px solid #000;
   border-left: 1px solid #000;
-
+  /* height: 70px; */
+  width:60%;
+  margin:auto;
 }
 .btn-edit, .btn-delete{
   width: 30px;
@@ -702,33 +697,36 @@ margin: 30px;
   text-shadow: 2px 2px 2px #999;
 }
 #textareaDescription {
-border-radius: 40px;
-resize: none;
-overflow: auto;
-width: 90%;
-height: 20px;
-margin: 30px 10px 15px 20px;
-outline: none;
-padding: 5px 10px 15px;
-border: 1px solid rgb(34,34,51);
+  border-radius: 40px;
+  resize: none;
+  overflow: auto;
+  width: 90%;
+  height: 30px;
+  margin: 30px 10px 15px 20px;
+  outline: none;
+  padding: 5px 10px 15px;
+  border: 1px solid rgb(34,34,51);
 }
 #btnGuardar{
   font-family:Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   color: #F5EBDC;
-  font-size: 14px;
+  font-size: 16px;
+  font-weight: bold;
+  width:150px;
+  height: 50px;
   background-color: #E83505;
   border-radius: 5px;
   outline: none;
   box-sizing: border-box;
   border: 0;
   text-transform: uppercase;
-  display: flex;
-  align-items: center;
-  text-align: center;
+  /* display: flex; */
+  /* align-items: center;
+  text-align: center; */
   letter-spacing: 0.04em;
   padding: 6px;
   cursor: no-drop;
-  margin-left: 85%;
+  margin-left: 68%;
 }
 #descripcion{
   text-align: center;
@@ -748,11 +746,14 @@ border: 1px solid rgb(34,34,51);
   background-color: #fef2eb;
   display: block;
   border-radius: 10px;
+  margin-bottom: 30px;
+  margin-left: 45px;
+  /* margin-right: auto; */
   padding: 15px;
 }
 .portada{
   width: 100%;
-  height:200px;
+  height:180px;
   margin-bottom:15px;
   border-radius: 5px;
 }
@@ -776,7 +777,10 @@ border: 1px solid rgb(34,34,51);
   flex-direction: row;
   justify-content: flex-end;
   background-color: #fef2eb;
-  height: 40px;
+  /* height: 40px; */
+  height: 50px;
+  width:60%;
+  margin:auto;
   align-items: center;
   border-radius: 10px 10px 0px 0px;
   padding: 5px;

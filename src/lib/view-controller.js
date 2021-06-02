@@ -18,7 +18,7 @@ export const registerNewUser = () => {
   register(email, password)
     .then((userCredential) => {
       const user = userCredential.user;
-      createUser(CompleteName, userName, user.email, user.uid, user.photoURL);
+      createUser(CompleteName, userName, user.email, user.uid, user.photoURL, user.textDescription);
       sendEmailVerification().then(() => {
         document.getElementById('alert-sendEmailVerification').style.display = 'block';
       }).catch(() => {
@@ -38,7 +38,14 @@ export const registerWithGoogle = () => {
   registerGoogle(provider)
     .then(() => {
       const user = currentUser();
-      createUser(user.displayName, user.displayName, user.email, user.uid, user.photoURL);
+      // eslint-disable-next-line max-len
+      firebase.firestore().collection('users').doc(user.uid).get()
+        .then((doc) => {
+          // console.log(doc.data())
+          if (!doc.exists) {
+            createUser(user.displayName, user.displayName, user.email, user.uid, user.photoURL);
+          }
+        });
       sessionStorage.setItem('id', user.uid);
       changeHash(INITIAL_PAGE);
     });
@@ -64,11 +71,19 @@ export const signInWithEmail = () => {
       document.getElementById('alert-sendEmailVerification').style.display = 'none';
     });
 };
-// Post
-export const dataPost = () => {
+
+export const dataPost = (textPost) => {
+  if (textPost && textPost !== '') {
+    const user = currentUser();
+    // console.log("uu1",user);
+    addPost(textPost, user.uid, user.email, user.photoURL);
+  }
+};
+// Description
+export const dataDescription = () => {
   const user = currentUser();
-  const textPost = document.querySelector('#textarea').value;
-  addPost(textPost, user.uid, user.email);
+  const textPost = document.querySelector('#textareaDescription').value;
+  addPost(textPost, user.uid, user.nickName, user.photoURL);
 };
 // Cerrar Sesión
 export const signOutUser = () => {

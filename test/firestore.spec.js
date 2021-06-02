@@ -1,7 +1,6 @@
 import MockFirebase from 'mock-cloud-firestore';
 import {
-  // addPost,
-  orderPostbyTimeDesc, deletePost, createUser, getUser, editDescriptions, editPost,
+  addPost, orderPostbyTimeDesc, deletePost, createUser, getUser, editDescriptions, editPost,
   showPostUserid, likePost,
 } from '../src/lib/firestore-controller.js';
 
@@ -56,17 +55,17 @@ describe('Add new "Description"', () => {
     }));
 });
 // Create new posts
-// describe('add new post', () => {
-//   it('Should it a new post', (done) => addPost('Text Post', '001', 'ichef@mailito.com')
-//     .then(() => {
-//       const callback = (post) => {
-//         const result = post.find((e) => e.post === 'Text Post');
-//         expect(result.post).toBe('Text Post');
-//         done();
-//       };
-//       orderPostbyTimeDesc(callback);
-//     }));
-// });
+describe('add new post', () => {
+  it('Should it a new post', (done) => addPost('Text Post', '001', 'ichef@mailito.com')
+    .then(() => {
+      const callback = (post) => {
+        const result = post.find((e) => e.post === 'Text Post');
+        expect(result.post).toBe('Text Post');
+        done();
+      };
+      orderPostbyTimeDesc(callback);
+    }));
+});
 // Update edit post
 describe('update Post', () => {
   it('Should it update edit post', (done) => editPost('post_1', 'post editado')
@@ -110,7 +109,7 @@ describe('Add like or dislike', () => {
     .then(() => {
       const callback = () => {
         orderPostbyTimeDesc((user) => {
-          // console.log(user);
+          console.log(user);
           expect(user[0].likes).toBe('001');
           done();
         });

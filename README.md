@@ -7,8 +7,11 @@ IChef, es una red social creada para amantes de la cocina, esta plataforma permi
 Si no sabes que cocinar el día de hoy  visita IChef y encuentre deliciosas comidas.
 
 ## 2. Prototipo
++ Link del Prototipo [Link del Prototipo](https://www.figma.com/file/0KXIDxtUXIlSKMp6zIB6WB/I-chef?node-id=202%3A3)
 
++ Primeros prototipos del modal
 
+![Prototipo-2](https://github.com/lorena-1204/LIM014-data-lovers/blob/main/src/img/readme/prototipo%202.jpg?raw=true)
 
 ## 3. Historia de Usuario
 

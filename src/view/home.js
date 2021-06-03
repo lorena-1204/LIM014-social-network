@@ -90,9 +90,6 @@ export default () => {
         </div>
       </section>
     </article>
-
-
-
     <div class="button-mobile">
       <a href="#/SignIn" class="button">Inicia Sesión</a>
       <a href="#/SignUp" class="button">Regístrate</a>

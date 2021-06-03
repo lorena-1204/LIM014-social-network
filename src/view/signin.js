@@ -7,18 +7,17 @@ export default () => {
   <article class = "logIn">
   <article class="left"></article>
    <article class="right">
-    <a class="back" href=#/>↩</a>
-    <h1 class="letter"> Inicia Sesión </h1> <input class="email" id="email" type="email" placeholder="usuario@example.com">
-    <input class="password" id="password" type="password" placeholder="********">
-    <p class="errorMail" id= "errorMail" style="display: none"> Correo inválido. Por favor, revísalo nuevamente.</p>
-    <img src="img/google.png" class="google" id="btn-google">
-    <p class="errorMail" id= "errorMailGoogle" style="display: none">No ingresaste con tu cuenta Google</p>
-    <button class="btn-correo" id="btn-correo">Inicia Sesión</button>
-    <p id="alert-sendEmailVerification" style="display: none">Verifica tu correo en la bandeja.</p>
+     <a class="back" href=#/>↩</a>
+     <h1 class="letter"> Inicia Sesión </h1> <input class="email" id="email" type="email" placeholder="usuario@example.com">
+     <input class="password" id="password" type="password" placeholder="********">
+     <p class="errorMail" id= "errorMail" style="display: none"> Correo inválido. Por favor, revísalo nuevamente.</p>
+     <img src="img/google.png" class="google" id="btn-google">
+     <p class="errorMail" id= "errorMailGoogle" style="display: none">No ingresaste con tu cuenta Google</p>
+     <button class="btn-correo" id="btn-correo">Inicia Sesión</button>
+     <p id="alert-sendEmailVerification" style="display: none">Verifica tu correo en la bandeja.</p>
    </article>
   </article>
 `;
-
   templateSignIn.classList.add('positionLogin');
   templateSignIn.innerHTML = viewSignIn;
 

@@ -21,7 +21,7 @@ export const setupPosts = (data, user, template) => {
     data.forEach((doc) => {
       const section = templatePost(doc);
       postList.appendChild(section);
-      const buttonCancelEditPost = createAttributesButton('cancelar', 'btn-cancel-edit-post');
+      const buttonCancelEditPost = createAttributesButton('cancel', 'btn-cancel-edit-post');
       const textPost = section.querySelector('.text-post');
 
       // likes
@@ -40,7 +40,7 @@ export const setupPosts = (data, user, template) => {
       if (user === doc.idUser) {
         // botón eliminar post
         const btnDeletePost = createButtonDelete(
-          'eliminar',
+          'eliminate',
           'btn-delete',
           doc.id,
         );
@@ -61,13 +61,13 @@ export const setupPosts = (data, user, template) => {
         optionYes.addEventListener('click', idDocumentPost);
         postList.appendChild(section);
         // botón editar post
-        const buttonEditPost = createButtonEdit('editar', 'btn-edit', doc.id);
+        const buttonEditPost = createButtonEdit('edit', 'btn-edit', doc.id);
         section.querySelector('.post-row').appendChild(buttonEditPost);
         // creando input para editar post
         const inputEditPost = document.createElement('input');
         inputEditPost.value = textPost.textContent;
         // creando botón para guardar lo editado
-        const buttonSaveEditPost = createAttributesButton('cambiar', 'btn-save-edit-Post', doc.id);
+        const buttonSaveEditPost = createAttributesButton('change', 'btn-save-edit-Post', doc.id);
         // reemplazando botones de seguridad
         buttonEditPost.addEventListener('click', () => {
           section.querySelector('.post-row').replaceChild(buttonCancelEditPost, btnDeletePost);

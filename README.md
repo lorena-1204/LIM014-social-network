@@ -1,6 +1,5 @@
 # Red Social: IChef 
 
-![logo](https://github.com/lorena-1204/LIM014-social-network/blob/shareLRC/src/img/negro.png?raw=true)
 (っ＾▿＾)۶🍸🌟🍺٩(˘◡˘ )
 ***
 

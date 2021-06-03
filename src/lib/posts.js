@@ -64,7 +64,8 @@ export const setupPosts = (data, user, template) => {
         const buttonEditPost = createButtonEdit('edit', 'btn-edit', doc.id);
         section.querySelector('.post-row').appendChild(buttonEditPost);
         // creando input para editar post
-        const inputEditPost = document.createElement('input');
+        const inputEditPost = document.createElement('textarea');
+        inputEditPost.classList.add('textAreaComment');
         inputEditPost.value = textPost.textContent;
         // creando botón para guardar lo editado
         const buttonSaveEditPost = createAttributesButton('change', 'btn-save-edit-Post', doc.id);

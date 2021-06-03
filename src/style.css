@@ -214,16 +214,16 @@ nav ul {
   margin-left: 50px;
 }
 
-input{
-  /* background:#69d1c5; */
+/* input{
+  background:#69d1c5; 
   padding: 10px;
-  /* background-color:#ffffff; */
-  /* background-image: radial-gradient(#e0dcf5 3px, transparent 3px); */
+  background-color:#ffffff; 
+  background-image: radial-gradient(#e0dcf5 3px, transparent 3px); 
   background-size: 20px 20px;
   border:none;
   margin-left:215px;
   width: 100%;
-}
+} */
 
  #textarea{
    background:white;
@@ -809,6 +809,19 @@ hr {
   border-radius: 50%;
   box-shadow: none;
   margin-right: 10px;
+}
+
+.textAreaComment {
+  text-align: center;
+    background-color: #fff;
+    font-size: 20px;
+    padding: 5px;
+    border-right: 1px solid #000;
+    border-left: 1px solid #000;
+    width: 60%;
+       margin-left: auto;
+    margin-right: auto;
+    display:block;
 }
 
 /*********** footer ***********/

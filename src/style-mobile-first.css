@@ -1,0 +1,352 @@
+@media screen and (max-width: 950px){
+    .positionLogin,.positionRegister{
+        height: 98vh;
+    }
+	.logIn,.register{
+		grid-template-columns: 1fr;
+	}
+	.left{
+		height: 120px;
+	}
+    .leftR{
+		height: 120px;
+	}
+    .create-post{
+        height:200px;
+    }
+    .demo-avataar{
+        width: 60px;
+        margin-left: 60px;
+    }
+    .create-post h2{
+        font-size: 15px;
+    } 
+    .create-post input{
+        height:30px;
+    }
+    .btn-to-post-default, .string-text-post{
+        width: 100px;
+        height:30px;
+        font-size: 14px;
+    }
+
+      .grid{
+        display:grid;
+        grid-template-columns: 100%;
+    }
+    .portada{
+        width: 90%;
+        height:150px;
+        margin-left: auto;
+    }
+    
+    #textareaDescription{
+       margin-left: 70px;
+       margin-top: 10px; 
+       width: 70%;
+    }
+    .infoUser{
+        margin-left: auto;
+        margin-right: auto;
+        width: 60%;
+        height: 60%;
+    }
+
+    #btnGuardar{
+        width: 130px;
+        height: 40px;
+    }
+    #createPost-perfil{
+        width: 60%;
+        height: 180px;
+        margin-left: 153px;
+    }
+    .container-post .like-counter{
+        width:62%;
+    }
+    footer {
+        display: none;
+    }
+}
+@media screen and (max-width: 650px) {
+    .tabs__item img {
+        width: 35%;
+    }
+    .tabs__inner .tabs__item h1 {
+        display: none;
+        font-size: 10px;
+    }
+    #bar-chart {
+        width: 90%;
+    }
+    #myPerfil-Inital {
+        display: none;
+        font-size: 10px;
+        height: 20px;
+        width: 80px;      
+    }
+    .tabs__inner .tabs__item:nth-child(1) {
+        width: 50px;
+    }      
+    #menu-perfil {
+        height: 50px;
+        width: 80px;
+    }
+    .tabs__inner {
+        display: flex;
+        width: auto;
+        min-width: 250px;
+        justify-content: space-evenly;
+    }
+    #createPost-perfil{
+        margin-left: 100px;
+    }
+     #btnGuardar{
+        width: 110px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .tabs {
+        background: inherit;
+    }
+    .tabs__inner {
+        position: fixed;
+        bottom: 0;
+        border-radius: 50px;
+        width: 10%;
+    }      
+    .tabs__inner .tabs__item h1 {
+        font-size: 15px;
+    }
+    .tabs .tabs__inner {
+        /* width: 10%; */
+        width: 50%;
+        margin-left: 125px;
+    }
+    #createPost-perfil{
+        margin-left: 80px;
+    }
+     #btnGuardar{
+     margin-left: 60%;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .tabs__inner {
+        display: flex;
+        width: auto;
+        min-width: 200px;
+        justify-content: space-evenly;
+    }
+    #menu-perfil {
+        height: 50px;
+        width: 60px;
+    }
+    #ruta{
+        font-size: 11px;
+    }
+    .btn-edit, .btn-delete{
+        width: 20px;
+        height: 20px;
+    }
+   
+    .tabs .tabs__inner {
+        /* width: 10%; */
+        width: 50%;
+        margin-left: 60px;
+    }
+     .portada{
+        width: 100%;
+        height:100px;
+    }
+    .demo-avataar{
+        margin:0;
+        width:40px;
+    }
+   
+     #createPost-perfil{
+        margin-left: 53px;
+    }
+     #textareaDescription{
+       margin-left: 30px;
+       width: 65%;
+    }
+    #name, #user-name{
+        font-size: 20px;
+        padding: 0;
+    }
+     #btnGuardar{
+        margin-left: 45%;
+        width: 110px;
+        height: 30px;
+    }
+    .infoUser{
+        height: 52%;
+    }
+    .post-row{
+        width:72%
+    }
+    .text-post{
+        width:72%
+    }
+     .container-post .like-counter{
+        width:77%;
+    }
+}
+@media screen and (max-width: 350px) {
+    .tabs__inner {
+        display: flex;
+        width: auto;
+        min-width: 150px;
+        justify-content: space-evenly;
+    }
+    #menu-perfil {
+        height: 50px;
+        width: 60px;
+    }
+     #createPost-perfil{
+        margin-left: 50px;
+    }
+}
+@media screen and (max-width: 300px) {
+    #background-opacity-none {
+        background-color: rgba(255, 255, 255);
+        filter:brightness(1);      
+    }
+    .gallery {
+        grid-auto-rows: 150px;
+    }
+    .gallery_template_home {
+        grid-auto-rows: 100px;
+        margin-bottom: 30px;
+    }
+    .gallery_img {
+        display: none;
+        border-radius: 0;
+    }
+    .gallery_item:nth-child(10) {
+        display: flex;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    #background-mobile-first {
+        display: flex;
+    }
+    .position article {
+        display: none;
+    }
+    .info-redirect-home-page {
+        display: flex;
+        justify-content: center;
+    }      
+    .info-redirect-h1 { 
+        margin: 15% 8%;
+        min-width: 100%;
+        max-width: 100%;
+        font-size: 25px;
+    }
+    .template-not-user article, .position article {
+        flex-direction: column;
+    }
+    .template-not-user section, .position section  { 
+        width: 40%;
+        font-size: 12px;
+        margin-left: 0px;     
+
+        position: absolute ;
+        top: 20vh;
+        left: 20vw;
+    }
+    .template-not-user section h3, .position section h3 {
+        font-size: 15px;
+        margin: 0;
+    }
+    .template-not-user section span, .position section span {
+        font-size: 16px;
+        margin: -15px 0 1px;
+        padding: 0;
+    }
+    .info-redirect-home-page a {
+        padding: 5px;
+    }
+    .info-redirect-home-page .buttons-info .button-redirect-sign-up {
+        font-size: 11px;
+    }
+    .button-mobile {
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-around;
+    }
+    .post-text-background {
+        display: flex;
+    }
+    .example-iChef {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+      
+        position: absolute;
+        bottom: 0;
+        margin: 5px;
+    }
+    .post-text-background div div p:nth-child(1){
+        font-family: Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        font-size: 13px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 15px;
+        letter-spacing: 2px;
+        text-align: left;
+    }
+    .post-text-background div div p:nth-child(2){
+        color: rgba(206, 205, 205, 0.8);
+        font-family: Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        font-size: 11px;
+        font-style: normal;
+        font-weight: 0;
+        line-height: 13px;
+        letter-spacing: 0em;
+        text-align: left;
+    }
+
+    .logo-iChef-background { 
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+    
+        position: absolute;
+        top: 50px;
+    }
+    .logo-iChef-background img {
+        filter:brightness(10);
+        width: 30%;
+        height: 30%;
+    }
+    .logo-iChef-background h1 {
+        color: #fff;
+        font-family: Allerta Stencil, sans-serif;
+        font-size: 48px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 61px;
+        letter-spacing: -0.015em;
+        text-align: center;        
+    }
+    .button:nth-child(1) {
+        color: #000;
+        border: 1px solid #E83505;
+    }  
+    .button:nth-child(2) {
+        color: #fff;
+        background: #E83505;
+    } 
+}

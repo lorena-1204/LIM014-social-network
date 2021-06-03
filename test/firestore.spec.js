@@ -56,7 +56,7 @@ describe('Add new "Description"', () => {
 });
 // Create new posts
 describe('add new post', () => {
-  it('Should it a new post', (done) => addPost('Text Post', '001', 'ichef@mailito.com')
+  it('Should it a new post', (done) => addPost('Text Post', '001', 'ichef@mailito.com', 'img')
     .then(() => {
       const callback = (post) => {
         const result = post.find((e) => e.post === 'Text Post');

@@ -47,15 +47,6 @@ export const orderPostbyTimeDesc = (callback, userId) => firebase.firestore().co
   callback(output, userId);
 });
 
-// Comentar
-// export const commnetPostCollection = (id, uidUser, comment, mail) => {}
-// firebase.firestore().collection('commentPost').add({
-//   DocIdPostOrigin: id,
-//   CommentPost: comment,
-//   idUser: uidUser,
-//   email: mail,
-//   timePost: new Date(),
-// });
 export const showPostUserid = (callback, userID) => firebase.firestore().collection('posts').where('idUser', '==', userID).orderBy('timePost', 'desc')
   .onSnapshot((querySnapshot) => {
     const output = [];

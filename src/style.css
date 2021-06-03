@@ -218,8 +218,6 @@ nav ul {
   margin-left: 50px;
 }
 
-
-
 .create-post h2 {
   font-family: Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   /* color: #F5EBDC; */
@@ -806,9 +804,8 @@ hr {
 
 .position {
   padding: 10px;
-  /* background:url("./img/cu.png") */
   background-color:#ffffff;
-  background-image: radial-gradient(#F5EBDC 3px, transparent 3px);
+  background-image: radial-gradient(#e0dcf5 3px, transparent 3px);
   background-size: 20px 20px;
 }
 

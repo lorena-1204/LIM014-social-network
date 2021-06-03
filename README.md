@@ -9,6 +9,7 @@ Si no sabes que cocinar el día de hoy  visita IChef y encuentre deliciosas comi
 ## 2. Prototipo
 
 
+
 ## 3. Historia de Usuario
 
 ### 3.1 **Historia de usuario  1 - Registro**
@@ -147,6 +148,3 @@ criterios mínimos de aceptación.\
   - El usuario podrá editar su información como: nombre.
   - El usuario podrá agregar una breve descripción sobre ella si lo desea.
   - El usuario podrá editar la descripción ingresada. 
-
-## 4. Consideraciones generales
-* Quiénes son los principales usuarios de producto.

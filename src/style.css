@@ -214,6 +214,21 @@ nav ul {
   margin-left: 50px;
 }
 
+/* input{
+  background:#69d1c5; 
+  padding: 10px;
+  background-color:#ffffff; 
+  background-image: radial-gradient(#e0dcf5 3px, transparent 3px); 
+  background-size: 20px 20px;
+  border:none;
+  margin-left:215px;
+  width: 100%;
+} */
+
+ #textarea{
+   background:white;
+ }
+
 .create-post h2 {
   font-family: Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   color:rgb(34,34,51);
@@ -563,12 +578,14 @@ hr {
   background-color:#E83505;
 }
 .email,.password,.name,.username{
+  background-color:white;
   width: 80%;
   border: none;
 	outline: none;
   border-bottom: 2px solid rgb(146, 146, 146);
 	padding: 0.5rem 1rem;
 	font-size: 1.1rem;
+  margin-left: 0;
 	margin-bottom: 22px;
 	transition: .3s;
 }
@@ -633,6 +650,10 @@ hr {
 .container-post {
   margin: 30px;
 }
+.numberLikes{
+  color:white;
+}
+
 .container-post .like-counter{
   text-align: center;
   background-color:orangered;
@@ -648,9 +669,11 @@ hr {
 .container-post .like-counter .numberLikes{
   display: inline-block;
 }
-.container-post .like-counter .counter-text{
+.container-post .like-counter .counter-text {
   display: inline-block;
+  color:white;
 }
+
 .text-post{
   text-align: center;
   background-color: #fff;
@@ -694,6 +717,7 @@ hr {
   outline: none;
   padding: 5px 10px 15px;
   border: 1px solid rgb(34,34,51);
+  background:white;
   font-size: 18px;
 }
 #btnGuardar{
@@ -787,6 +811,19 @@ hr {
   border-radius: 50%;
   box-shadow: none;
   margin-right: 10px;
+}
+
+.textAreaComment {
+  text-align: center;
+    background-color: #fff;
+    font-size: 20px;
+    padding: 5px;
+    border-right: 1px solid #000;
+    border-left: 1px solid #000;
+    width: 60%;
+       margin-left: auto;
+    margin-right: auto;
+    display:block;
 }
 
 /*********** footer ***********/

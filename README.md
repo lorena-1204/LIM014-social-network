@@ -12,14 +12,14 @@ Si no sabes que cocinar el día de hoy  visita IChef y encuentre deliciosas comi
 
 + Pantalla mobile
 
-![mobile](https://github.com/lorena-1204/LIM014-social-network/blob/shareLRC/src/img/Readme/pantalla%20una.PNG?raw=true)
+![mobile](./src/img/Readme/pantalla%20una.PNG?raw=true)
 
-![mobile 1](https://github.com/lorena-1204/LIM014-social-network/blob/shareLRC/src/img/Readme/Pantalla%20dos.PNG?raw=true)
+![mobile 1](./src/img/Readme/Pantalla%20dos.PNG?raw=true)
 
 + Pantalla Deskop
-![deskop](https://github.com/lorena-1204/LIM014-social-network/blob/shareLRC/src/img/Readme/pantalla%20tres.PNG?raw=true)
+![deskop](./src/img/Readme/pantalla%20tres.PNG?raw=true)
 
-![deskop 1](https://github.com/lorena-1204/LIM014-social-network/blob/shareLRC/src/img/Readme/pantalla%20cuatro.PNG?raw=true)
+![deskop 1](./src/img/Readme/pantalla%20cuatro.PNG?raw=true)
 
 ## 3. Historia de Usuario
 

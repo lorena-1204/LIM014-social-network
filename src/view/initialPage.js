@@ -25,12 +25,12 @@ export default () => {
   <div class="tabs">
     <div class="tabs__inner">
         <a class="tabs__item">
-          <img data-feather="home" src="../img/ichef oro.png" id="bar-chart"></img>
+          <img data-feather="home" src="./img/ichef oro.png" id="bar-chart"></img>
           <h1>I CHEF</h1>
           <span class="tabs__tooltip">I CHEF</span>
         </a>
         <a class="tabs__item tabs__item--active">
-          <img data-feather="home" src="../img/menu/home.png"></img>
+          <img data-feather="home" src="./img/menu/home.png"></img>
           <span class="tabs__tooltip">Inicio</span>
         </a>
         <a class="tabs__item" id="menu-perfil">
@@ -39,7 +39,7 @@ export default () => {
           <span class="tabs__tooltip">Mi Perfil</span>
         </a>
         <a class="tabs__item" id="signOut">
-          <img data-feather="logOut" src="../img/menu/log out.png" id="logOut"></img>
+          <img data-feather="logOut" src="./img/menu/log out.png" id="logOut"></img>
           <span class="tabs__tooltip">Cerrar Sesión</span>
         </a>
     </div>
@@ -116,7 +116,7 @@ export default () => {
         if (userPhoto != null) {
           e.src = userPhoto;
         } else {
-          e.src = '../img/avataar.png';
+          e.src = './img/avataar.png';
         }
       });
     }

@@ -23,7 +23,7 @@ const changeView = (route) => {
           const user = userData.data();
           const userImage = document.getElementById('user-pic');
           const userPhoto = user.Photo;
-          userImage.src = userPhoto != null ? userPhoto : '../img/avataar.png';
+          userImage.src = userPhoto != null ? userPhoto : './img/avataar.png';
           userImage.style.width = '50px';
         } else {
           // console.log('No encontrado');
@@ -51,9 +51,9 @@ const changeView = (route) => {
           const userImagePost = document.getElementsByClassName('user-pic-post');
           const userPhoto = user.Photo;
 
-          userImage.src = userPhoto != null ? userPhoto : '../img/avataar.png';
+          userImage.src = userPhoto != null ? userPhoto : './img/avataar.png';
           userImagePost.forEach((e) => {
-            e.src = userPhoto != null ? userPhoto : '../img/avataar.png';
+            e.src = userPhoto != null ? userPhoto : './img/avataar.png';
           });
         } else {
           document.write('No encontrado');

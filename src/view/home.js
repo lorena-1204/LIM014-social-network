@@ -51,7 +51,7 @@ export default () => {
       </div>
 
       <div class="logo-iChef-background">
-        <img src="../img/verde pasto.png">
+        <img src="./img/verde pasto.png">
         <h1>I CHEF</h1>
       </div>  
       <div class="post-text-background">
@@ -72,7 +72,7 @@ export default () => {
     <article class="info-redirect-home-page">
       <h1 class="info-redirect-h1">Ingresa con una cuenta para acceder a miles de ideas</h1>
       <section id="info-redirect-home-page_section">
-        <img src="../img/i chef.png"
+        <img src="./img/i chef.png"
         class="logo-iChef">
         <h3>Te damos la bienvenida a <span>I CHEF</span></h3>
         <div class="info-container">

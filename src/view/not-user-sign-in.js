@@ -46,7 +46,7 @@ export const notUserSignIn = () => {
     <article class="info-redirect-home-page">
       <h1 class="info-redirect-h1">Ingresa con una cuenta para acceder a miles de ideas</h1>
       <section>
-        <img src="../img/i chef.png"
+        <img src="./img/i chef.png"
         class="logo-iChef">
         <h3>Te damos la bienvenida a <span>I CHEF</span></h3>
         <div class="info-container">
